@@ -1,0 +1,3241 @@
+/* ========== HOME PAGE ========== */
+
+/* ===== HEADER ===== */
+
+.header-on-top.text-right.hidden-xs.hidden-lg {
+  background: #1f887e;
+}
+
+.navbar {
+  background-color: #26A69A;
+  border-color: transparent;
+  border-radius: 0;
+  margin-bottom: 0
+}
+
+a.navbar-brand {
+  color: white !important;
+  height: 70px !important
+}
+
+.navbar-form.navbar-right {
+  padding: 10px 0;
+}
+
+.navbar-left {
+  padding: 10px 0;
+  width: 70%
+}
+
+.navbar-right {
+  padding: 10px 0
+}
+
+.navbar-left .form-group .input-group input[type=text] {
+  border: none;
+  width: 225%;
+}
+
+.header-input-search span.input-group {
+  width: 49.5%;
+}
+
+.form-control:focus {
+  box-shadow: none
+}
+
+.navbar-left .header-input-search.form-group {
+  width: 58%;
+}
+
+span.input-group-addon {
+  background: white;
+  border: none
+}
+
+i.fas.fa-search {
+  color: gray;
+}
+
+select.select-category.form-control {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border: none
+}
+
+select#formControlSelect {
+  margin: 0 10px;
+  border: none;
+}
+
+button.header-btn-cari.btn.btn-default {
+  background: #3E6270;
+  border: none;
+  color: white;
+  padding: 7px 25px;
+  font-weight: bold;
+  margin-left: 8px
+}
+
+button.header-btn-jual-barang.btn.btn-default {
+  margin-left: 30px;
+  background: #F1B500;
+  border: none;
+  color: white;
+  padding: 7px 20px;
+  font-weight: bold;
+  margin-right: 30px
+}
+
+.header-btn-jual-barang i.fas.fa-camera {
+  margin-right: 6px;
+}
+
+.header-btn-jual-barang img {
+  margin-right: 6px;
+}
+
+.navbar-right li a {
+  color: white !important;
+  font-weight: bold;
+  padding: 7px 15px;
+  margin-top: 8px;
+}
+
+.navbar-right button.header-btn-register.btn.btn-default {
+  margin: 8px 0;
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 7px 20px;
+  font-weight: bold
+}
+
+.navbar-right button.header-btn-register.btn.btn-default:hover {
+  background: #3E6270;
+}
+
+a.header-login {
+  margin-right: 7px;
+  color: white;
+}
+
+a.header-register {
+  margin-left: 7px;
+  color: white;
+}
+
+.header-btn-register a {
+  border: 1px solid white;
+  border-radius: 5px
+}
+
+.header-btn-register a:hover {
+  background: #3E6270 !important;
+  color: white;
+  text-decoration: none
+}
+
+img.header-icon-cart-top {
+  margin-top: 20px;
+  float: right
+}
+
+@media (max-width: 416px) {
+  .navbar-toggle.collapsed {
+    margin: 18px;
+  }
+
+  .navbar-toggle {
+    margin: 18px
+  }
+
+  select#formControlSelect {
+    margin: 0;
+  }
+
+  .navbar-left .navbar-form .form-group .input-group input[type="text"] {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px
+  }
+
+  .header-btn-cari.btn.btn-default {
+    display: block;
+    width: 104%;
+    margin-top: 5px
+  }
+
+  .header-btn-jual-barang.btn.btn-default {
+    margin-top: 5px;
+    margin-left: 0px !important;
+    width: 104%;
+  }
+
+  .navbar-right li a {
+    text-align: center;
+  }
+
+  .navbar-default .navbar-nav > li > a:hover {
+    background: gray
+  }
+
+  .header-btn-register {
+    width: 100%;
+  }
+
+  .navbar-form {
+    margin-right: 0;
+    border-top: none;
+    border-bottom: none
+  }
+
+  .navbar-form .form-group {
+    width: 104%
+  }
+
+  select.select-category.form-control {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border: none;
+  }
+}
+
+/* PHONE */
+
+@media (min-width: 417px) and (max-width: 500px) {
+  .navbar-form .form-group {
+    width: 106% !important
+  }
+
+  .header-btn-cari.btn.btn-default {
+    display: block;
+    width: 106% !important;
+    margin-top: 5px
+  }
+
+  .header-btn-jual-barang.btn.btn-default {
+    margin-top: 5px;
+    margin-left: 0px !important;
+    width: 106% !important;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 600px) {
+  .navbar-form .form-group {
+    width: 105% !important
+  }
+
+  .header-btn-cari.btn.btn-default {
+    display: block;
+    width: 105% !important;
+    margin-top: 5px
+  }
+
+  .header-btn-jual-barang.btn.btn-default {
+    margin-top: 5px;
+    margin-left: 0px !important;
+    width: 105% !important;
+  }
+}
+
+@media (min-width: 417px) and (max-width: 767px) {
+  .navbar-toggle.collapsed {
+    margin: 18px;
+  }
+
+  .navbar-toggle {
+    margin: 18px
+  }
+
+  select#formControlSelect {
+    margin: 0;
+  }
+
+  .navbar-left .navbar-form .form-group .input-group input[type="text"] {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px
+  }
+
+  .header-btn-cari.btn.btn-default {
+    display: block;
+    width: 104%;
+    margin-top: 5px
+  }
+
+  .header-btn-jual-barang.btn.btn-default {
+    margin-top: 5px;
+    margin-left: 0px !important;
+    width: 104%;
+  }
+
+  .navbar-right li a {
+    text-align: center;
+  }
+
+  .navbar-default .navbar-nav > li > a:hover {
+    background: gray
+  }
+
+  .header-btn-register.btn.btn-default {
+    width: 100%;
+  }
+
+  .navbar-form {
+    margin-right: 14px;
+    border-top: none;
+    border-bottom: none
+  }
+
+  .navbar-form .form-group {
+    width: 104%
+  }
+
+  select.select-category.form-control {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border: none;
+  }
+
+  .navbar-left .form-group .input-group input[type=text] {
+    width: 349% !important
+  }
+}
+
+@media (min-width: 320px) and (max-width: 342px) {
+  .header-input-search span.input-group {
+    width: 0;
+  }
+
+  .navbar-left .form-group .input-group input[type=text] {
+    width: 355% !important
+  }
+
+  button.header-btn-cari.btn.btn-default {
+    margin-left: 0;
+    width: 156% !important;
+  }
+
+  button.header-btn-jual-barang.btn.btn-default {
+    width: 156% !important
+  }
+
+  button.header-btn-icon-cart.btn-block.hidden-lg.hidden-md.hidden-sm.visible-xs.btn.btn-default {
+    margin-top: 7px;
+    background: transparent;
+    /* border: none; */
+    width: 156% !important;
+  }
+}
+
+@media (min-width: 343px) and (max-width: 1199px) {
+  .header-input-search span.input-group {
+    width: 0;
+  }
+}
+
+@media (min-width: 344px) and (max-width: 359px) {
+  .navbar-left .form-group .input-group input[type=text] {
+    width: 340% !important
+  }
+
+  button.header-btn-cari.btn.btn-default {
+    margin-left: 0;
+    width: 154% !important;
+  }
+
+  button.header-btn-jual-barang.btn.btn-default {
+    width: 154% !important
+  }
+
+  button.header-btn-icon-cart.btn-block.hidden-lg.hidden-md.hidden-sm.visible-xs.btn.btn-default {
+    margin-top: 7px;
+    background: transparent;
+    /* border: none; */
+    width: 154% !important;
+  }
+}
+
+@media (min-width: 360px) and (max-width: 370px) {
+  .navbar-left .form-group .input-group input[type=text] {
+    width: 333% !important
+  }
+
+  button.header-btn-cari.btn.btn-default {
+    margin-left: 0;
+    width: 154% !important;
+  }
+
+  button.header-btn-jual-barang.btn.btn-default {
+    width: 154% !important
+  }
+
+  button.header-btn-icon-cart.btn-block.hidden-lg.hidden-md.hidden-sm.visible-xs.btn.btn-default {
+    margin-top: 7px;
+    background: transparent;
+    /* border: none; */
+    width: 154% !important;
+  }
+}
+
+@media (min-width: 371px) and (max-width: 380px) {
+  .navbar-left .form-group .input-group input[type=text] {
+    width: 330% !important
+  }
+
+  button.header-btn-cari.btn.btn-default {
+    margin-left: 0;
+    width: 154% !important;
+  }
+
+  button.header-btn-jual-barang.btn.btn-default {
+    width: 154% !important
+  }
+
+  button.header-btn-icon-cart.btn-block.hidden-lg.hidden-md.hidden-sm.visible-xs.btn.btn-default {
+    margin-top: 7px;
+    background: transparent;
+    /* border: none; */
+    width: 154% !important;
+  }
+}
+
+@media (min-width: 381px) and (max-width: 390px) {
+  .navbar-left .form-group .input-group input[type=text] {
+    width: 327% !important
+  }
+
+  button.header-btn-cari.btn.btn-default {
+    margin-left: 0;
+    width: 154% !important;
+  }
+
+  button.header-btn-jual-barang.btn.btn-default {
+    width: 154% !important
+  }
+
+  button.header-btn-icon-cart.btn-block.hidden-lg.hidden-md.hidden-sm.visible-xs.btn.btn-default {
+    margin-top: 7px;
+    background: transparent;
+    /* border: none; */
+    width: 154% !important;
+  }
+}
+
+@media (min-width: 391px) and (max-width: 400px) {
+  .navbar-left .form-group .input-group input[type=text] {
+    width: 323% !important
+  }
+
+  button.header-btn-cari.btn.btn-default {
+    margin-left: 0;
+    width: 153% !important;
+  }
+
+  button.header-btn-jual-barang.btn.btn-default {
+    width: 153% !important
+  }
+
+  button.header-btn-icon-cart.btn-block.hidden-lg.hidden-md.hidden-sm.visible-xs.btn.btn-default {
+    margin-top: 7px;
+    background: transparent;
+    /* border: none; */
+    width: 153% !important;
+  }
+}
+
+@media (min-width: 401px) and (max-width: 416px) {
+  .navbar-left .form-group .input-group input[type=text] {
+    width: 319% !important
+  }
+
+  button.header-btn-cari.btn.btn-default {
+    margin-left: 0;
+    width: 152% !important;
+  }
+
+  button.header-btn-jual-barang.btn.btn-default {
+    width: 152% !important
+  }
+
+  button.header-btn-icon-cart.btn-block.hidden-lg.hidden-md.hidden-sm.visible-xs.btn.btn-default {
+    margin-top: 7px;
+    background: transparent;
+    /* border: none; */
+    width: 152% !important;
+  }
+}
+
+@media (min-width: 417px) and (max-width: 448px) {
+  .navbar-left .form-group .input-group input[type=text] {
+    width: 150% !important
+  }
+
+  button.header-btn-cari.btn.btn-default {
+    margin-left: 0;
+    width: 152% !important;
+  }
+
+  button.header-btn-jual-barang.btn.btn-default {
+    width: 152% !important
+  }
+
+  button.header-btn-icon-cart.btn-block.hidden-lg.hidden-md.hidden-sm.visible-xs.btn.btn-default {
+    margin-top: 7px;
+    background: transparent;
+    /* border: none; */
+    width: 152% !important;
+  }
+}
+
+@media (min-width: 449px) and (max-width: 460px) {
+  .navbar-left .form-group .input-group input[type=text] {
+    width: 150% !important
+  }
+
+  button.header-btn-cari.btn.btn-default {
+    margin-left: 0;
+    width: 152% !important;
+  }
+
+  button.header-btn-jual-barang.btn.btn-default {
+    width: 152% !important
+  }
+
+  button.header-btn-icon-cart.btn-block.hidden-lg.hidden-md.hidden-sm.visible-xs.btn.btn-default {
+    margin-top: 7px;
+    background: transparent;
+    /* border: none; */
+    width: 152% !important;
+  }
+}
+
+@media (min-width: 461px) and (max-width: 540px) {
+  .navbar-left .form-group .input-group input[type=text] {
+    width: 149% !important
+  }
+
+  button.header-btn-cari.btn.btn-default {
+    margin-left: 0;
+    width: 151% !important;
+  }
+
+  button.header-btn-jual-barang.btn.btn-default {
+    width: 151% !important
+  }
+
+  button.header-btn-icon-cart.btn-block.hidden-lg.hidden-md.hidden-sm.visible-xs.btn.btn-default {
+    margin-top: 7px;
+    background: transparent;
+    /* border: none; */
+    width: 151% !important;
+  }
+}
+
+@media (min-width: 541px) and (max-width: 600px) {
+  .navbar-left .form-group .input-group input[type=text] {
+    width: 147% !important
+  }
+
+  button.header-btn-cari.btn.btn-default {
+    margin-left: 0;
+    width: 150% !important;
+  }
+
+  button.header-btn-jual-barang.btn.btn-default {
+    width: 150% !important
+  }
+
+  button.header-btn-icon-cart.btn-block.hidden-lg.hidden-md.hidden-sm.visible-xs.btn.btn-default {
+    margin-top: 7px;
+    background: transparent;
+    /* border: none; */
+    width: 150% !important;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 620px) {
+  .navbar-left .form-group .input-group input[type=text] {
+    width: 289% !important;
+  }
+
+  button.header-btn-cari.btn.btn-default {
+    margin-left: 0;
+    width: 150% !important;
+  }
+
+  button.header-btn-jual-barang.btn.btn-default {
+    width: 150% !important
+  }
+
+  button.header-btn-icon-cart.btn-block.hidden-lg.hidden-md.hidden-sm.visible-xs.btn.btn-default {
+    margin-top: 7px;
+    background: transparent;
+    border: none;
+    width: 149% !important;
+  }
+}
+
+@media (min-width: 621px) and (max-width: 655px) {
+  .navbar-left .form-group .input-group input[type=text] {
+    width: 286% !important;
+  }
+
+  button.header-btn-cari.btn.btn-default {
+    margin-left: 0;
+    width: 149% !important;
+  }
+
+  button.header-btn-jual-barang.btn.btn-default {
+    width: 149% !important
+  }
+
+  button.header-btn-icon-cart.btn-block.hidden-lg.hidden-md.hidden-sm.visible-xs.btn.btn-default {
+    margin-top: 7px;
+    background: transparent;
+    border: none;
+    width: 149% !important;
+  }
+}
+
+@media (min-width: 656px) and (max-width: 694px) {
+  .navbar-left .form-group .input-group input[type=text] {
+    width: 284% !important;
+  }
+
+  button.header-btn-cari.btn.btn-default {
+    margin-left: 0;
+    width: 148.5% !important;
+  }
+
+  button.header-btn-jual-barang.btn.btn-default {
+    width: 148.5% !important
+  }
+
+  button.header-btn-icon-cart.btn-block.hidden-lg.hidden-md.hidden-sm.visible-xs.btn.btn-default {
+    margin-top: 7px;
+    background: transparent;
+    border: none;
+    width: 148.5% !important;
+  }
+}
+
+@media (min-width: 695px) and (max-width: 758px) {
+  .navbar-left .form-group .input-group input[type=text] {
+    width: 280% !important;
+  }
+
+  button.header-btn-cari.btn.btn-default {
+    margin-left: 0;
+    width: 148% !important;
+  }
+
+  button.header-btn-jual-barang.btn.btn-default {
+    width: 148% !important
+  }
+
+  button.header-btn-icon-cart.btn-block.hidden-lg.hidden-md.hidden-sm.visible-xs.btn.btn-default {
+    margin-top: 7px;
+    background: transparent;
+    border: none;
+    width: 148% !important;
+  }
+}
+
+@media (min-width: 759px) and (max-width: 766px) {
+  .navbar-left .form-group .input-group input[type=text] {
+    width: 278% !important;
+  }
+
+  button.header-btn-cari.btn.btn-default {
+    margin-left: 0;
+    width: 148% !important;
+  }
+
+  button.header-btn-jual-barang.btn.btn-default {
+    width: 148% !important
+  }
+
+  button.header-btn-icon-cart.btn-block.hidden-lg.hidden-md.hidden-sm.visible-xs.btn.btn-default {
+    margin-top: 7px;
+    background: transparent;
+    border: none;
+    width: 148% !important;
+  }
+}
+
+@media (max-width: 767px) {
+  button.header-btn-cari.btn.btn-default {
+    margin-left: 0;
+    width: 133%;
+  }
+
+  button.header-btn-jual-barang.btn.btn-default {
+    width: 133%;
+    margin-right: 0 !important
+  }
+
+  button.header-btn-icon-cart.btn-block.hidden-lg.hidden-md.hidden-sm.visible-xs.btn.btn-default {
+    margin-top: 7px;
+    background: transparent;
+    border: none;
+    width: 133%;
+  }
+}
+
+@media (min-width: 767px) and (max-width: 991px) {
+  .navbar-header {
+    width: 100%
+  }
+
+  .navbar-form.navbar-left {
+    width: 78%
+  }
+
+  .navbar-left .header-input-search.form-group {
+    width: 43%;
+  }
+
+  .navbar-left .form-group .input-group input[type=text] {
+    border: none;
+    width: 101%
+  }
+
+  button.header-btn-jual-barang.btn.btn-default {
+    margin-left: 15px;
+    margin-right: 15px
+  }
+}
+
+/* IPAD */
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .navbar {
+    padding-bottom: 22px
+  }
+
+  .header-input-search span.input-group {
+    width: 0;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  ul.nav.navbar-nav.navbar-left {
+    width: 100%;
+  }
+
+  .navbar-header {
+    width: 100%
+  }
+
+  .header-btn-cari.btn.btn-default {
+    width: 10%;
+  }
+
+  button.header-btn-jual-barang.btn.btn-default {
+    width: 20%;
+    position: relative;
+    left: 20px;
+    margin-left: -2px
+  }
+
+  .navbar-left {
+    padding: 10px 0;
+    width: 83%;
+  }
+
+  .navbar-left .header-input-search.form-group {
+    width: 57%;
+  }
+
+  .navbar-left .form-group .input-group input[type=text] {
+    width: 204%
+  }
+}
+
+/* ====== JUMBOTRON ===== */
+
+.jumbotron-content {
+  padding: 30px 0;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.list-group .list-group-item img {
+  margin-right: 20px;
+}
+
+.jumbotron-content .list-group-item {
+  border: none
+}
+
+.row-xs-list-group-item.row {
+  margin-top: 20px;
+}
+
+/* ===== BODY CONTENT ===== */
+
+.bodyContent-recommended h3 {
+  color: #3E6270;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 16px
+}
+
+.bodyContent-recommended {
+  padding: 20px 0;
+}
+
+.bodyContent-recommended a {
+  color: #26A69A;
+  font-weight: bold;
+}
+
+.bodyContent-recommended .recommend-wrap-item .caption-description a {
+  font-weight: lighter;
+  color: #3E6270
+}
+
+.recommend-wrap-item {
+  border: 1px solid #e4e4e4;
+  border-radius: 10px;
+}
+
+.recommend-wrap-item:hover {
+  box-shadow: 0px 0px 15px silver;
+}
+
+.recommend-wrap-item .image-item img {
+  border-radius: 10px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.recommend-wrap-item .caption-item p {
+  margin-bottom: 0;
+}
+
+.caption-item {
+  padding: 15px;
+}
+
+.recommend-wrap-item p.caption-price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #3E6270;
+  margin-bottom: 7px;
+}
+
+.recommend-wrap-item p.caption-description {
+  color: #3E6270;
+  height: 43px;
+}
+
+.recommend-wrap-item p.caption-location {
+  color: gray;
+  margin-top: 5px;
+}
+
+.recommend-wrap-item i.fas.fa-map-marker {
+  margin-right: 5px;
+  color: silver
+}
+
+.bodyContent-terpopuler .text-right .pagination a {
+  margin-right: 10px;
+}
+
+@media (max-width: 991px) {
+  .recommend-wrap-item {
+    margin-bottom: 20px;
+  }
+
+  .recommend-wrap-item .image-item img {
+    margin: auto
+  }
+}
+
+.recommend-wrap-item .caption-location img {
+  margin-right: 5px;
+}
+
+.bodyContent-terpopuler {
+  padding: 20px 0;
+}
+
+.bodyContent-terpopuler .left-title a {
+  color: #3E6270;
+  font-weight: bold;
+  font-size: 16px;
+  display: inline-block;
+  margin-right: 30px;
+  margin-bottom: 20px;
+}
+
+.bodyContent-terpopuler .left-title a.active-title {
+  color: #26A69A
+}
+
+.bodyContent-terpopuler .left-title a:hover {
+  color: #26A69A;
+  text-decoration: none
+}
+
+.bodyContent-terpopuler .text-right a {
+  color:#26A69A ;
+  font-weight: bold;
+}
+
+.bodyContent-terpopuler .recommend-wrap-item {
+  margin-bottom: 20px
+}
+
+.content-footer {
+  background: #F4F4F4;
+  padding-top: 50px;
+  padding-bottom: 20px;
+  margin-top: 10px;
+}
+
+.content-footer .ikon-content-footer {
+  border: 2px solid #3E6270;
+  border-radius: 50%;
+  width: 115px;
+  padding: 30px;
+  margin: auto;
+}
+
+.title-content-footer p {
+  margin-top: 15px;
+  color:#26A69A ;
+  font-weight: bold
+}
+
+p.content-footer-caption {
+  margin-top: 25px;
+  margin-bottom: 20px;
+}
+
+p.content-footer-caption {
+  margin-top: 25px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 991px) {
+  .content-footer .text-center.col-md-3 {
+    margin-bottom: 40px !important;
+  }
+}
+
+/* ===== FOOTER ===== */
+
+.footer {
+  background: #ACACAC;
+  padding-top: 40px;
+  padding-bottom: 25px;
+}
+
+.footer p {
+  font-weight: bold;
+  color: white;
+}
+
+.footer ul {
+  padding: 0;
+}
+
+.footer ul li {
+  list-style: none;
+}
+
+.footer ul li a {
+  color: white;
+}
+
+.footer p.footer-download {
+  font-weight: lighter;
+  margin-bottom: 20px;
+}
+
+.footer .footer-hakCipta.row {
+  border-top: 1px solid white;
+  margin-top: 35px;
+  padding: 15px 0 0;
+}
+
+.footer i.fab.fa-facebook-square {
+  color: white;
+  font-size: 25px;
+  margin-right: 15px;
+}
+
+.footer i.fab.fa-instagram {
+  color: white;
+  font-size: 25px;
+  margin-right: 15px;
+}
+
+.footer i.fab.fa-twitter-square {
+  color: white;
+  font-size: 25px;
+  margin-right: 15px;
+}
+
+.footer i.fab.fa-youtube {
+  color: white;
+  font-size: 25px;
+}
+
+.footer-hakCipta p {
+  font-weight: lighter;
+}
+
+@media (max-width: 991px) {
+  .footer img.footer-logo {
+    margin-bottom: 25px;
+  }
+
+  .footer-hakCipta p {
+    margin-top: 10px
+  }
+}
+
+/* ========== REGISTER PAGE ========== */
+
+.register-page {
+  padding: 70px 0;
+}
+
+.register-page p.register-daftar-baru {
+  font-weight: bold;
+  margin-bottom: 3px;
+  color: #3E6270
+}
+
+.register-already-an-account a {
+  margin-left: 5px;
+}
+
+.register-page span.input-group-addon {
+  border: 1px solid silver;
+  border-right: none;
+}
+
+.register-page input.form-control {
+  border: 1px solid silver;
+  border-left: none;
+}
+
+p.title-register {
+  color: #3E6270;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 70px;
+}
+
+.register-page button.btn.btn-default {
+  background: #26A69A;
+  width: 100%;
+  color: white;
+  margin-top: 35px;
+  font-weight: bold
+}
+
+p.register-terms {
+  text-align: center;
+  color: #3E6270;
+  margin-top: 20px;
+}
+
+.register-page .line-register.col-md-2 {
+  border-right: 1px solid #e4e4e4;
+  height: 530px;
+  position: relative;
+  left: -83px;
+}
+
+.register-page .line-register p.text-center {
+  position: relative;
+  top: 220px;
+  left: 97px;
+  background: white;
+  padding: 10px 0;
+}
+
+.register-page .row-form-register.row {
+  margin-top: 28px;
+}
+
+.register-page i.fab.fa-facebook-f {
+  margin-right: 15px;
+}
+
+.register-page i.fab.fa-google {
+  margin-right: 9px;
+}
+
+.register-page p.register-facebook {
+  background: #1458AB;
+  color: white;
+  padding: 10px 45px;
+  width: 180px;
+  border-radius: 8px;
+}
+
+.register-page p.register-google {
+  background: #EA4235;
+  color: white;
+  padding: 10px 45px;
+  width: 180px;
+  border-radius: 8px;
+}
+
+.register-page .register-social-button {
+  margin-top: 193px;
+}
+
+.register-page .register-facebook a {
+  color: white;
+}
+
+.register-page .register-social-button a:hover {
+  text-decoration: none;
+}
+
+.register-page .register-google a {
+  color: white;
+}
+
+@media (max-width: 991px) {
+  p.title-register {
+    margin-top: 0px
+  }
+
+  .register-page .register-social-button {
+    margin-top: 20px
+  }
+
+  .register-page p.register-facebook {
+    width: 100%;
+    text-align: center;
+  }
+
+  .register-page p.register-google {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 1199px) {
+  .register-page .line-register p.text-center {
+    left: 80px
+  }
+}
+
+/* ========== SEARCH RESULT PAGE ========== */
+
+.breadcrumb {
+  background: transparent;
+  margin-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.search-result-breadcrumb a {
+  color: #3E6270;
+}
+
+.search-result-breadcrumb .breadcrumb i.fas.fa-home {
+  margin-right: 5px;
+}
+
+.search-result-breadcrumb {
+  border-bottom: 1px solid #e4e4e4;
+  padding: 7px 0;
+}
+
+.search-result-pencarian {
+  padding: 20px 0;
+  border-bottom: 1px solid #e4e4e4
+}
+
+.search-result-pencarian .form-group {
+  margin-bottom: 0;
+  display: inline-block;
+}
+
+.search-result-pencarian select.form-control {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  color: #3E6270 !important;
+  font-weight: bold;
+  padding: 0 12px;
+  height: 18px;
+}
+
+.search-result-pencarian p.search-result-urutkan {
+  display: inline-block;
+  color: grey;
+}
+
+.search-result-pencarian p {
+  font-weight: bold;
+  color: #3E6270;
+  margin-bottom: 0;
+}
+
+.search-result-bodyContent {
+  padding: 30px 0;
+}
+
+.search-result-bodyContent .col-md-3 p {
+  font-weight: bold;
+  color: #3E6270;
+}
+
+.search-result-bodyContent .col-md-3 ul li {
+  list-style: none;
+  padding: 10px
+}
+
+.search-result-bodyContent .col-md-3 ul {
+  padding-left: 20px;
+}
+
+.search-result-bodyContent .col-md-3 ul li a {
+  color: #3E6270;
+  display: block;
+}
+
+.search-result-bodyContent .col-md-3 ul li:hover {
+  background: rgba(0, 0, 0, 0.1)
+}
+
+.search-result-bodyContent .col-md-3 ul li a:hover {
+  text-decoration: none
+}
+
+.search-result-bodyContent p.caption-description {
+  font-weight: lighter;
+}
+
+.search-result-bodyContent p.caption-location {
+  font-weight: lighter;
+}
+
+.search-result-kategori {
+  border-top: 1px solid #e4e4e4;
+  padding: 20px 0;
+}
+
+input[type="range"] {
+  -webkit-appearance: none !important;
+  width: 100%;
+  height: 2px;
+  border: 1px solid silver;
+  border-radius: 10px;
+  margin: auto;
+  transition: all 0.3s ease;
+}
+input[type="range"]:hover {
+  background-color: #b2d5aa;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none !important;
+  width: 20px;
+  height: 20px;
+  background-color: #579E81;
+  border-radius: 30px;
+  box-shadow: 0px 0px 3px #3c6d59;
+  transition: all 0.5s ease;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+  background-color: #457d66;
+}
+input[type="range"]::-webkit-slider-thumb:active {
+  box-shadow: 0px 0px 1px #3c6d59;
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+#rangevalue {
+  text-align: center;
+  font-family: "Quantico", sans-serif;
+  font-size: 15px;
+  display: block;
+  margin: auto;
+  padding: 10px 0px;
+  width: 100%;
+  color: gray;
+  margin-top: 5px
+}
+
+.search-result-jarak .slider {
+  padding: 30px 28px;
+}
+
+.search-result-jarak {
+  border-top: 1px solid #e4e4e4;
+  padding: 20px 0;
+}
+
+.search-result-kondisi .checkbox {
+  margin-bottom: 18px;
+}
+
+.search-result-kondisi .form-group {
+  padding: 2px 28px;
+}
+
+.search-result-kondisi .checkbox label {
+  color: #3E6270;
+}
+
+.search-result-kondisi {
+  border-top: 1px solid #e4e4e4;
+  padding: 20px 0;
+}
+
+.search-result-harga span.input-group-addon {
+  border: 1px solid silver;
+  border-right: 0;
+  color: #3E6270;
+}
+
+.search-result-harga input.form-control {
+  border-color: silver;
+  border-left: 0;
+  text-align: right
+}
+
+.search-result-harga {
+  padding: 20px 0;
+  border-top: 1px solid #e4e4e4;
+}
+
+.search-result-harga p {
+  margin-bottom: 20px;
+}
+
+.search-result-harga .form-group {
+  padding: 0 28px;
+}
+
+.search-result-bodyContent .recommend-wrap-item {
+  margin-bottom: 20px;
+}
+
+.search-result-bodyContent .pagination a {
+  margin-right: 10px;
+  font-weight: bold;
+  color: #26A69A;
+}
+
+/* ========== PRODUCT ITEM PAGE ========== */
+
+.product-item-breadcrumb i.fas.fa-home {
+  margin-right: 5px;
+}
+
+.product-item-breadcrumb a {
+  color: #3E6270
+}
+
+.product-item-breadcrumb {
+  border-bottom: 1px solid #e4e4e4;
+  padding: 7px 0;
+}
+
+.product-item-social-button {
+  display: inline-block;
+  margin-left: 15px;
+}
+
+.product-item-description {
+  padding: 30px 0;
+}
+
+.product-item-description .pro-item-bagikan {
+  padding-bottom: 10px;
+  color: gray;
+  font-weight: 600;
+}
+
+.product-item-description .pro-item-bagikan .product-item-social-button i.fab.fa-facebook-square {
+  color: #3B5998;
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+.product-item-description .pro-item-bagikan .product-item-social-button i.fab.fa-instagram {
+  color: #b00e90;
+  font-size: 20px;
+  margin-right: 15px
+}
+
+.product-item-description .pro-item-bagikan .product-item-social-button i.fab.fa-twitter-square {
+  color: #1EA1F3;
+  font-size: 20px;
+  margin-right: 15px
+}
+
+.product-item-description .pro-item-bagikan .product-item-social-button i.fab.fa-youtube {
+  color: #D92524;
+  font-size: 20px;
+}
+
+.product-item-description img {
+  width: 100%;
+}
+
+.pro-item-image-child {
+  border: 1px solid silver;
+}
+
+.pro-item-image-parent {
+  border: 1px solid #e4e4e4;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.pro-item-image-child {
+  border: 1px solid #e4e4e4;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.product-item-description p.pro-item-kondisi {
+  background: silver;
+  border-radius: 5px;
+  padding: 3px 10px;
+  width: 100px;
+  text-align: center;
+}
+
+.product-item-description p.pro-item-harga {
+  color: #d9534f;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.product-item-description h2 {
+  margin: 0;
+  color: #3E6270;
+  margin-bottom: 20px;
+}
+
+.product-item-description .col-md-2 img {
+  border-radius: 50%;
+}
+
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+.rating { 
+  border: none;
+  float: left;
+}
+
+.rating > input { display: none; } 
+.rating > label:before { 
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > .half:before { 
+  content: "\f089";
+  position: absolute;
+}
+
+.rating > label { 
+  color: #ddd; 
+ float: right; 
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
+
+.product-item-description p.pro-item-seller-name {
+  margin-bottom: 0;
+  margin-top: 7px;
+  color: #26A69A;
+  font-size: 18px;
+}
+
+.product-item-description img.pro-item-check-name {
+  width: 6%;
+  margin-left: 6px;
+}
+
+.product-item-description span.pro-item-ulasan {
+  margin-top: 5px;
+  display: inline-block;
+  margin-left: 8px;
+}
+
+.product-item-description img.pro-item-image-location {
+  width: 3%;
+}
+
+.product-item-description img.pro-item-image-location {
+  width: 5%;
+}
+
+.product-item-description span.pro-item-location {
+  color: #3E6270
+}
+
+.pro-item-row-address.row {
+  margin-top: 20px;
+  border-bottom: 1px solid #e4e4e4;
+  padding-bottom: 25px;
+}
+
+.product-item-description p.pro-item-deskripsi {
+  margin-top: 18px;
+  color: grey;
+  font-weight: bold;
+}
+
+.product-item-description .pro-item-button-keranjang.row {
+  margin-top: 40px;
+  margin-bottom: 15px;
+}
+
+.product-item-description .pro-item-button-beli-sekarang.row {
+  margin-bottom: 33px;
+}
+
+.product-item-recommend {
+  padding: 25px 0 80px;
+  border-top: 1px solid #e4e4e4
+}
+
+.product-item-recommend p.pro-item-recommend {
+  color: #3E6270;
+  font-weight: bold;
+  font-size: 16px
+}
+
+.product-item-recommend .recommend-wrap-item .caption-description a {
+  color: #3E6270;
+}
+
+.product-item-recommend .text-right a {
+  color: #26A69A;
+  font-weight: bold;
+}
+
+.product-item-description .pro-item-button-beli-sekarang button.btn-block.btn.btn-danger {
+  background: #e54848;
+  padding: 10px 0;
+  border: none
+}
+
+.product-item-description .pro-item-button-keranjang button.btn-block.btn.btn-default {
+  padding: 7px 0;
+}
+
+@media (max-width: 767px) {
+  .pro-item-image-child {
+    margin-bottom: 15px
+  }
+}
+
+@media (max-width: 991px) {
+  .pro-item-button-keranjang.row button {
+    margin-bottom: 5px;
+  }
+
+  .product-item-description .pro-item-slider {
+    margin-bottom: 40px
+  }
+}
+
+/* ========== DETAIL PESANAN PAGE ========== */
+
+.detail-pesanan-breadcrumb i.fas.fa-home {
+  margin-right: 5px;
+}
+
+.detail-pesanan-breadcrumb a {
+  color: #3E6270
+}
+
+.detail-pesanan-breadcrumb {
+  padding: 7px 0;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.detail-pesanan-tab-title span {
+  border: 1px solid #26A69A;
+  border-radius: 50%;
+  padding: 7px 10px;
+  margin-right: 8px
+}
+
+.detail-pesanan-tab-title p {
+  color: #26A69A;
+  font-weight: bold;
+}
+
+.detail-pesanan-tab-title {
+  padding: 40px 0;
+}
+
+.detail-pesanan-tab-title p.detail-pesanan-line-tab-1::after {
+  content:"";
+  display: inline-block;
+  height: 0.5em;
+  vertical-align: bottom;
+  width: 40%;
+  margin-right: -83%;
+  margin-left: 10px;
+  border-top: 1px dashed #26A69A;
+}
+
+.detail-pesanan-tab-title p.detail-pesanan-line-tab-2::after {
+  content:"";
+  display: inline-block;
+  height: 0.5em;
+  vertical-align: bottom;
+  width: 40%;
+  margin-left: 10px;
+  margin-right: -31%;
+  border-top: 1px dashed #26A69A;
+}
+
+.detail-pesanan-tab-title p.detail-pesanan-line-tab-3::before {
+  margin-left: -71%;
+  content: "";
+}
+
+@media (max-width: 767px) {
+  .detail-pesanan-tab-title p.detail-pesanan-line-tab-1 {
+    text-align: left
+  }
+
+  .detail-pesanan-tab-title p.detail-pesanan-line-tab-1::after {
+    border-top: none;
+    margin-right: 0 !important;
+  }
+
+  .detail-pesanan-tab-title p.detail-pesanan-line-tab-2 {
+    text-align: left;
+    margin-top: 20px
+  }
+
+  .detail-pesanan-tab-title p.detail-pesanan-line-tab-2::after {
+    border-top: none;
+    margin-right: 0 !important
+  }
+
+  .detail-pesanan-tab-title p.detail-pesanan-line-tab-3 {
+    text-align: left;
+    margin-top: 20px
+  }
+
+  .detail-pesanan-tab-title p.detail-pesanan-line-tab-3::before {
+    margin-left: 0 !important
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .detail-pesanan-tab-title p.detail-pesanan-line-tab-1::after {
+    width: 38% !important
+  }
+
+  .detail-pesanan-tab-title p.detail-pesanan-line-tab-2::after {
+    width: 28% !important
+  }
+}
+
+@media (max-width: 991px) {
+  .detail-pesanan-tab-title p.detail-pesanan-line-tab-1::after {
+    width: 13%;
+    margin-right: -93%
+  }
+
+  .detail-pesanan-tab-title p.detail-pesanan-line-tab-2::after {
+    width: 13%;
+    margin-right: -26%
+  }
+
+  p.detail-pesanan-nama {
+    margin-top: 10px
+  }
+
+  .detail-pesanan-ringkasan-wrap {
+    margin-top: 10px
+  }
+}
+
+.detail-pesanan-description .detail-pesanan-wrap .detail-pesanan-wrap-gambar img {
+  width: 100%;
+}
+
+.detail-pesanan-nama img {
+  margin-left: 5px;
+}
+
+p.detail-pesanan-nama {
+  color: #26A69A;
+  font-size: 18px
+}
+
+p.detail-pesanan-title {
+  color: #3E6270;
+  font-weight: bold
+}
+
+p.detail-pesanan-harga {
+  color: #3E6270;
+  font-weight: bold
+}
+
+.detail-pesanan-ubah {
+  color: gray
+}
+
+.detail-pesanan-ubah i.far.fa-edit {
+  margin-right: 5px;
+  color: gray;
+}
+
+.detail-pesanan-wrap-gambar {
+  border: 1px solid #e4e4e4;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.detail-pesanan-wrap {
+  border: 1px solid #e4e4e4;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+p.detail-pesanan-alamat-pengiriman {
+  color: gray;
+  font-weight: bold;
+  border-top: 1px solid #e4e4e4;
+  padding-top: 20px;
+}
+
+p.nama-detail-pesanan {
+  color: #3E6270;
+  font-weight: bold;
+  font-size: 16px
+}
+
+p.alamat-detail-pesanan {
+  color: #3E6270;
+  width: 175px;
+}
+
+.detail-pesanan-alamat {
+  overflow: hidden;
+  padding: 18px 0;
+}
+
+p.ubah-detail-pesanan {
+  color: gray;
+}
+
+.detail-pesanan-alamat-lain p {
+  color: #3E6270;
+  font-size: 17px;
+  margin-top: 10px
+}
+
+.detail-pesanan-alamat-lain i.fas.fa-angle-right {
+  margin-top: 10px;
+}
+
+p.ubah-detail-pesanan {
+  color: gray;
+  border-bottom: 1px solid #e4e4e4;
+  padding-bottom: 20px;
+  margin-bottom: 0;
+}
+
+.detail-pesanan-ringkasan-wrap {
+  border: 1px solid #e4e4e4;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+p.detail-pesanan-ringkasan-harga {
+  color: #26A69A !important;
+  font-weight: bold
+}
+
+.detail-pesanan-ringkasan-wrap p {
+  color: gray
+}
+
+p.detail-pesanan-total {
+  color: black;
+  font-weight: bold;
+  margin-top: 10px
+}
+
+p.detail-pesanan-rp-total {
+  color: black;
+  font-weight: bold;
+  margin-top: 10px
+}
+
+.detail-pesanan-warning-wrap {
+  overflow: hidden;
+  border: 1px solid burlywood;
+  background: lightgoldenrodyellow;
+  border-radius: 5px;
+  padding-top: 8px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.detail-pesanan-warning-wrap p {
+  color: burlywood;
+  font-weight: bold;
+  font-size: 10px
+}
+
+.detail-pesanan-ringkasan-wrap button.btn-block.btn.btn-default {
+  background: #26A69A;
+  color: white;
+  font-weight: bold;
+  border: none
+}
+
+.detail-pesanan-description {
+  margin-bottom: 80px;
+}
+
+@media (min-width: 481px) and (max-width: 991px) {
+  .detail-pesanan-warning-wrap {
+    padding: 10px 0
+  }
+}
+
+/* ========== PROFILE PAGE ========== */
+
+.profile-breadcrumb i.fas.fa-home {
+  margin-right: 5px;
+}
+
+.profile-breadcrumb a {
+  color: #3E6270
+}
+
+.profile-breadcrumb {
+  border-bottom: 1px solid #e4e4e4;
+  padding: 7px 0;
+}
+
+.profile-content {
+  padding: 30px 0;
+}
+
+.profile-information-header {
+  width: 100%;
+  height: 115px;
+  background: #26A69A;
+}
+
+.profile-information-wrap img.profile-information-image-header {
+  border-radius: 50%;
+  width: 40%;
+  position: relative;
+  top: -57px;
+  left: 28%;
+  margin-bottom: -35px;
+}
+
+p.profile-information-nama {
+  color: #26A69A;
+  font-size: 18px;
+}
+
+.profile-information-penjual-premium img {
+  width: 8%;
+  margin-right: 8px;
+  margin-top: -4px;
+}
+
+p.profile-information-penjual-premium {
+  font-weight: bold;
+  color: #3E6270
+}
+
+.profile-information-rating span {
+  margin-top: 6px;
+  display: inline-block;
+  color: #3E6270
+}
+
+.profile-information-alamat img {
+  width: 44%;
+}
+
+.profile-information-alamat {
+  margin-top: 15px;
+  margin-bottom: 85px
+}
+
+.profile-information-alamat .col-md-10 {
+  padding: 0;
+}
+
+.profile-information-alamat .col-md-2 {
+  padding-left: 0;
+  padding-right: 0;
+  margin-right: -20px;
+}
+
+.profile-information-alamat p {
+  color: #3E6270;
+}
+
+.profile-information-chat-penjual button.btn-block.btn.btn-default {
+  color: #3E6270;
+  font-weight: bold;
+  padding: 10px 0;
+}
+
+.profile-information-list-link {
+  margin-top: 30px
+}
+
+.profile-information-list-link li {
+  list-style: none;
+}
+
+.profile-information-list-link ul {
+  padding-left: 28px;
+}
+
+.profile-information-list-link a {
+  display: block;
+  margin-bottom: 9px;
+  color: #3E6270;
+  padding: 5px
+}
+
+.profile-information-list-link a:hover {
+  text-decoration: none;
+  background: #e4e4e4
+}
+
+.profile-information-list-link .is-active {
+  font-weight: bold
+}
+
+@media (max-width: 991px) {
+  .profile-information-wrap img.profile-information-image-header {
+    width: 23%;
+    top: -86px;
+    left: 38%;
+    margin-bottom: -50px
+  }
+
+  .profile-information-alamat p {
+    margin-top: 15px
+  }
+
+  .profile-information-alamat .col-md-2 {
+    margin-right: -62px
+  }
+}
+
+@media (max-width: 767px) {
+  .profile-information-wrap img.profile-information-image-header {
+    width: 20%;
+    top: -73px;
+  }
+}
+
+@media (max-width: 700px) {
+  .profile-information-alamat .col-md-2 {
+    margin-right: -62px
+  }
+}
+
+@media (max-width: 655px) {
+  .profile-information-wrap img.profile-information-image-header {
+    width: 31%;
+    top: -73px;
+    left: 33%;
+  }
+
+  .profile-information-alamat .col-md-2 {
+    margin-right: -52px
+  }
+}
+
+@media (max-width: 520px) {
+  .profile-information-alamat .col-md-2 {
+    margin-right: -39px
+  }
+}
+
+@media (max-width: 465px) {
+  .profile-information-alamat p {
+    margin-top: 0
+  }
+
+  .profile-information-alamat .col-md-2 {
+    margin-right: -31px
+  }
+}
+
+@media (max-width: 450px) {
+  .profile-information-wrap img.profile-information-image-header {
+    top: -64px
+  }
+}
+
+@media (max-width: 385px) {
+  .profile-information-alamat .col-md-2 {
+    margin-right: -24px
+  }
+}
+
+@media (min-width: 360px) and (max-width: 449px) {
+  .profile-information-wrap img.profile-information-image-header {
+    top: -52px;
+    margin-bottom: -30px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 359px) {
+  .profile-information-wrap img.profile-information-image-header {
+    top: -45px;
+    margin-bottom: -15px
+  }
+}
+
+p.produk-terlaris {
+  color: #3E6270;
+  font-weight: bold
+}
+
+.profile-produk-bagikan {
+  color: gray;
+  font-weight: bold;
+}
+
+.profile-produk-social-button {
+  display: inline-block;
+  margin-left: 15px;
+}
+
+.profile-produk-social-button i.fab.fa-facebook-square {
+  color: #3B5998;
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+.profile-produk-social-button i.fab.fa-instagram {
+  color: #b00e90;
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+.profile-produk-social-button i.fab.fa-twitter-square {
+  color: #1EA1F3;
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+.profile-produk-social-button i.fab.fa-youtube {
+  color: #D92524;
+  font-size: 20px;
+}
+
+.profile-produk-terlaris-item .recommend-wrap-item {
+  margin-bottom: 20px
+}
+
+.profile-produk-top {
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.profile-page .content-footer {
+  margin-top: 300px;
+}
+
+.profile-produk-terlaris .caption-description a {
+  color: #3E6270;
+}
+
+@media (max-width: 991px) {
+  .profile-produk-top {
+    margin-top: 40px
+  }
+}
+
+.profile-review-content {
+  padding: 30px 0;
+}
+
+p.review {
+  color: #3E6270;
+  font-weight: bold;
+}
+
+.profile-review-top {
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.profile-review-item-image-wrap img {
+  width: 100%;
+}
+
+p.profile-review-title-item {
+  color: #3E6270;
+}
+
+.profile-review-item-review-name img {
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+span.profile-review-other-name {
+  color: #26A69A;
+  margin-right: 10px
+}
+
+span.profile-review-tanggal {
+  color: gray;
+}
+
+.profile-review-item-review-name {
+  border-bottom: 1px solid #e4e4e4;
+  padding-bottom: 15px;
+}
+
+.profile-review-item-rating {
+  overflow: hidden;
+}
+
+.profile-review-other-comment p {
+  color: #3E6270;
+}
+
+.profile-review-user-comment img {
+  border-radius: 50%;
+}
+
+p.profile-review-user-name {
+  color: #26A69A;
+}
+
+.profile-review-user-name span {
+  background: #3E6270;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin-left: 10px;
+  font-size: 7px;
+  position: relative;
+  top: -2px;
+}
+
+.profile-review-user-comment {
+  overflow: hidden;
+  background: #e4e4e4;
+}
+
+.profile-review-user-comment {
+  overflow: hidden;
+  background: #e4e4e4;
+  padding: 15px 0 15px;
+  margin-top: 22px;
+}
+
+.profile-review-user-comment {
+  overflow: hidden;
+  background: #e4e4e4;
+  padding: 15px 0 15px;
+  margin-top: 22px;
+  margin-bottom: 22px;
+}
+
+.profile-review-item-right-wrap {
+  border-bottom: 1px solid #e4e4e4;
+  margin-bottom: 15px;
+  padding: 15px;
+}
+
+.profile-review-item-right-wrap:nth-last-child(1) {
+  border-bottom: none
+}
+
+.profile-review-wrap-item {
+  border: 1px solid #e4e4e4;
+  overflow: hidden;
+  margin-bottom: 20px;
+  border-radius: 4px
+}
+
+.profile-review-wrap-item .col-md-9 {
+  border-left: 1px solid #e4e4e4;
+  padding: 0
+}
+
+.profile-review-wrap-item .col-md-3 {
+  padding-top: 15px;
+}
+
+@media (max-width: 991px) {
+  .profile-review-top {
+    margin-top: 40px
+  }
+
+  p.profile-review-title-item {
+    margin-bottom: 25px
+  }
+}
+
+/* ========== KERANJANG BELANJA PAGE ========== */
+
+.keranjang-belanja-breadcrumb {
+  border-bottom: 1px solid #e4e4e4;
+  padding: 7px 0;
+}
+
+.keranjang-belanja-breadcrumb a {
+  color: #3E6270;
+}
+
+.keranjang-belanja-breadcrumb i.fas.fa-home {
+  margin-right: 5px;
+}
+
+p.keranjang-belanja-title {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: #3E6270;
+  font-weight: bold
+}
+
+p.keranjang-belanja-seller-name {
+  color: #26A69A;
+}
+
+.keranjang-belanja-wrap-item i.fas.fa-trash-alt {
+  color: silver;
+}
+
+.keranjang-belanja-wrap-image-item img {
+  width: 100%;
+}
+
+.keranjang-belanja-wrap-item-header-title {
+  overflow: hidden;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #e4e4e4;
+  padding: 15px 0 5px;
+}
+
+p.keranjang-belanja-seller-small-name {
+  color: silver;
+  margin-bottom: 5px
+}
+
+p.keranjang-belanja-title-item {
+  color: #3E6270;
+  font-size: 18px;
+}
+
+p.keranjang-belanja-harga {
+  color: #3E6270;
+  font-size: 18px;
+  margin-top: 21px;
+}
+
+.keranjang-belanja-wrap-item {
+  overflow: hidden;
+  border: 1px solid #e4e4e4;
+  border-radius: 4px;
+}
+
+.keranjang-belanja-wrap-item-body {
+  overflow: hidden;
+}
+
+p.keranjang-belanja-garis {
+  border-bottom: 1px solid #e4e4e4;
+  margin-top: 10px;
+}
+
+.keranjang-belanja-wrap-item-body:nth-last-child(1) p.keranjang-belanja-garis {
+  border: none;
+}
+
+.keranjang-belanja-wrap-item-body:nth-last-child(2) p.keranjang-belanja-garis {
+  border: none;
+}
+
+.keranjang-belanja-wrap-item-body:nth-last-child(2) {
+  border-bottom: 1px solid #e4e4e4;
+  margin-bottom: 10px
+}
+
+.keranjang-belanja-wrap-item-footer {
+  overflow: hidden;
+  padding: 10px 0 10px 113px;
+}
+
+p.keranjang-belanja-subtotal {
+  color: #3E6270;
+  font-size: 17px;
+  margin-bottom: 3px;
+}
+
+.keranjang-belanja-subtotal span {
+  font-weight: bold;
+  margin-left: 8px;
+}
+
+p.keranjang-belanja-terms {
+  color: gray;
+}
+
+.keranjang-belanja-wrap-item-footer button.btn-block.btn.btn-default {
+  background: #e54848;
+  padding: 10px 0;
+  color: white;
+  font-weight: bold;
+  border: none;
+}
+
+@media (max-width: 991px) {
+  p.keranjang-belanja-harga {
+    margin-left: 17px
+  }
+
+  p.keranjang-belanja-seller-small-name {
+    margin-top: 10px
+  }
+
+  .keranjang-belanja-wrap-item-footer {
+    padding: 0
+  }
+}
+
+.keranjang-belanja-content {
+  padding-bottom: 100px;
+}
+
+/* ========== MY PROFILE PAGE ========== */
+
+.my-profile-content-chat {
+  padding: 30px 0;
+  margin-bottom: 300px
+}
+
+.my-profile-breadcrumb a {
+  color: #3E6270;
+}
+
+.my-profile-breadcrumb i.fas.fa-home {
+  margin-right: 5px;
+}
+
+.my-profile-breadcrumb {
+  border-bottom: 1px solid #e4e4e4;
+  padding: 7px 0;
+}
+
+.my-profile-information-header {
+  width: 100%;
+  height: 115px;
+  background: #26A69A;
+}
+
+.my-profile-information-wrap img.my-profile-information-image-header {
+  border-radius: 50%;
+  width: 40%;
+  position: relative;
+  top: -57px;
+  left: 28%;
+  margin-bottom: -35px;
+}
+
+p.my-profile-information-nama {
+  color: #26A69A;
+  font-size: 18px;
+}
+
+p.my-profile-information-edit {
+  color: gray;
+}
+
+.my-profile-information-edit i.far.fa-edit {
+  margin-right: 5px;
+}
+
+.my-profile-information-nama-wrap .col-md-6 {
+  padding: 0;
+}
+
+.my-profile-information-nama-wrap {
+  overflow: hidden;
+}
+
+p.my-profile-member-since {
+  color: gray;
+}
+
+.my-profile-wallet img {
+  margin-right: 15px;
+}
+
+.my-profile-wallet {
+  color: #3E6270;
+  font-weight: bold;
+  font-size: 16px;
+  padding-bottom: 35px;
+  border-bottom: 1px solid #e4e4e4
+}
+
+.my-profile-information-list-link {
+  margin-top: 30px
+}
+
+.my-profile-information-list-link ul {
+  padding-left: 28px;
+}
+
+.my-profile-information-list-link li {
+  list-style: none
+}
+
+.my-profile-information-list-link a {
+  display: block;
+  margin-bottom: 9px;
+  color: #3E6270;
+  padding: 5px
+}
+
+.my-profile-information-list-link a:hover {
+  text-decoration: none;
+  background: #e4e4e4;
+}
+
+.my-profile-information-list-link .is-active {
+  font-weight: bold
+}
+
+.my-profile-chat-top p.chat {
+  color: #3E6270;
+  font-weight: bold;
+}
+
+.my-profile-chat-bagikan {
+  color: gray;
+  font-weight: bold;
+}
+
+.my-profile-chat-social-button {
+  display: inline-block;
+  margin-left: 15px;
+}
+
+.my-profile-chat-social-button i.fab.fa-facebook-square {
+  color: #3B5998;
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+.my-profile-chat-social-button i.fab.fa-instagram {
+  color: #b00e90;
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+.my-profile-chat-social-button i.fab.fa-twitter-square {
+  color: #1EA1F3;
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+.my-profile-chat-social-button i.fab.fa-youtube {
+  color: #D92524;
+  font-size: 20px;
+}
+
+.my-profile-chat-top {
+  overflow: hidden;
+  margin-bottom: 10px
+}
+
+.my-profile-chat-tabs .nav-tabs {
+  border: none;
+  background: #e4e4e4;
+}
+
+.my-profile-chat-tabs .nav-tabs>li.active>a {
+  border: none;
+  border-bottom: 2px solid #26A69A;
+  color: #26A69A;
+  background: transparent
+}
+
+.my-profile-chat-tabs .nav-tabs>li>a {
+  color: gray;
+  font-weight: bold
+}
+
+.my-profile-chat-tabs .nav-tabs>li>a:hover {
+  background: transparent;
+  border: none
+}
+
+.my-profile-chat-tabs .nav-tabs>li {
+  width: 50%;
+  text-align: center
+}
+
+.my-profile-chat-tabs .nav-tabs>li>a:focus {
+  outline: none
+}
+
+.my-profile-chat-tab-item img {
+  border-radius: 50%;
+}
+
+span.my-profile-chat-tab-item-name {
+  color: #3E6270;
+  margin: 0 10px
+}
+
+p.my-profile-chat-tab-item {
+  padding: 15px;
+  border-bottom: 1px solid #e4e4e4;
+  margin: 0
+}
+
+span.my-profile-chat-tab-item-tanggal {
+  float: right;
+}
+
+p.my-profile-chat-item-header-name {
+  margin-bottom: 0;
+  color: #3E6270;
+  margin-left: 5px
+}
+
+p.my-profile-chat-item-header-location2 {
+  margin-bottom: 0;
+  color: #3E6270;
+  font-size: 13px;
+  margin-left: 5px
+}
+
+.my-profile-chat-item-header img {
+  border-radius: 50%;
+}
+
+.my-profile-chat-item-header {
+  overflow: hidden;
+}
+
+.my-profile-chat-item-body img {
+  width: 100%;
+}
+
+.my-profile-chat-item-body-image-wrap {
+  padding: 5px;
+  border: 1px solid #e4e4e4;
+  border-radius: 5px;
+}
+
+.my-profile-chat-item-body {
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.my-profile-chat-item-body-button-add-cart button.btn.btn-default {
+  background: #26A69A;
+  font-size: 10px;
+  padding: 5px 8px;
+  margin-right: 7px;
+  color: white;
+  font-weight: bold;
+  border: none;
+  margin-left: 25px;
+}
+
+.my-profile-chat-item-body-button-buy-now button.btn.btn-default {
+  background: #e54848;
+  font-size: 10px;
+  padding: 5px 8px;
+  color: white;
+  font-weight: bold;
+  border: none;
+}
+
+p.my-profile-chat-item-body-title {
+  color: #3E6270;
+  font-size: 15px
+}
+
+p.my-profile-chat-item-body-harga {
+  font-weight: bold;
+  color: #3E6270;
+  font-size: 15px
+}
+
+p.my-profile-chat-item-body-chat-date-seen {
+  text-align: center;
+  background: #e4e4e4;
+  width: 15%;
+  border-radius: 5px;
+  margin: 0 auto 20px;
+}
+
+span.my-profile-chat-item-body-chat-user-lain-item {
+  background: #e4e4e4;
+  display: inline-flex;
+  width: fit-content;
+  max-width: 80%;
+  padding: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+  color: #3E6270;
+}
+
+span.my-profile-chat-item-body-chat-tanggal-user-lain {
+  vertical-align: bottom;
+  font-size: 13px;
+  margin-left: 8px;
+}
+
+span.my-profile-chat-item-body-chat-saya-sendiri-item {
+  background: #26A69A;
+  display: inline-block;
+  width: fit-content;
+  max-width: 80%;
+  padding: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-top-left-radius: 15px;
+  color: white;
+}
+
+span.my-profile-chat-item-body-chat-tanggal-saya-sendiri {
+  vertical-align: bottom;
+  font-size: 13px;
+  margin-right: 8px;
+}
+
+p.my-profile-chat-item-body-chat-user-lain {
+  margin-bottom: 20px;
+}
+
+.my-profile-chat-item-body-chat-item {
+  height: 400px;
+}
+
+.my-profile-chat-item-body-chat-input input.form-control {
+  border-radius: 15px;
+  border: 1px solid #e4e4e4;
+  box-shadow: none
+}
+
+.my-profile-chat-body {
+  overflow: hidden;
+  border: 1px solid #e4e4e4;
+}
+
+.my-profile-chat-body .col-md-4 {
+  padding: 0;
+}
+img.send-chat {
+  width: 28%;
+}
+
+.send-chat-wrap {
+  border: 1px solid #e4e4e4;
+  border-radius: 15px;
+  text-align: center;
+  padding: 4px
+}
+
+.my-profile-chat-item-body-chat-input .col-md-2 {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.my-profile-chat-body .col-md-8 {
+  border-left: 1px solid #e4e4e4;
+  padding: 0
+}
+
+.my-profile-chat-item-header {
+  padding: 10px 15px;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+p.my-profile-chat-item-body-line {
+  border-bottom: 1px solid #e4e4e4;
+  margin-top: 22px;
+}
+
+.my-profile-chat-item-body-chat {
+  padding: 15px;
+}
+
+.my-profile-chat-item-body-chat-input {
+  overflow: hidden;
+  padding-right: 15px;
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .my-profile-information-wrap img.my-profile-information-image-header {
+    position: relative;
+    top: -45px;
+  }
+}
+
+@media (max-width: 991px) {
+  .my-profile-information-wrap img.my-profile-information-image-header {
+    width: 23%;
+    top: -86px;
+    left: 38%;
+    margin-bottom: -50px;
+  }
+}
+
+@media (max-width: 767px) {
+  .my-profile-information-wrap img.my-profile-information-image-header {
+    width: 20%;
+    top: -73px;
+  }
+}
+
+@media (max-width: 655px) {
+  .my-profile-information-wrap img.my-profile-information-image-header {
+    width: 31%;
+    top: -73px;
+    left: 33%;
+  }
+}
+
+@media (max-width: 450px) {
+  .my-profile-information-wrap img.my-profile-information-image-header {
+    top: -64px
+  }
+
+  .send-chat-wrap {
+    padding: 6px
+  }
+}
+
+@media (min-width: 360px) and (max-width: 449px) {
+  .my-profile-information-wrap img.my-profile-information-image-header {
+    top: -52px;
+    margin-bottom: -30px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 359px) {
+  .my-profile-information-wrap img.my-profile-information-image-header {
+    top: -45px;
+    margin-bottom: -15px
+  }
+}
+
+@media (min-width: 423px) and (max-width: 600px) {
+  p.my-profile-chat-item-header-name {
+    margin-left: 15px
+  }
+
+  p.my-profile-chat-item-header-location2 {
+    margin-left: 15px
+  }
+}
+
+@media (max-width: 991px) {
+  p.my-profile-chat-item-body-title {
+    margin-top: 10px
+  }
+
+  img.send-chat {
+    width: 23%;
+  }
+
+  .my-profile-chat-top {
+    margin-top: 40px
+  }
+}
+
+@media (min-width: 451px) and (max-width: 500px) {
+  img.send-chat {
+    width: 29%;
+  }
+}
+
+@media (min-width: 501px) and (max-width: 650px) {
+  img.send-chat {
+    width: 25%;
+  }
+}
+
+@media (min-width: 991px) and (max-width: 1199px) {
+  p.my-profile-chat-item-header-name {
+    margin-left: 15px
+  }
+
+  p.my-profile-chat-item-header-location2 {
+    margin-left: 15px
+  }
+}
+
+.my-profile-content-wishlist {
+  padding: 30px 0;
+  margin-bottom: 300px
+}
+
+.my-profile-wishlist p.wishlist {
+  color: #3E6270;
+  font-weight: bold;
+}
+
+.my-profile-wishlist-bagikan {
+  color: gray;
+  font-weight: bold;
+}
+
+.my-profile-wishlist-social-button {
+  display: inline-block;
+  margin-left: 15px;
+}
+
+.my-profile-wishlist-social-button i.fab.fa-facebook-square {
+  color: #3B5998;
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+.my-profile-wishlist-social-button i.fab.fa-instagram {
+  color: #b00e90;
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+.my-profile-wishlist-social-button i.fab.fa-twitter-square {
+  color: #1EA1F3;
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+.my-profile-wishlist-social-button i.fab.fa-youtube {
+  color: #D92524;
+  font-size: 20px;
+}
+
+.my-profile-wishlist-top {
+  overflow: hidden;
+  margin-bottom: 10px
+}
+
+.my-profile-wishlist-body .recommend-wrap-item {
+  margin-bottom: 20px;
+}
+
+.my-profile-wishlist-body .caption-description a {
+  color: #3E6270;
+}
+
+@media (max-width: 991px) {
+  .my-profile-wishlist-top {
+    margin-top: 40px
+  }
+}
+
+/* ========== PROFILE PAGE ========== */
+
+.jual-barang-breadcrumb {
+  border-bottom: 1px solid #e4e4e4;
+  padding: 7px 0;
+}
+
+.jual-barang-breadcrumb a {
+  color: #3E6270;
+}
+
+.jual-barang-breadcrumb i.fas.fa-home {
+  margin-right: 5px;
+}
+
+.jual-barang-content-wrap {
+  padding: 30px 0;
+  margin-bottom: 300px
+}
+
+p.jual-barang-content-title {
+  color: #3E6270;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+p.jual-barang-form-label {
+  color: #3E6270;
+  font-weight: bold;
+  margin-bottom: 0
+}
+
+p.jual-barang-upload-foto-label-bawah {
+  color: silver;
+  font-size: 11px;
+}
+
+input#jualBarangUploadFoto {
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+  width: 1px;
+  height: 1px;
+}
+
+.jual-barang-content-wrap input#jualBarangUploadFoto + label {
+  background: #26A69A
+}
+
+.jual-barang-content-wrap .form-horizontal .form-group {
+  margin-right: 0;
+  margin-left: 0
+}
+
+.upload-zone {
+  cursor: pointer;
+  position: relative;
+  left: 35px;
+  top: 39px;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-border-radius: 20%;
+  -ms-border-radius: 20%;
+  -moz-border-radius: 20%;
+  -o-border-radius: 20%;
+  border-radius: 20%;
+  -webkit-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+.upload-zone:before {
+  display: block;
+  width: 75px;
+  height: 75px;
+  border: 1px solid #e4e4e4;
+  position: relative;
+  -webkit-border-radius: 20%;
+  -ms-border-radius: 20%;
+  -moz-border-radius: 20%;
+  -o-border-radius: 20%;
+  border-radius: 10%;
+  content: " ";
+  display: block;
+  -webkit-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+.upload-zone:hover {
+  background: #e4e4e4;
+}
+.upload-zone:hover:before {
+  border-color: #fff;
+}
+.upload-zone:hover i:before, .upload-zone:hover i:after {
+  background: #fff;
+}
+.upload-zone i {
+  display: block;
+  width: 20%;
+  height: 20%;
+  -webkit-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+.upload-zone i:before, .upload-zone i:after {
+  background: #72C6AD;
+  top: 50%;
+  left: 50%;
+  content: " ";
+  display: block;
+  -webkit-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.upload-zone i:before {
+  width: 100%;
+  height: 3px;
+}
+.upload-zone i:after {
+  width: 3px;
+  height: 100%;
+}
+.upload-zone input[type='file'] {
+  display: none;
+}
+
+.upload-zone img {
+  display: block;
+  width: 40%;
+  -webkit-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.jual-barang-content-wrap .form-horizontal .radio-inline {
+  padding-top: 0
+}
+
+.jual-barang-content-wrap .radio-inline+.radio-inline {
+  margin-left: 40px
+}
+
+.jual-barang-content-wrap input[type="radio"] {
+  display: none;
+}
+
+.jual-barang-content-wrap input[type="radio"] + label {
+  position: relative;
+  cursor: pointer;
+  padding-left: 28px;
+  margin: 0 70px 7px 0;
+  font-weight: lighter;
+  color: #3E6270;
+}
+.jual-barang-content-wrap input[type="radio"] + label:before, input[type="radio"] + label:after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.jual-barang-content-wrap input[type="radio"] + label:before {
+  top: 0;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  background: #26A69A;
+  border: 1px solid #e4e4e4;
+  -moz-box-shadow: inset 0 0 0 18px #fff;
+  -webkit-box-shadow: inset 0 0 0 18px #fff;
+  box-shadow: inset 0 0 0 18px #fff;
+}
+.jual-barang-content-wrap input[type="radio"] + label:after {
+  top: 49%;
+  left: 9px;
+  width: 54px;
+  height: 54px;
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.3);
+  -moz-transform: translate(-50%, -50%) scale(0);
+  -ms-transform: translate(-50%, -50%) scale(0);
+  -webkit-transform: translate(-50%, -50%) scale(0);
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.jual-barang-content-wrap input[type="radio"]:checked + label:before {
+  -moz-box-shadow: inset 0 0 0 4px #E0E0E0;
+  -webkit-box-shadow: inset 0 0 0 4px #E0E0E0;
+  box-shadow: inset 0 0 0 4px #E0E0E0;
+}
+.jual-barang-content-wrap input[type="radio"]:checked + label:after {
+  -moz-transform: translate(-50%, -50%) scale(1);
+  -ms-transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(1);
+  -moz-animation: ripple 1s none;
+  -webkit-animation: ripple 1s none;
+  animation: ripple 1s none;
+}
+
+.jual-barang-content-wrap input[type=checkbox] { display:none; } /* to hide the checkbox itself */
+.jual-barang-content-wrap input[type=checkbox] + label:before {
+  font-family: FontAwesome;
+  display: inline-block;
+}
+
+.jual-barang-content-wrap input[type=checkbox] + label:before { content: "\f096"; } /* unchecked icon */
+.jual-barang-content-wrap input[type=checkbox] + label:before { letter-spacing: 10px; } /* space between checkbox and label */
+
+.jual-barang-content-wrap input[type=checkbox]:checked + label:before { content: "\f046"; } /* checked icon */
+.jual-barang-content-wrap input[type=checkbox]:checked + label:before { letter-spacing: 8px; } /* allow space for check mark */
+
+.jual-barang-checkbox-ongkos label {
+  color: gray;
+  font-weight: lighter;
+}
+
+.jual-barang-content-wrap .jual-barang-checkbox-free input[type=checkbox]{
+	height: 0;
+	width: 0;
+	visibility: hidden;
+}
+
+.jual-barang-content-wrap .jual-barang-checkbox-free label {
+	cursor: pointer;
+	text-indent: -9999px;
+	width: 75px;
+	height: 25px;
+	background: silver;
+	display: block;
+	border-radius: 100px;
+  position: relative;
+  margin: 0;
+  margin-top: 5px;
+  display: inline-block;
+}
+
+.jual-barang-content-wrap .jual-barang-checkbox-free label:after {
+	content: '';
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	width: 15px;
+	height: 15px;
+	background: white;
+	border-radius: 90px;
+	transition: 0.3s;
+}
+
+.jual-barang-content-wrap .jual-barang-checkbox-free input:checked + label {
+	background: #26A69A;
+}
+
+.jual-barang-content-wrap .jual-barang-checkbox-free input:checked + label:after {
+	left: calc(100% - 5px);
+	transform: translateX(-100%);
+}
+
+.jual-barang-content-wrap .jual-barang-checkbox-free label:active:after {
+	width: 65px;
+}
+
+.jual-barang-checkbox-free span {
+  position: relative;
+  top: 2px;
+  left: 10px;
+  color: #3E6270;
+}
+
+.jual-barang-checkbox-ongkos label {
+  margin-top: 5px;
+}
+
+.jual-barang-content-wrap button.btn-block.jual-barang-sell-button.btn.btn-default {
+  background: #26A69A;
+  border: none;
+  padding: 12px 0;
+  color: white;
+  font-weight: bold;
+}
+
+input#jualBarangTitle {
+  box-shadow: none;
+  border-color: #e4e4e4;
+}
+
+input#jualBarangCurrentLocation {
+  box-shadow: none;
+  border-color: #e4e4e4;
+}
+
+select#jualBarangChooseCategory {
+  box-shadow: none;
+  border-color: #e4e4e4;
+}
+
+input#jualBarangPrice {
+  box-shadow: none;
+  border-color: #e4e4e4;
+}
+
+input#jualBarangTelephone {
+  box-shadow: none;
+  border-color: #e4e4e4;
+}
+
+textarea#jualBarangProductDesc {
+  box-shadow: none;
+  border-color: #e4e4e4;
+}
