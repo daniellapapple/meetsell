@@ -795,6 +795,19 @@ img.header-icon-cart-top {
   color: #3E6270
 }
 
+.bodyContent-recommended .recommend-wrap-item .caption-description a:hover {
+  color: #26A69A;
+  text-decoration: none
+}
+
+a.link-wrap-product-item:hover {
+  text-decoration: none
+}
+
+a.link-wrap-product-item:hover p.caption-description {
+  color: #26A69A;
+}
+
 .recommend-wrap-item {
   border: 1px solid #e4e4e4;
   border-radius: 10px;
@@ -821,18 +834,20 @@ img.header-icon-cart-top {
 .recommend-wrap-item p.caption-price {
   font-size: 18px;
   font-weight: bold;
-  color: #3E6270;
+  color: #e54848;
   margin-bottom: 7px;
 }
 
 .recommend-wrap-item p.caption-description {
   color: #3E6270;
   height: 43px;
+  font-weight: lighter
 }
 
 .recommend-wrap-item p.caption-location {
   color: gray;
   margin-top: 5px;
+  font-weight: lighter
 }
 
 .recommend-wrap-item i.fas.fa-map-marker {
@@ -949,6 +964,11 @@ p.content-footer-caption {
 
 .footer ul li a {
   color: white;
+}
+
+.footer ul li a:hover {
+  text-decoration: none;
+  color: #3E6270
 }
 
 .footer p.footer-download {
@@ -1475,6 +1495,13 @@ input[type="range"]:focus {
   margin-top: 7px;
   color: #26A69A;
   font-size: 18px;
+}
+.product-item-description p.pro-item-seller-name a {
+  color: #26A69A;
+}
+
+.product-item-description p.pro-item-seller-name a:hover {
+  text-decoration: none
 }
 
 .product-item-description img.pro-item-check-name {

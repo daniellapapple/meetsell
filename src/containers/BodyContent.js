@@ -22,7 +22,7 @@ class BodyContent extends Component {
                 <h3>RECOMMENDED FOR YOU</h3>
               </Col>
               <Col md={ 6 } sm={ 6 } xs={ 6 } className="text-right">
-                <a href="#seeAll-recommend">See all >></a>
+                <a href="#seeAll-recommend">See all</a>
               </Col>
             </Row>
             <RecommendListItem />
@@ -37,7 +37,7 @@ class BodyContent extends Component {
                 <a href="#promo">PROMO</a>
               </Col>
               <Col md={ 6 } sm={ 6 } xs={ 6 } className="text-right">
-                <a href="#seeAll-populer">See all >></a>
+                <a href="#seeAll-populer">See all</a>
               </Col>
             </Row>
             <PopulerListItem />

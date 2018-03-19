@@ -13,21 +13,23 @@ class Recommend_list_item extends Component {
     return (
       <Row>
         <Col md={ 3 } sm={ 6 }>
-          <div className="recommend-wrap-item">
-            <div className="image-item">
-              <img src="https://www.bigissueshop.com/media/product/2017/10/05/845_2077_w300.jpg" alt="" className="img-responsive" />
+          <Link to="/clothes/id/12345678" className="link-wrap-product-item">
+            <div className="recommend-wrap-item">
+              <div className="image-item">
+                <img src="https://www.bigissueshop.com/media/product/2017/10/05/845_2077_w300.jpg" alt="" className="img-responsive" />
+              </div>
+              <div className="caption-item">
+                <p className="caption-price">Rp 190.000</p>
+                <p className="caption-description">
+                  Jual kemeja Uniqlo Original Like New jarang Pake
+                </p>
+                <p className="caption-location">
+                  <img src={ location } width="18" alt="" />
+                  Jakarta Pusat
+                </p>
+              </div>
             </div>
-            <div className="caption-item">
-              <p className="caption-price">Rp 190.000</p>
-              <p className="caption-description">
-                <Link to="/clothes/id/12345678">Jual kemeja Uniqlo Original Like New jarang Pake</Link>
-              </p>
-              <p className="caption-location">
-                <img src={ location } width="18" alt="" />
-                Jakarta Pusat
-              </p>
-            </div>
-          </div>
+          </Link>
         </Col>
         <Col md={ 3 } sm={ 6 }>
           <div className="recommend-wrap-item">

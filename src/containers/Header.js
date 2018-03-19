@@ -77,7 +77,9 @@ class Header extends Component {
               </Link>
             </Navbar.Brand>
             <Navbar.Toggle />
-            <img src={ cart } alt="" width="30" className="header-icon-cart-top hidden-lg hidden-md hidden-sm" />
+            <Link to="/keranjang-belanja">
+              <img src={ cart } alt="" width="30" className="header-icon-cart-top hidden-lg hidden-md hidden-sm" />
+            </Link>
           </Navbar.Header>
           <Navbar.Collapse>
             <Navbar.Form pullLeft>
@@ -97,7 +99,9 @@ class Header extends Component {
                   <img src={ pic1 } width="20" alt="" />
                   Jual Barang
                 </Button>
-                <img src={ cart } alt="" width="30" className="header-icon-cart hidden-xs" />
+                <Link to="/keranjang-belanja">
+                  <img src={ cart } alt="" width="30" className="header-icon-cart hidden-xs" />
+                </Link>
               </form>
             </Navbar.Form>
             <Nav pullRight>

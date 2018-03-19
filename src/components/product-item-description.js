@@ -4,11 +4,25 @@ import {
   Col,
   Button
 } from 'react-bootstrap'
+import {
+  Link,
+  withRouter
+} from 'react-router-dom'
 
 import check from '../assets/image/product-item-check.png'
 import location from '../assets/image/product-item-location.png'
 
 class ProductItemDescription extends Component {
+
+  constructor(props) {
+    super(props)
+
+    this.handleAddToCartPage = this.handleAddToCartPage.bind(this)
+  }
+
+  handleAddToCartPage() {
+    this.props.history.push('/keranjang-belanja')
+  }
 
   render() {
     return (
@@ -34,7 +48,9 @@ class ProductItemDescription extends Component {
           </Col>
           <Col md={ 10 } sm={ 10 } xs={ 9 }>
             <p className="pro-item-seller-name">
-              Tatjana Shapira Online
+              <Link to="/profile-seller">
+                Tatjana Shapira Online
+              </Link>
               <img src={ check } alt="" className="pro-item-check-name" />
             </p>
             <fieldset className="rating">
@@ -78,7 +94,7 @@ class ProductItemDescription extends Component {
         </Row>
         <Row className="pro-item-button-keranjang">
           <Col md={ 6 }>
-            <Button className="btn-block">Tambah ke Keranjang</Button>
+            <Button className="btn-block" onClick={ this.handleAddToCartPage }>Tambah ke Keranjang</Button>
           </Col>
           <Col md={ 6 }>
             <Button className="btn-block">Chat Penjual</Button>
@@ -95,4 +111,4 @@ class ProductItemDescription extends Component {
 
 }
 
-export default ProductItemDescription
+export default withRouter(ProductItemDescription)
