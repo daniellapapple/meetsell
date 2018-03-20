@@ -100,6 +100,7 @@ button.header-btn-jual-barang.btn.btn-default {
   font-weight: bold;
   padding: 7px 15px;
   margin-top: 8px;
+  transition: all 0.3s ease
 }
 
 .navbar-right button.header-btn-register.btn.btn-default {
@@ -139,6 +140,162 @@ a.header-register {
 img.header-icon-cart-top {
   margin-top: 20px;
   float: right
+}
+
+.navbar-right .btn-toolbar button.btn.btn-default {
+  margin-top: -5px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-weight: bold;
+  box-shadow: none
+}
+
+.navbar-right .btn-toolbar button.btn.btn-default:focus {
+  outline: none
+}
+
+.popover.bottom {
+  margin-top: 19px;
+}
+
+.popover-content span.input-group-addon {
+  border: 1px solid #e4e4e4;
+  border-right: none;
+}
+
+.popover-content input.form-control {
+  box-shadow: none;
+  border: 1px solid #e4e4e4;
+  border-left: none;
+}
+
+.navbar-login-checkbox input[type=checkbox] { display:none; } /* to hide the checkbox itself */
+.navbar-login-checkbox input[type=checkbox] + label:before {
+  font-family: FontAwesome;
+  display: inline-block;
+}
+
+.navbar-login-checkbox input[type=checkbox] + label:before { content: "\f096"; } /* unchecked icon */
+.navbar-login-checkbox input[type=checkbox] + label:before { letter-spacing: 10px; } /* space between checkbox and label */
+
+.navbar-login-checkbox input[type=checkbox]:checked + label:before { content: "\f046"; } /* checked icon */
+.navbar-login-checkbox input[type=checkbox]:checked + label:before { letter-spacing: 8px; } /* allow space for check mark */
+
+.navbar-login-checkbox label {
+  color: gray;
+  font-weight: lighter;
+  font-size: 12px
+}
+
+.navbar-login-checkbox .col-md-6 {
+  padding: 0
+}
+
+.navbar-login-checkbox .navbar-forgot-password {
+  font-size: 12px;
+  color: #26A69A;
+}
+
+.popover-content form {
+  margin-top: 18px;
+}
+
+.navbar-login-checkbox {
+  overflow: hidden;
+}
+
+button.btn-block.btn-masuk-navbar.btn.btn-default {
+  background: #26A69A;
+  color: white;
+  border: none;
+  margin-top: 10px;
+  font-weight: bold
+}
+
+.popover-content p.text-center {
+  margin-top: 10px;
+  color: gray
+}
+
+button.btn-block.btn-navbar-fb.btn.btn-default {
+  background: #1458AB;
+  color: white;
+  border: none
+}
+
+button.btn-block.btn-navbar-fb.btn.btn-default i.fab.fa-facebook-square {
+  margin-right: 10px
+}
+
+button.btn-block.btn-navbar-google.btn.btn-default {
+  background: #EA4235;
+  color: white;
+  margin-bottom: 20px;
+  border: none
+}
+
+button.btn-block.btn-navbar-google.btn.btn-default i.fab.fa-google {
+  margin-right: 10px
+}
+
+.navbar-right li a {
+  padding: 8px 10px
+}
+
+button.btn-block.btn-login-modal.btn.btn-default {
+  background: transparent;
+  border: none;
+  color: white;
+  font-weight: bold;
+}
+
+button.btn-block.btn-login-modal.btn.btn-default:focus {
+  outline: none;
+  box-shadow: none
+}
+
+button.close-modal-login.btn.btn-default {
+  float: right;
+}
+
+.modal-body {
+  overflow: hidden;
+  padding: 30px 15px;
+}
+
+.modal-body span.input-group-addon {
+  border: 1px solid #e4e4e4;
+  border-right: none
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: white;
+}
+
+.modal-body input.form-control {
+  border: 1px solid #e4e4e4;
+  border-left: none;
+  box-shadow: none
+}
+
+.modal-body p.text-center {
+  margin-top: 10px;
+  color: gray
+}
+
+.modal-content {
+  top: 80px;
+}
+
+.popover {
+  border: none;
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .popover.bottom {
+    margin-top: 41px;
+  }
 }
 
 @media (max-width: 416px) {
@@ -764,7 +921,8 @@ img.header-icon-cart-top {
 }
 
 .jumbotron-content .list-group-item {
-  border: none
+  border: none;
+  transition: all 0.2s ease
 }
 
 .row-xs-list-group-item.row {
@@ -811,6 +969,7 @@ a.link-wrap-product-item:hover p.caption-description {
 .recommend-wrap-item {
   border: 1px solid #e4e4e4;
   border-radius: 10px;
+  transition: all 0.3s ease
 }
 
 .recommend-wrap-item:hover {
@@ -841,7 +1000,8 @@ a.link-wrap-product-item:hover p.caption-description {
 .recommend-wrap-item p.caption-description {
   color: #3E6270;
   height: 43px;
-  font-weight: lighter
+  font-weight: lighter;
+  transition: all 0.3s ease
 }
 
 .recommend-wrap-item p.caption-location {
@@ -964,6 +1124,7 @@ p.content-footer-caption {
 
 .footer ul li a {
   color: white;
+  transition: all 0.2s ease
 }
 
 .footer ul li a:hover {
@@ -1036,13 +1197,14 @@ p.content-footer-caption {
 }
 
 .register-page span.input-group-addon {
-  border: 1px solid silver;
+  border: 1px solid #e4e4e4;
   border-right: none;
 }
 
 .register-page input.form-control {
-  border: 1px solid silver;
+  border: 1px solid #e4e4e4;
   border-left: none;
+  box-shadow: none
 }
 
 p.title-register {
@@ -1058,13 +1220,21 @@ p.title-register {
   width: 100%;
   color: white;
   margin-top: 35px;
-  font-weight: bold
+  font-weight: bold;
+  border: none;
+  padding: 8px 0;
+  transition: all 0.3s ease
+}
+
+.register-page button.btn.btn-default:hover {
+  background: #3E6270;
 }
 
 p.register-terms {
   text-align: center;
   color: #3E6270;
   margin-top: 20px;
+  font-size: 11px
 }
 
 .register-page .line-register.col-md-2 {
@@ -1072,6 +1242,7 @@ p.register-terms {
   height: 530px;
   position: relative;
   left: -83px;
+  z-index: -9999999
 }
 
 .register-page .line-register p.text-center {
@@ -1098,16 +1269,16 @@ p.register-terms {
   background: #1458AB;
   color: white;
   padding: 10px 45px;
-  width: 180px;
-  border-radius: 8px;
+  width: 215px;
+  border-radius: 4px;
 }
 
 .register-page p.register-google {
   background: #EA4235;
   color: white;
   padding: 10px 45px;
-  width: 180px;
-  border-radius: 8px;
+  width: 215px;
+  border-radius: 4px;
 }
 
 .register-page .register-social-button {
@@ -1149,6 +1320,12 @@ p.register-terms {
 @media (max-width: 1199px) {
   .register-page .line-register p.text-center {
     left: 80px
+  }
+}
+
+@media (min-width: 992px) {
+  .register-page .register-social-button {
+    width: 60%
   }
 }
 
@@ -1216,7 +1393,7 @@ p.register-terms {
 
 .search-result-bodyContent .col-md-3 ul li {
   list-style: none;
-  padding: 10px
+  transition: all 0.2s ease
 }
 
 .search-result-bodyContent .col-md-3 ul {
@@ -1226,6 +1403,7 @@ p.register-terms {
 .search-result-bodyContent .col-md-3 ul li a {
   color: #3E6270;
   display: block;
+  padding: 10px
 }
 
 .search-result-bodyContent .col-md-3 ul li:hover {
@@ -1576,6 +1754,7 @@ input[type="range"]:focus {
 
 .product-item-description .pro-item-button-keranjang button.btn-block.btn.btn-default {
   padding: 7px 0;
+  transition: all 0.2s ease
 }
 
 @media (max-width: 767px) {
@@ -1961,7 +2140,8 @@ p.profile-information-penjual-premium {
   display: block;
   margin-bottom: 9px;
   color: #3E6270;
-  padding: 5px
+  padding: 5px;
+  transition: all 0.2s ease
 }
 
 .profile-information-list-link a:hover {
@@ -2240,6 +2420,10 @@ p.profile-review-user-name {
   p.profile-review-title-item {
     margin-bottom: 25px
   }
+}
+
+.profile-seller-content-semua-produk {
+  padding: 30px 0;
 }
 
 /* ========== KERANJANG BELANJA PAGE ========== */
@@ -2902,6 +3086,21 @@ p.my-profile-chat-item-body-line {
   }
 }
 
+.my-profile-content-review {
+  padding: 30px 0;
+  margin-bottom: 300px
+}
+
+.my-profile-content-produk-terjual {
+  padding: 30px 0;
+  margin-bottom: 300px
+}
+
+.my-profile-content-produk-terbeli {
+  padding: 30px 0;
+  margin-bottom: 300px
+}
+
 /* ========== PROFILE PAGE ========== */
 
 .jual-barang-breadcrumb {
@@ -3265,4 +3464,39 @@ input#jualBarangTelephone {
 textarea#jualBarangProductDesc {
   box-shadow: none;
   border-color: #e4e4e4;
+}
+
+/* ========== LOGIN PAGE ========== */
+
+p.title-login {
+  color: #3E6270;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 115px;
+}
+
+.login-checkbox input[type=checkbox] { display:none; } /* to hide the checkbox itself */
+.login-checkbox input[type=checkbox] + label:before {
+  font-family: FontAwesome;
+  display: inline-block;
+}
+
+.login-checkbox input[type=checkbox] + label:before { content: "\f096"; } /* unchecked icon */
+.login-checkbox input[type=checkbox] + label:before { letter-spacing: 10px; } /* space between checkbox and label */
+
+.login-checkbox input[type=checkbox]:checked + label:before { content: "\f046"; } /* checked icon */
+.login-checkbox input[type=checkbox]:checked + label:before { letter-spacing: 8px; } /* allow space for check mark */
+
+.login-checkbox label {
+  color: gray;
+  font-weight: lighter;
+}
+
+.login-checkbox .col-md-6 {
+  padding: 0;
+}
+
+.login-checkbox a {
+  color: #26A69A;
 }

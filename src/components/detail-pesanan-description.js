@@ -20,12 +20,12 @@ class DetailPesananDescription extends Component {
               <div className="detail-pesanan-wrap">
                 <Row>
                   <div className="detail-pesanan-wrap-title">
-                    <Col md={ 2 }>
+                    <Col md={ 2 } sm={ 2 }>
                       <div className="detail-pesanan-wrap-gambar">
                         <img src="https://www.bigissueshop.com/media/product/2017/10/05/845_2077_w300.jpg" alt="" />
                       </div>
                     </Col>
-                    <Col md={ 10 }>
+                    <Col md={ 10 } sm={ 10 }>
                       <p className="detail-pesanan-nama">
                         Tatjana Shapira Online
                         <img src={ check } width="25" alt="" />

@@ -36,10 +36,10 @@ class MyProfileInformation extends Component {
         <div className="my-profile-information-list-link">
           <ul>
             <li>
-              <NavLink to="/my-profile/produk-terbeli" activeClassName="is-active">Produk Terbeli</NavLink>
+              <NavLink to="/my-profile/produk-terbeli" activeClassName="is-active">Produk Dibeli</NavLink>
             </li>
             <li>
-              <NavLink to="/my-profile/produk-terjual" activeClassName="is-active">Produk Terjual</NavLink>
+              <NavLink to="/my-profile/produk-terjual" activeClassName="is-active">Produk Dijual</NavLink>
             </li>
             <li>
               <NavLink to="/my-profile/review" activeClassName="is-active">Review</NavLink>

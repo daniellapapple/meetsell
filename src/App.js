@@ -13,6 +13,7 @@ import ProfileSeller from './containers/ProfileSeller'
 import KeranjangBelanja from './containers/KeranjangBelanja'
 import MyProfile from './containers/MyProfile'
 import JualBarang from './containers/JualBarang'
+import Login from './containers/Login'
 
 class App extends Component {
   render() {
@@ -32,6 +33,7 @@ class App extends Component {
             <Route path="/keranjang-belanja" component={ KeranjangBelanja } />
             <Route path="/my-profile" component={ MyProfile } />
             <Route path="/jual-barang" component={ JualBarang } />
+            <Route path="/login" component={ Login } />
           </div>
         </Router>
       </div>

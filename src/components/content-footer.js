@@ -12,7 +12,7 @@ class ContentFooter extends Component {
     return (
       <div>
         <Row>
-          <Col md={ 3 } className="text-center">
+          <Col md={ 3 } sm={ 3 } className="text-center">
             <div className="ikon-content-footer">
               <img src={ ikon } width="50" alt="" />
             </div>
@@ -20,7 +20,7 @@ class ContentFooter extends Component {
               <p>Jaminan 100% Aman</p>
             </div>
           </Col>
-          <Col md={ 3 } className="text-center">
+          <Col md={ 3 } sm={ 3 } className="text-center">
             <div className="ikon-content-footer">
               <img src={ ikon } width="50" alt="" />
             </div>
@@ -28,7 +28,7 @@ class ContentFooter extends Component {
               <p>Manfaat Berlebihan</p>
             </div>
           </Col>
-          <Col md={ 3 } className="text-center">
+          <Col md={ 3 } sm={ 3 } className="text-center">
             <div className="ikon-content-footer">
               <img src={ ikon } width="50" alt="" />
             </div>
@@ -36,7 +36,7 @@ class ContentFooter extends Component {
               <p>Keamanan Bertransaksi</p>
             </div>
           </Col>
-          <Col md={ 3 } className="text-center">
+          <Col md={ 3 } sm={ 3 } className="text-center">
             <div className="ikon-content-footer">
               <img src={ ikon } width="50" alt="" />
             </div>

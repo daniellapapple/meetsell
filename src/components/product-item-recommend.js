@@ -21,7 +21,7 @@ class ProductItemRecommend extends Component {
               <p className="pro-item-recommend">RECOMMENDED FOR YOU</p>
             </Col>
             <Col md={ 6 } sm={ 6 } xs={ 6 } className="text-right">
-              <a href="#seeAll">See all >></a>
+              <a href="#seeAll">See all</a>
             </Col>
           </Row>
           <Row>

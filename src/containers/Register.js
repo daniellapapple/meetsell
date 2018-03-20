@@ -7,7 +7,7 @@ class Register extends Component {
 
   render() {
     return (
-      <div>
+      <div className="register-page-wrap">
         <RegisterPage />
         <Footer />
       </div>
