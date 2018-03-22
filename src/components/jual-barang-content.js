@@ -97,10 +97,6 @@ class JualBarangContent extends Component {
                 </Col>
                 <Col md={ 5 }>
                   <FormControl type="text"></FormControl>
-                  <p className="jual-barang-checkbox-ongkos">
-                    <input id="box1" type="checkbox" />
-                    <label htmlFor="box1">Harga termasuk ongkos kirim</label>
-                  </p>
                 </Col>
                 <Col md={ 4 }>
                   <div className="jual-barang-checkbox-free">

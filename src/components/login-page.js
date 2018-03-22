@@ -11,10 +11,102 @@ import {
 import {
   Link
 } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
+
+import { get_data_user } from '../actions/headerLoginAction'
 
 import logo from '../assets/image/logo/logo-1.png'
 
 class LoginPage extends Component {
+
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      emailInputan: '',
+      emailValidation: '',
+      emailInputStatus: false,
+      passwordInputan: '',
+      wrongInputanLogin: ''
+    }
+
+    this.handleInputEmail = this.handleInputEmail.bind(this)
+    this.handleInputPassword = this.handleInputPassword.bind(this)
+    this.handleSubmitLogin = this.handleSubmitLogin.bind(this)
+  }
+
+  handleInputEmail(e) {
+    let valueEmail = e.target.value
+    let validateEmail = (email) => {
+      let reg = /^(([^<>()\\\\.,;:\s@"]+(\.[^<>()\\\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      return reg.test(email)
+    }
+    this.setState({
+      emailInputan: valueEmail
+    })
+    if (!validateEmail(valueEmail)) {
+      this.setState({
+        emailValidation: 'Harap masukkan format email yang benar!'
+      })
+    } else if (valueEmail.length === 0) {
+      this.setState({
+        emailValidation: 'Email harus di isi!'
+      })
+    } else {
+      this.setState({
+        emailValidation: '',
+        emailInputStatus: true
+      })
+    }
+  }
+
+  handleInputPassword(e) {
+    this.setState({
+      passwordInputan: e.target.value
+    })
+  }
+
+  async handleSubmitLogin(e) {
+    e.preventDefault()
+    if (this.state.emailInputStatus === true) {
+      var button = document.querySelector('#loadButton')
+      button.classList.add('load')
+      setTimeout(async () => {
+        let fetch_login = await fetch(process.env.REACT_APP_MEET_API + 'login', {
+          method: 'post',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            'email': this.state.emailInputan,
+            'password': this.state.passwordInputan
+          })
+        })
+
+        let resJson = await fetch_login.json()
+
+        if (resJson.data === null) {
+          this.setState({
+            wrongInputanLogin: 'Email/Password Anda masukkan salah!'
+          })
+          button.classList.remove('load')
+        } else {
+          localStorage.setItem('qwerty', resJson.data.token)
+          localStorage.setItem('name', resJson.data.name)
+          localStorage.setItem('email', resJson.data.email)
+          localStorage.setItem('phone', resJson.data.phone)
+          localStorage.setItem('phone_code', resJson.data.phone_code)
+          localStorage.setItem('photo_key', resJson.data.photo_key)
+          localStorage.setItem('lat', resJson.data.lat)
+          localStorage.setItem('lng', resJson.data.lng)
+          this.props.get_data_user(resJson.data)
+          this.props.history.push('/')
+        }
+      }, 1500)
+    }
+  }
 
   render() {
     return (
@@ -40,21 +132,23 @@ class LoginPage extends Component {
             <Col md={ 1 }></Col>
             <Col md={ 4 }>
               <p className="title-login">Login</p>
-              <form>
+              <p className="login-wrong-inputan">{ this.state.wrongInputanLogin }</p>
+              <form onSubmit={ this.handleSubmitLogin }>
                 <FormGroup>
                   <InputGroup>
                     <InputGroup.Addon>
                       <i className="far fa-envelope"></i>
                     </InputGroup.Addon>
-                    <FormControl type="text" placeholder="Email" />
+                    <FormControl type="text" placeholder="Email" onChange={ this.handleInputEmail } />
                   </InputGroup>
+                  <p className="login-input-validation">{ this.state.emailValidation }</p>
                 </FormGroup>
                 <FormGroup>
                   <InputGroup>
                     <InputGroup.Addon>
                       <i className="fas fa-unlock"></i>
                     </InputGroup.Addon>
-                    <FormControl type="password" placeholder="Password" />
+                    <FormControl type="password" placeholder="Password" onChange={ this.handleInputPassword } />
                   </InputGroup>
                 </FormGroup>
                 <div className="login-checkbox">
@@ -68,7 +162,7 @@ class LoginPage extends Component {
                     </a>
                   </Col>
                 </div>
-                <Button>
+                <Button type="submit" id="loadButton" onClick={ this.handleSubmitLogin }>
                   Masuk
                 </Button>
               </form>
@@ -101,4 +195,10 @@ class LoginPage extends Component {
 
 }
 
-export default LoginPage
+const mapDispatchToProps = (dispatch) => {
+  return {
+    get_data_user: (data) => dispatch(get_data_user(data))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(withRouter(LoginPage))

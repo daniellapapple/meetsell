@@ -23,8 +23,8 @@ class MyProfile extends Component {
         <Router>
           <div>
             <Route exact path="/my-profile" component={ Chat } />
-            <Route path="/my-profile/produk-terbeli" component={ ProdukTerbeli } />
-            <Route path="/my-profile/produk-terjual" component={ ProdukTerjual } />
+            <Route path="/my-profile/produk-dibeli" component={ ProdukTerbeli } />
+            <Route path="/my-profile/produk-dijual" component={ ProdukTerjual } />
             <Route path="/my-profile/review" component={ Review } />
             <Route path="/my-profile/chat" component={ Chat } />
             <Route path="/my-profile/wishlist" component={ Wishlist } />

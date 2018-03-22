@@ -18,18 +18,19 @@ class ModalLogin extends Component {
         show={ this.props.showModal }
         onHide={ this.props.hideModal }
       >
-        {/* <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-sm">Modal heading</Modal.Title>
-        </Modal.Header> */}
         <Modal.Body>
         <Col md={ 12 }>
-          <form>
+          <form onSubmit={ this.props.submitLogin }>
             <FormGroup>
               <InputGroup>
                 <InputGroup.Addon>
                   <i className="far fa-envelope"></i>
                 </InputGroup.Addon>
-                <FormControl type="text" placeholder="Email" />
+                <FormControl 
+                  type="text" 
+                  placeholder="Email"
+                  onChange={ this.props.emailInput }
+                 />
               </InputGroup>
             </FormGroup>
             <FormGroup>
@@ -37,7 +38,11 @@ class ModalLogin extends Component {
                 <InputGroup.Addon>
                   <i className="fas fa-unlock"></i>
                 </InputGroup.Addon>
-                <FormControl type="password" placeholder="Password" />
+                <FormControl 
+                  type="password" 
+                  placeholder="Password" 
+                  onChange={ this.props.passwordInput }
+                />
               </InputGroup>
             </FormGroup>
             <div className="navbar-login-checkbox">
@@ -51,7 +56,14 @@ class ModalLogin extends Component {
                 </a>
               </Col>
             </div>
-            <Button className="btn-block btn-masuk-navbar">Masuk</Button>
+            <div className="navbar-login-notif-wrong">
+              <p>{ this.props.wrongInputan }</p>
+            </div>
+            <Button 
+              type="submit"
+              className="btn-block btn-masuk-navbar"
+              id="loadButton"
+            >Masuk</Button>
             <p className="text-center">atau</p>
             <Button className="btn-block btn-navbar-fb">
               <i className="fab fa-facebook-square"></i>
