@@ -19,7 +19,7 @@ class SearchResultPencarian extends Component {
             </Col>
             <Col md={ 6 } sm={ 6 } xs={ 6 } className="text-right">
               <p className="search-result-urutkan">
-                URUTKAN
+                URUTKAN:
               </p>
               <FormGroup>
                 <FormControl componentClass="select">

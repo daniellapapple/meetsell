@@ -5,11 +5,27 @@ import {
   Col,
   Button
 } from 'react-bootstrap'
+import { withRouter } from 'react-router-dom'
 
 import check from '../assets/image/product-item-check.png'
 import warning from '../assets/image/detail-pesanan-warning.png'
 
 class DetailPesananDescription extends Component {
+
+  constructor(props) {
+    super(props)
+
+    this.goToPembayaran = this.goToPembayaran.bind(this)
+    this.goToKonfirmasiCod = this.goToKonfirmasiCod.bind(this)
+  }
+
+  goToPembayaran() {
+    this.props.history.push('/pembayaran')
+  }
+
+  goToKonfirmasiCod() {
+    this.props.history.push('/konfirmasi-cod')
+  }
 
   render() {
     return (
@@ -111,10 +127,10 @@ class DetailPesananDescription extends Component {
                 <Row>
                   <Col md={ 12 }>
                     <div className="detail-pesanan-warning-wrap">
-                      <Col md={ 2 } sm={ 2 } xs={ 2 }>
-                        <img src={ warning } alt="" width="25" />
+                      <Col md={ 4 } sm={ 2 } xs={ 2 }>
+                        <img src={ warning } alt="" />
                       </Col>
-                      <Col md={ 10 } sm={ 10 } xs={ 10 }>
+                      <Col md={ 8 } sm={ 10 } xs={ 10 }>
                         <p>By ordering with SafePay you are agree to the terms and condition</p>
                       </Col>
                     </div>
@@ -122,7 +138,14 @@ class DetailPesananDescription extends Component {
                 </Row>
                 <Row>
                   <Col md={ 12 }>
-                    <Button className="btn-block">Lanjut Pembayaran</Button>
+                    <Button 
+                      className="btn-block lanjut-pembayaran"
+                      onClick={ this.goToPembayaran }
+                    >Lanjut Pembayaran</Button>
+
+                    <p className="atau-detail-pesanan">Atau</p>
+
+                    <Button className="btn-block cash-on-delivery" onClick={ this.goToKonfirmasiCod }>Cash on Delivery</Button>
                   </Col>
                 </Row>
               </div>
@@ -135,4 +158,4 @@ class DetailPesananDescription extends Component {
 
 }
 
-export default DetailPesananDescription
+export default withRouter(DetailPesananDescription)

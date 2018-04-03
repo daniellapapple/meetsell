@@ -7,8 +7,19 @@ import {
   Checkbox,
   Button
 } from 'react-bootstrap'
+import { withRouter } from 'react-router-dom'
 
 class KeranjangBelanjaContent extends Component {
+
+  constructor(props) {
+    super(props)
+
+    this.goToDetailPesanan = this.goToDetailPesanan.bind(this)
+  }
+
+  goToDetailPesanan() {
+    this.props.history.push('/detail-pesanan')
+  }
 
   render() {
     return (
@@ -96,7 +107,7 @@ class KeranjangBelanjaContent extends Component {
                     </p>
                   </Col>
                   <Col md={ 4 } className="text-right">
-                    <Button className="btn-block">Bayar</Button>
+                    <Button className="btn-block" onClick={ this.goToDetailPesanan }>Bayar</Button>
                   </Col>
                   <Col md={ 12 }>
                     <p className="keranjang-belanja-garis"></p>
@@ -112,4 +123,4 @@ class KeranjangBelanjaContent extends Component {
 
 }
 
-export default KeranjangBelanjaContent
+export default withRouter(KeranjangBelanjaContent)

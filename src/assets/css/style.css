@@ -1,4 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto');
+
+/* @import url */
+
 /* ========== HOME PAGE ========== */
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
 
 /* ===== HEADER ===== */
 
@@ -949,6 +957,28 @@ div#popover-positioned-bottom-before-login {
   margin-top: 20px;
 }
 
+span.list-group-item {
+  cursor: pointer;
+}
+
+span.list-group-item:hover {
+  background-color: #f5f5f5;
+}
+
+.list-group-item:focus {
+  outline: none
+}
+
+.row-xs-list-group-item a {
+  display: block;
+  overflow: hidden;
+  padding: 5px
+}
+
+.row-xs-list-group-item a:hover {
+  background-color: #f5f5f5;
+}
+
 /* ===== BODY CONTENT ===== */
 
 .bodyContent-recommended h3 {
@@ -982,7 +1012,7 @@ a.link-wrap-product-item:hover {
   text-decoration: none
 }
 
-a.link-wrap-product-item:hover p.caption-description {
+.recommend-wrap-item:hover p.caption-description {
   color: #26A69A;
 }
 
@@ -993,6 +1023,7 @@ a.link-wrap-product-item:hover p.caption-description {
 }
 
 .recommend-wrap-item:hover {
+  cursor: pointer;
   box-shadow: 0px 0px 15px silver;
 }
 
@@ -1121,6 +1152,34 @@ p.content-footer-caption {
   }
 }
 
+.icon-wishlist {
+  cursor: pointer;
+  width: 22px;
+  height: 21px;
+  opacity: .5;
+  background: url('../image/wishlist-gray.png');
+  position: absolute;
+  top: 15px;
+  right: 29px;
+  background-size: 100%;
+  z-index: 999
+}
+.icon-wishlist:hover {
+  opacity: 1;
+}
+.icon-wishlist.in-wishlist {
+  opacity: 1;
+  animation-name: wishlist-ani;
+  animation-duration: 1000ms;
+  background: url('../image/wishlist-red.png');
+  background-size: 100%
+}
+
+.bodyContent-recommended .col-md-3.col-sm-6 {
+  position: relative;
+}
+
+
 /* ===== FOOTER ===== */
 
 .footer {
@@ -1188,6 +1247,10 @@ p.content-footer-caption {
 
 .footer-hakCipta p {
   font-weight: lighter;
+}
+
+.footer img {
+  width: 100%;
 }
 
 @media (max-width: 991px) {
@@ -1530,6 +1593,12 @@ a.register-kirim-ulang:hover {
   padding-left: 23px
 }
 
+@media (max-width: 991px) {
+  .register-social-button {
+    padding: 0
+  }
+}
+
 /* ========== SEARCH RESULT PAGE ========== */
 
 .breadcrumb {
@@ -1563,13 +1632,12 @@ a.register-kirim-ulang:hover {
 }
 
 .search-result-pencarian select.form-control {
-  border: none;
+  border: 1px solid #e4e4e4;
   background: transparent;
   box-shadow: none;
   color: #3E6270 !important;
   font-weight: bold;
-  padding: 0 12px;
-  height: 18px;
+  margin-left: 5px
 }
 
 .search-result-pencarian p.search-result-urutkan {
@@ -1626,6 +1694,10 @@ a.register-kirim-ulang:hover {
 .search-result-kategori {
   border-top: 1px solid #e4e4e4;
   padding: 20px 0;
+}
+
+.search-result-kategori a:focus {
+  text-decoration: none
 }
 
 input[type="range"] {
@@ -1734,6 +1806,10 @@ input[type="range"]:focus {
   color: #26A69A;
 }
 
+.image-item {
+  position: relative;
+}
+
 /* ========== PRODUCT ITEM PAGE ========== */
 
 .product-item-breadcrumb i.fas.fa-home {
@@ -1832,6 +1908,10 @@ input[type="range"]:focus {
   border-radius: 50%;
 }
 
+.product-item-description .carousel .carousel-status {
+  display: none
+}
+
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
 .rating { 
@@ -1841,8 +1921,8 @@ input[type="range"]:focus {
 
 .rating > input { display: none; } 
 .rating > label:before { 
-  margin: 5px;
-  font-size: 1.25em;
+  margin: 5px 2px;
+  font-size: 1em;
   font-family: FontAwesome;
   display: inline-block;
   content: "\f005";
@@ -1892,18 +1972,31 @@ input[type="range"]:focus {
   margin-top: 5px;
   display: inline-block;
   margin-left: 8px;
+  color: #3E6270;
 }
 
 .product-item-description img.pro-item-image-location {
-  width: 3%;
-}
-
-.product-item-description img.pro-item-image-location {
-  width: 5%;
+  width: 100%;
 }
 
 .product-item-description span.pro-item-location {
-  color: #3E6270
+  color: #3E6270;
+  display: block;
+  overflow: hidden;
+  margin-bottom: 20px
+}
+
+.product-item-description span.pro-item-hours {
+  color: #3E6270;
+  display: block;
+  overflow: hidden;
+  margin-bottom: 20px
+}
+
+.product-item-description span.pro-item-views {
+  color: #3E6270;
+  display: block;
+  overflow: hidden;
 }
 
 .pro-item-row-address.row {
@@ -1950,12 +2043,154 @@ input[type="range"]:focus {
 .product-item-description .pro-item-button-beli-sekarang button.btn-block.btn.btn-danger {
   background: #e54848;
   padding: 10px 0;
-  border: none
+  border: none;
+  font-weight: bold
 }
 
 .product-item-description .pro-item-button-keranjang button.btn-block.btn.btn-default {
   padding: 7px 0;
   transition: all 0.2s ease
+}
+
+.pro-item-location .col-md-10 {
+  padding: 0;
+}
+
+.pro-item-hours img {
+  width: 100%;
+}
+
+.pro-item-views img {
+  width: 100%;
+}
+
+.pro-item-location .col-md-9 {
+  padding: 0;
+}
+
+.pro-item-location .col-md-3 {
+  padding: 0 10px;
+}
+
+.pro-item-hours .col-md-9 {
+  padding: 0;
+}
+
+.pro-item-hours .col-md-3 {
+  padding: 0 10px;
+}
+
+.pro-item-views .col-md-9 {
+  padding: 0;
+}
+
+.pro-item-views .col-md-3 {
+  padding: 0 10px;
+}
+
+p.pro-item-description {
+  color: #3E6270
+}
+
+@media (min-width: 560px) and (max-width: 767px) {
+  .product-item-description img.pro-item-image-location {
+    width: 30%;
+  }
+
+  .pro-item-location .col-md-3 {
+    text-align: center
+  }
+
+  .pro-item-location .col-md-9 {
+    margin-left: -40px;
+    margin-top: 10px
+  }
+
+  .pro-item-location {
+    margin-top: 10px
+  }
+
+  .pro-item-hours img {
+    width: 30%;
+  }
+
+  .pro-item-hours .col-md-3 {
+    text-align: center
+  }
+
+  .pro-item-hours .col-md-9 {
+    margin-left: -40px;
+    margin-top: 10px
+  }
+
+  .pro-item-views img {
+    width: 30%
+  }
+
+  .pro-item-views .col-md-3 {
+    text-align: center
+  }
+
+  .pro-item-views .col-md-9 {
+    margin-left: -40px;
+    margin-top: 10px
+  }
+}
+
+@media (max-width: 561px) {
+  .product-item-description img.pro-item-image-location {
+    width: 30%;
+  }
+
+  .pro-item-location .col-md-3 {
+    text-align: center
+  }
+
+  .pro-item-location .col-md-9 {
+    margin-left: -30px;
+  }
+
+  .pro-item-location {
+    margin-top: 10px
+  }
+
+  .pro-item-hours img {
+    width: 30%;
+  }
+
+  .pro-item-hours .col-md-3 {
+    text-align: center
+  }
+
+  .pro-item-hours .col-md-9 {
+    margin-left: -30px;
+  }
+
+  .pro-item-views img {
+    width: 30%
+  }
+
+  .pro-item-views .col-md-3 {
+    text-align: center
+  }
+
+  .pro-item-views .col-md-9 {
+    margin-left: -30px;
+  }
+}
+
+@media (max-width: 455px) {
+  .pro-item-location .col-md-9 {
+    margin-left: 0;
+  }
+
+  .pro-item-hours .col-md-9 {
+    margin-left: 0;
+  }
+
+  .pro-item-views .col-md-9 {
+    margin-left: 0;
+  }
 }
 
 @media (max-width: 767px) {
@@ -2000,6 +2235,10 @@ input[type="range"]:focus {
 
 .carousel .thumbs-wrapper {
   margin: 20px 0
+}
+
+.carousel .slider-wrapper li.slide .icon-wishlist {
+  right: 15px
 }
 
 /* ========== DETAIL PESANAN PAGE ========== */
@@ -2240,31 +2479,491 @@ p.detail-pesanan-rp-total {
   border: 1px solid burlywood;
   background: lightgoldenrodyellow;
   border-radius: 5px;
-  padding-top: 8px;
   margin-bottom: 20px;
   margin-top: 20px;
 }
 
 .detail-pesanan-warning-wrap p {
   color: burlywood;
-  font-weight: bold;
-  font-size: 10px
+  font-size: 10px;
+  margin-top: 8px;
+  margin-left: -13px
 }
 
 .detail-pesanan-ringkasan-wrap button.btn-block.btn.btn-default {
   background: #26A69A;
   color: white;
-  font-weight: bold;
-  border: none
+  border: none;
+  font-weight: bold
 }
 
 .detail-pesanan-description {
   margin-bottom: 80px;
 }
 
+.detail-pesanan-description p.atau-detail-pesanan {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+button.btn-block.cash-on-delivery.btn.btn-default {
+  background: transparent;
+  color: #26A69A;
+  border: 1px solid #26A69A;
+  padding: 10px 0
+}
+
+button.btn-block.lanjut-pembayaran.btn.btn-default {
+  padding: 10px 0;
+}
+
 @media (min-width: 481px) and (max-width: 991px) {
   .detail-pesanan-warning-wrap {
     padding: 10px 0
+  }
+
+  .detail-pesanan-warning-wrap p {
+    margin-left: -50px
+  }
+}
+
+.detail-pesanan-wrap-title p {
+  color: #3E6270;
+  font-weight: bold;
+  margin-bottom: 20px
+}
+
+.pembayaran-metode-pembayaran-saldo-dompet input[type="radio"] {
+  display: none;
+}
+
+.pembayaran-metode-pembayaran-saldo-dompet input[type="radio"] + label {
+  position: relative;
+  cursor: pointer;
+  padding-left: 28px;
+  font-weight: lighter;
+  color: #3E6270;
+}
+.pembayaran-metode-pembayaran-saldo-dompet input[type="radio"] + label:before, input[type="radio"] + label:after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.pembayaran-metode-pembayaran-saldo-dompet input[type="radio"] + label:before {
+  top: 0;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  background: #26A69A;
+  border: 1px solid #e4e4e4;
+  -moz-box-shadow: inset 0 0 0 18px #fff;
+  -webkit-box-shadow: inset 0 0 0 18px #fff;
+  box-shadow: inset 0 0 0 18px #fff;
+}
+.pembayaran-metode-pembayaran-saldo-dompet input[type="radio"] + label:after {
+  top: 49%;
+  left: 9px;
+  width: 54px;
+  height: 54px;
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.3);
+  -moz-transform: translate(-50%, -50%) scale(0);
+  -ms-transform: translate(-50%, -50%) scale(0);
+  -webkit-transform: translate(-50%, -50%) scale(0);
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.pembayaran-metode-pembayaran-saldo-dompet input[type="radio"]:checked + label:before {
+  -moz-box-shadow: inset 0 0 0 4px #E0E0E0;
+  -webkit-box-shadow: inset 0 0 0 4px #E0E0E0;
+  box-shadow: inset 0 0 0 4px #E0E0E0;
+}
+.pembayaran-metode-pembayaran-saldo-dompet input[type="radio"]:checked + label:after {
+  -moz-transform: translate(-50%, -50%) scale(1);
+  -ms-transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(1);
+  -moz-animation: ripple 1s none;
+  -webkit-animation: ripple 1s none;
+  animation: ripple 1s none;
+}
+
+.pembayaran-metode-pembayaran-transfer-bank input[type="radio"] {
+  display: none;
+}
+
+.pembayaran-metode-pembayaran-transfer-bank input[type="radio"] + label {
+  position: relative;
+  cursor: pointer;
+  padding-left: 28px;
+  font-weight: lighter;
+  color: #3E6270;
+}
+.pembayaran-metode-pembayaran-transfer-bank input[type="radio"] + label:before, input[type="radio"] + label:after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.pembayaran-metode-pembayaran-transfer-bank input[type="radio"] + label:before {
+  top: 0;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  background: #26A69A;
+  border: 1px solid #e4e4e4;
+  -moz-box-shadow: inset 0 0 0 18px #fff;
+  -webkit-box-shadow: inset 0 0 0 18px #fff;
+  box-shadow: inset 0 0 0 18px #fff;
+}
+.pembayaran-metode-pembayaran-transfer-bank input[type="radio"] + label:after {
+  top: 49%;
+  left: 9px;
+  width: 54px;
+  height: 54px;
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.3);
+  -moz-transform: translate(-50%, -50%) scale(0);
+  -ms-transform: translate(-50%, -50%) scale(0);
+  -webkit-transform: translate(-50%, -50%) scale(0);
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.pembayaran-metode-pembayaran-transfer-bank input[type="radio"]:checked + label:before {
+  -moz-box-shadow: inset 0 0 0 4px #E0E0E0;
+  -webkit-box-shadow: inset 0 0 0 4px #E0E0E0;
+  box-shadow: inset 0 0 0 4px #E0E0E0;
+}
+.pembayaran-metode-pembayaran-transfer-bank input[type="radio"]:checked + label:after {
+  -moz-transform: translate(-50%, -50%) scale(1);
+  -ms-transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(1);
+  -moz-animation: ripple 1s none;
+  -webkit-animation: ripple 1s none;
+  animation: ripple 1s none;
+}
+
+.pembayaran-metode-pembayaran-saldo-dompet {
+  border: 1px solid #e4e4e4;
+  padding: 10px;
+  margin-bottom: 10px
+}
+
+.pembayaran-metode-pembayaran-transfer-bank {
+  border: 1px solid #e4e4e4;
+  padding: 10px;
+}
+
+.pembayaran-metode-pembayaran-saldo-dompet label {
+  margin: 0
+}
+
+.pembayaran-metode-pembayaran-transfer-bank label {
+  margin: 0
+}
+
+.pembayaran-description-wrap {
+  border: 1px solid #e4e4e4;
+  border-radius: 10px;
+  padding: 20px 20px 180px;
+}
+
+.metode-pembayaran-wrap {
+  border: 1px solid #e4e4e4;
+  padding: 10px 60px;
+  /* opacity: 0; */
+  display: none;
+  background: white
+}
+
+.pembayaran-metode-pembayaran-transfer-bank img {
+  margin-left: 25px;
+}
+
+div#metode-pembayaran-tf-bank p {
+  text-align: left;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  color: #3E6270
+}
+
+.metode-bank-bca {
+  overflow: hidden;
+  border-bottom: 1px solid #e4e4e4;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.metode-bank-bca .col-md-6 p {
+  text-align: left !important;
+  margin: 0 !important
+}
+
+.metode-bank-bca img {
+  width: 50%;
+}
+
+.metode-bank-mandiri {
+  overflow: hidden;
+  border-bottom: 1px solid #e4e4e4;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.metode-bank-mandiri .col-md-6 p {
+  text-align: left !important;
+  margin: 0 !important
+}
+
+.metode-bank-mandiri img {
+  width: 50%
+}
+
+.metode-bank-bri {
+  overflow: hidden;
+}
+
+.metode-bank-bri .col-md-6 p {
+  text-align: left !important;
+  margin: 0 !important
+}
+
+.metode-bank-bri img {
+  width: 50%
+}
+
+@media (max-width: 767px) {
+  .metode-bank-bca img {
+    width: 80%;
+  }
+
+  .metode-bank-mandiri img {
+    width: 80%
+  }
+
+  .metode-bank-bri img {
+    width: 80%
+  }
+
+  .metode-pembayaran-wrap {
+    padding: 10px 20px
+  }
+}
+
+@media (max-width: 403px) {
+  .pembayaran-description-wrap {
+    height: 590px
+  }
+}
+
+.info-metode-bank-bca {
+  display: none;
+}
+
+.metode-bank-bca:hover {
+  cursor: pointer;
+}
+
+.info-metode-bank-mandiri {
+  display: none;
+}
+
+.metode-bank-mandiri:hover {
+  cursor: pointer;
+}
+
+.info-metode-bank-bri {
+  display: none;
+}
+
+.metode-bank-bri:hover {
+  cursor: pointer;
+}
+
+.metode-bank-bca i.fas.fa-caret-right {
+  color: gray;
+  font-size: 18px;
+}
+
+.metode-bank-bca i.fas.fa-sort-down {
+  color: #26A69A;
+  font-size: 18px
+}
+
+.metode-bank-mandiri i.fas.fa-caret-right {
+  color: gray;
+  font-size: 18px;
+}
+
+.metode-bank-mandiri i.fas.fa-sort-down {
+  color: #26A69A;
+  font-size: 18px
+}
+
+.metode-bank-bri i.fas.fa-caret-right {
+  color: gray;
+  font-size: 18px;
+}
+
+.metode-bank-bri i.fas.fa-sort-down {
+  color: #26A69A;
+  font-size: 18px;
+}
+
+.konfirmasi-lanjut-pembayaran {
+  overflow: hidden;
+  border: 1px solid #e4e4e4;
+  border-radius: 5px;
+  padding: 20px 70px;
+  margin-bottom: 180px
+}
+
+.konfirmasi-lanjut-pembayaran p {
+  color: #3E6270;
+  font-weight: bold
+}
+
+p.konfirmasi-lanjut-pembayaran-silahkan {
+  font-weight: lighter;
+  font-size: 18px;
+}
+
+p.konfirmasi-lanjut-pembayaran-tanggal {
+  color: #26A69A;
+  font-size: 22px;
+  width: 220px;
+  margin: 0 auto 30px
+}
+
+p.konfirmasi-lanjut-pembayaran-detail a {
+  font-weight: lighter;
+  color: #26A69A;
+  font-size: 12px;
+}
+
+.konfirmasi-lanjut-pembayaran button.btn.btn-default {
+  background: #00838F;
+  color: white;
+  border: none;
+  padding: 10px 50px;
+  margin-bottom: 40px;
+  font-weight: bold
+}
+
+p.konfirmasi-lanjut-pembayaran-catatan {
+  border-top: 1px solid #e4e4e4;
+  padding-top: 18px;
+  padding-left: 50px;
+  font-weight: lighter
+}
+
+p.konfirmasi-lanjut-pembayaran-simpan-bukti {
+  padding-left: 50px;
+  margin: 0;
+  font-weight: lighter
+}
+
+p.konfirmasi-lanjut-pembayaran-selalu {
+  padding-left: 50px;
+  font-weight: lighter
+}
+
+p.konfirmasi-lanjut-pembayaran-metode {
+  font-weight: lighter;
+  margin-bottom: 0;
+  width: 43%;
+  margin: 0 auto 15px;
+}
+
+p.konfirmasi-lanjut-pembayaran-fitur {
+  font-weight: lighter;
+}
+
+.detail-pesanan-warning-wrap img {
+  width: 70%;
+  position: relative;
+  top: 5px
+}
+
+.detail-pesanan-warning-wrap .col-md-8.col-sm-10.col-xs-10 {
+  padding: 0
+}
+
+@media (max-width: 768px) {
+  .konfirmasi-lanjut-pembayaran {
+    padding: 20px 0
+  }
+
+  p.konfirmasi-lanjut-pembayaran-metode {
+    width: 100%
+  }
+}
+
+@media (max-width: 991px) {
+  .detail-pesanan-warning-wrap .col-md-2.col-sm-2.col-xs-2 {
+    text-align: right
+  }
+
+  .detail-pesanan-warning-wrap .col-md-10.col-sm-10.col-xs-10 p {
+    position: relative;
+    top: 5px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 414px) {
+  .detail-pesanan-warning-wrap img {
+    position: relative;
+    top: 9px
+  }
+
+  .detail-pesanan-warning-wrap img {
+    width: 100%
+  }
+}
+
+@media (min-width: 415px) and (max-width: 426px) {
+  .detail-pesanan-warning-wrap img {
+    position: relative;
+    top: 4px
+  }
+}
+
+@media (min-width: 427px) and (max-width: 480px) {
+  .detail-pesanan-warning-wrap img {
+    position: relative;
+    top: 4px
+  }
+}
+
+@media (min-width: 991px) and (max-width: 1200px) {
+  .detail-pesanan-warning-wrap img {
+    position: relative;
+    top: 15px
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .detail-pesanan-warning-wrap img {
+    width: 40%;
+    position: relative;
+    top: 3px
+  }
+}
+
+@media (min-width: 768px) and (max-width: 990px) {
+  .detail-pesanan-warning-wrap img {
+    width: 40%;
+    position: relative;
+    top: 0px
   }
 }
 
@@ -2321,7 +3020,8 @@ p.profile-information-penjual-premium {
 .profile-information-rating span {
   margin-top: 6px;
   display: inline-block;
-  color: #3E6270
+  color: #3E6270;
+  margin-left: 8px
 }
 
 .profile-information-alamat img {
@@ -3309,8 +4009,50 @@ p.my-profile-chat-item-body-line {
   color: #3E6270;
 }
 
+.my-profile-pengaturan-top p.pengaturan {
+  color: #3E6270;
+  font-weight: bold;
+}
+
+.my-profile-pengaturan-bagikan {
+  color: gray;
+  font-weight: bold;
+}
+
+.my-profile-pengaturan-social-button {
+  display: inline-block;
+  margin-left: 15px;
+}
+
+.my-profile-pengaturan-social-button i.fab.fa-facebook-square {
+  color: #3B5998;
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+.my-profile-pengaturan-social-button i.fab.fa-instagram {
+  color: #b00e90;
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+.my-profile-pengaturan-social-button i.fab.fa-twitter-square {
+  color: #1EA1F3;
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+.my-profile-pengaturan-social-button i.fab.fa-youtube {
+  color: #D92524;
+  font-size: 20px;
+}
+
 @media (max-width: 991px) {
   .my-profile-wishlist-top {
+    margin-top: 40px
+  }
+
+  .my-profile-pengaturan-top {
     margin-top: 40px
   }
 }
@@ -3328,6 +4070,64 @@ p.my-profile-chat-item-body-line {
 .my-profile-content-produk-terbeli {
   padding: 30px 0;
   margin-bottom: 300px
+}
+
+.my-profile-pengaturan-top {
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.my-profile-pengaturan-body-image-wrap img {
+  width: 100%;
+  border-radius: 50%
+}
+
+.my-profile-pengaturan-body-image-wrap {
+  border: 1px solid #e4e4e4;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.my-profile-pengaturan-body-image-wrap a {
+  text-align: center;
+  display: block;
+  margin-top: 15px;
+  color: #3E6270;
+}
+
+.my-profile-pengaturan-body-image-wrap a:hover {
+  text-decoration: none
+}
+
+.my-profile-pengaturan-body {
+  overflow: hidden;
+  border: 1px solid #e4e4e4;
+  padding: 35px 10px;
+  border-radius: 5px
+}
+
+.my-profile-pengaturan-form label {
+  color: #3E6270
+}
+
+.my-profile-pengaturan-form button {
+  float: right;
+  background: #26A69A;
+  color: white;
+  font-weight: bold;
+  padding: 10px 100px;
+  border: none
+}
+
+p.line-form-email {
+  border-bottom: 1px solid #e4e4e4;
+  padding-top: 10px;
+  margin-bottom: 20px;
+}
+
+.my-profile-pengaturan-form .form-control {
+  box-shadow: none;
+  border: 1px solid #e4e4e4
 }
 
 /* ========== PROFILE PAGE ========== */
@@ -3643,7 +4443,7 @@ input#jualBarangUploadFoto {
 }
 
 .jual-barang-content-wrap .jual-barang-checkbox-free label:active:after {
-	width: 65px;
+	width: 20px;
 }
 
 .jual-barang-checkbox-free span {
@@ -3789,6 +4589,10 @@ p.name-profile-header {
   font-weight: bold;
 }
 
+.name-profile-header a {
+  display: block;
+}
+
 ul.ul-header-profile {
   padding: 0;
 }
@@ -3813,6 +4617,10 @@ ul.ul-header-profile {
 .ul-header-profile li a:hover {
   text-decoration: none;
   color: #26A69A;
+}
+
+.ul-header-profile li a:focus {
+  text-decoration: none
 }
 
 .wallet-profile-header img {
@@ -3927,4 +4735,53 @@ p.name-profile-header-modal {
 
 p.wallet-profile-header-modal img {
   margin-right: 8px;
+}
+
+.is-active {
+  font-weight: bold
+}
+
+.modal-body input.form-control {
+  box-shadow: none;
+}
+
+/* ========== CHAT LIST ========== */
+
+.chat-list-people {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 999999999
+}
+
+.header-chat-list-people {
+  padding: 10px 80px 10px 10px;
+  background: #26A69A;
+}
+
+.header-chat-list-people:hover {
+  cursor: pointer;
+}
+
+.chat-list-people .header-chat-list-people p {
+  color: white;
+  margin-bottom: 0
+}
+
+.body-chat-list-people {
+  background: white;
+  overflow: hidden;
+  padding-bottom: 5px;
+  display: none
+}
+
+.body-chat-list-people p {
+  margin-bottom: 0;
+  margin-top: 5px;
+  border-bottom: 1px solid #e4e4e4;
+  padding: 6px;
+}
+
+.body-chat-list-people p:nth-last-child(1) {
+  border: none
 }

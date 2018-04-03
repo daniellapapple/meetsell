@@ -9,10 +9,10 @@ class MyProfileReview extends Component {
     return (
       <div className="profile-review">
         <div className="profile-review-top">
-          <Col md={ 6 } sm={ 6 } xs={ 6 }>
+          <Col md={ 6 } sm={ 6 } xs={ 4 }>
             <p className="review">REVIEW</p>
           </Col>
-          <Col md={ 6 } sm={ 6 } xs={ 6 } className="text-right">
+          <Col md={ 6 } sm={ 6 } xs={ 8 } className="text-right">
             <div className="profile-produk-bagikan">
               BAGIKAN:
               <div className="profile-produk-social-button">

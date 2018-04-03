@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { NavLink } from 'react-router-dom'
 
 class SearchResultKategori extends Component {
 
@@ -8,28 +9,49 @@ class SearchResultKategori extends Component {
         <p>KATEGORI</p>
         <ul>
           <li>
-            <a href="#hpAndGagdet">Handphone dan Gadget</a>
+            <NavLink to="/search-result=gadget" activeClassName="is-active">
+              Gadget
+            </NavLink>
           </li>
           <li>
-            <a href="#motor">Motor</a>
+            <NavLink to="/search-result=clothes" activeClassName="is-active">
+              Clothes
+            </NavLink>
           </li>
           <li>
-            <a href="#car">Car</a>
+            <NavLink to="/search-result=house" activeClassName="is-active">
+              House
+            </NavLink>
           </li>
           <li>
-            <a href="#fashion">Fashion</a>
+            <NavLink to="/search-result=cars" activeClassName="is-active">
+              Cars
+            </NavLink>
           </li>
           <li>
-            <a href="#homeAppliance">Home Appliance</a>
+            <NavLink to="/search-result=motors" activeClassName="is-active">
+              Motors
+            </NavLink>
           </li>
           <li>
-            <a href="#hobbie">Hobbie</a>
+            <NavLink to="/search-result=hobbie" activeClassName="is-active">
+              Hobbie
+            </NavLink>
           </li>
           <li>
-            <a href="#babyAndKid">Baby and Kid</a>
+            <NavLink to="/search-result=books" activeClassName="is-active">
+              Books
+            </NavLink>
           </li>
           <li>
-            <a href="#others">Others</a>
+            <NavLink to="/search-result=child" activeClassName="is-active">
+              Child
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/search-result=others" activeClassName="is-active">
+              Others
+            </NavLink>
           </li>
         </ul>
       </div>

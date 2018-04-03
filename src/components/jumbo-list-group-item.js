@@ -5,6 +5,9 @@ import {
   ListGroup,
   ListGroupItem
 } from 'react-bootstrap'
+import {
+  withRouter
+} from 'react-router-dom'
 
 import hp from '../assets/image/jumbotron/hp-gadget.png'
 import motor from '../assets/image/jumbotron/motor.png'
@@ -18,44 +21,94 @@ import book from '../assets/image/jumbotron/book.png'
 
 class Jumbo_list_group_item extends Component {
 
+  constructor(props) {
+    super(props)
+
+    this.gadgetCat = this.gadgetCat.bind(this)
+    this.clothesCat = this.clothesCat.bind(this)
+    this.houseCat = this.houseCat.bind(this)
+    this.carsCat = this.carsCat.bind(this)
+    this.motorsCat = this.motorsCat.bind(this)
+    this.hobbieCat = this.hobbieCat.bind(this)
+    this.booksCat = this.booksCat.bind(this)
+    this.childCat = this.childCat.bind(this)
+    this.othersCat = this.othersCat.bind(this)
+  }
+
+  gadgetCat() {
+    this.props.history.push('/search-result=gadget')
+  }
+
+  clothesCat() {
+    this.props.history.push('/search-result=clothes')
+  }
+
+  houseCat() {
+    this.props.history.push('/search-result=house')
+  }
+
+  carsCat() {
+    this.props.history.push('/search-result=cars')
+  }
+
+  motorsCat() {
+    this.props.history.push('/search-result=motors')
+  }
+
+  hobbieCat() {
+    this.props.history.push('/search-result=hobbie')
+  }
+
+  booksCat() {
+    this.props.history.push('/search-result=books')
+  }
+
+  childCat() {
+    this.props.history.push('/search-result=child')
+  }
+
+  othersCat() {
+    this.props.history.push('/search-result=others')
+  }
+
   render() {
     return (
       <div>
         <div className="hidden-xs">
           <ListGroup>
-            <ListGroupItem href="#link1">
+            <ListGroupItem onClick={ this.gadgetCat }>
               <img src={ hp } width="25" alt="" />
               Gadget
             </ListGroupItem>
-            <ListGroupItem href="#link2">
+            <ListGroupItem onClick={ this.clothesCat }>
               <img src={ fashion } width="25" alt="" />
               Clothes
             </ListGroupItem>
-            <ListGroupItem href="#link3">
+            <ListGroupItem onClick={ this.houseCat }>
               <img src={ home } width="25" alt="" />
               House
             </ListGroupItem>
-            <ListGroupItem href="#link4">
+            <ListGroupItem onClick={ this.carsCat }>
               <img src={ car } width="25" alt="" />
               Cars
             </ListGroupItem>
-            <ListGroupItem href="#link5">
+            <ListGroupItem onClick={ this.motorsCat }>
               <img src={ motor } width="25" alt="" />
               Motors
             </ListGroupItem>
-            <ListGroupItem href="#link6">
+            <ListGroupItem onClick={ this.hobbieCat }>
               <img src={ hobbie } width="25" alt="" />
               Hobbie
             </ListGroupItem>
-            <ListGroupItem href="#link6">
+            <ListGroupItem onClick={ this.booksCat }>
               <img src={ book } width="25" alt="" />
               Books
             </ListGroupItem>
-            <ListGroupItem href="#link7">
+            <ListGroupItem onClick={ this.childCat }>
               <img src={ baby } width="25" alt="" />
               Child
             </ListGroupItem>
-            <ListGroupItem href="#link8">
+            <ListGroupItem onClick={ this.othersCat }>
               <img src={ others } width="25" alt="" />
               Others
             </ListGroupItem>
@@ -64,7 +117,7 @@ class Jumbo_list_group_item extends Component {
         <div className="visible-xs hidden-md">
           <Row className="row-xs-list-group-item">
             <Col xs={ 6 }>
-              <a href="#hpAndGadget">
+              <a onClick={ this.gadgetCat }>
                 <Col xs={ 4 }>
                   <img src={ hp } width="25" alt="" />
                 </Col>
@@ -74,7 +127,7 @@ class Jumbo_list_group_item extends Component {
               </a>
             </Col>
             <Col xs={ 6 }>
-              <a href="#motor">
+              <a onClick={ this.motorsCat }>
                 <Col xs={ 4 }>
                   <img src={ motor } width="25" alt="" />
                 </Col>
@@ -86,7 +139,7 @@ class Jumbo_list_group_item extends Component {
           </Row>
           <Row className="row-xs-list-group-item">
             <Col xs={ 6 }>
-              <a href="#car">
+              <a onClick={ this.carsCat }>
                 <Col xs={ 4 }>
                   <img src={ car } width="25" alt="" />
                 </Col>
@@ -96,7 +149,7 @@ class Jumbo_list_group_item extends Component {
               </a>
             </Col>
             <Col xs={ 6 }>
-              <a href="#fashion">
+              <a onClick={ this.clothesCat }>
                 <Col xs={ 4 }>
                   <img src={ fashion } width="25" alt="" />
                 </Col>
@@ -108,7 +161,7 @@ class Jumbo_list_group_item extends Component {
           </Row>
           <Row className="row-xs-list-group-item">
             <Col xs={ 6 }>
-              <a href="#home">
+              <a onClick={ this.houseCat }>
                 <Col xs={ 4 }>
                   <img src={ home } width="25" alt="" />
                 </Col>
@@ -118,7 +171,7 @@ class Jumbo_list_group_item extends Component {
               </a>
             </Col>
             <Col xs={ 6 }>
-              <a href="#hobbie">
+              <a onClick={ this.hobbieCat }>
                 <Col xs={ 4 }>
                   <img src={ hobbie } width="25" alt="" />
                 </Col>
@@ -130,7 +183,7 @@ class Jumbo_list_group_item extends Component {
           </Row>
           <Row className="row-xs-list-group-item">
             <Col xs={ 6 }>
-              <a href="#baby">
+              <a onClick={ this.childCat }>
                 <Col xs={ 4 }>
                   <img src={ baby } width="25" alt="" />
                 </Col>
@@ -140,7 +193,7 @@ class Jumbo_list_group_item extends Component {
               </a>
             </Col>
             <Col xs={ 6 }>
-              <a href="#others">
+              <a onClick={ this.booksCat }>
                 <Col xs={ 4 }>
                   <img src={ book } width="25" alt="" />
                 </Col>
@@ -152,7 +205,7 @@ class Jumbo_list_group_item extends Component {
           </Row>
           <Row className="row-xs-list-group-item">
             <Col xs={ 6 }>
-              <a href="#baby">
+              <a onClick={ this.othersCat }>
                 <Col xs={ 4 }>
                   <img src={ others } width="25" alt="" />
                 </Col>
@@ -169,4 +222,4 @@ class Jumbo_list_group_item extends Component {
 
 }
 
-export default Jumbo_list_group_item
+export default withRouter(Jumbo_list_group_item)

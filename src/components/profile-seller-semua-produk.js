@@ -2,22 +2,42 @@ import React, { Component } from 'react'
 import {
   Col
 } from 'react-bootstrap'
-import {
-  Link
-} from 'react-router-dom'
+import { Redirect } from 'react-router'
 
 import location from '../assets/image/product-item-location.png'
 
 class ProfileSellerSemuaProduk extends Component {
 
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      redirect: false
+    }
+
+    this.goToProductItem = this.goToProductItem.bind(this)
+  }
+
+  goToProductItem() {
+    this.setState({
+      redirect: true
+    })
+  }
+
   render() {
+    const { redirect } = this.state
+
+    if (redirect) {
+      return <Redirect to="/clothes/id/12345678" />
+    }
+
     return (
       <div className="profile-produk-terlaris">
         <div className="profile-produk-top">
-          <Col md={ 6 } sm={ 6 } xs={ 6 }>
+          <Col md={ 6 } sm={ 6 } xs={ 4 }>
             <p className="produk-terlaris">SEMUA PRODUK</p>
           </Col>
-          <Col md={ 6 } sm={ 6 } xs={ 6 } className="text-right">
+          <Col md={ 6 } sm={ 6 } xs={ 8 } className="text-right">
             <div className="profile-produk-bagikan">
               BAGIKAN:
               <div className="profile-produk-social-button">
@@ -39,14 +59,14 @@ class ProfileSellerSemuaProduk extends Component {
         </div>
         <div className="profile-produk-terlaris-item">
           <Col md={ 4 }>
-            <div className="recommend-wrap-item">
+            <div className="recommend-wrap-item" onClick={ this.goToProductItem }>
               <div className="image-item">
                 <img src="https://ibox.co.id/media/catalog/category/menu-iphone-6.png" alt="" className="img-responsive" />
               </div>
               <div className="caption-item">
                 <p className="caption-price">Rp 190.000</p>
                 <p className="caption-description">
-                  <Link to="/clothes/id/12345678">Jual kemeja Uniqlo Original Like New jarang Pake</Link>
+                  Jual kemeja Uniqlo Original Like New jarang Pake
                 </p>
                 <p className="caption-location">
                   <img src={ location } width="18" alt="" />
@@ -63,7 +83,7 @@ class ProfileSellerSemuaProduk extends Component {
               <div className="caption-item">
                 <p className="caption-price">Rp 190.000</p>
                 <p className="caption-description">
-                  <Link to="/clothes/id/12345678">Jual kemeja Uniqlo Original Like New jarang Pake</Link>
+                  Jual kemeja Uniqlo Original Like New jarang Pake
                 </p>
                 <p className="caption-location">
                   <img src={ location } width="18" alt="" />
@@ -80,7 +100,7 @@ class ProfileSellerSemuaProduk extends Component {
               <div className="caption-item">
                 <p className="caption-price">Rp 190.000</p>
                 <p className="caption-description">
-                  <Link to="/clothes/id/12345678">Jual kemeja Uniqlo Original Like New jarang Pake</Link>
+                  Jual kemeja Uniqlo Original Like New jarang Pake
                 </p>
                 <p className="caption-location">
                   <img src={ location } width="18" alt="" />
@@ -97,7 +117,7 @@ class ProfileSellerSemuaProduk extends Component {
               <div className="caption-item">
                 <p className="caption-price">Rp 190.000</p>
                 <p className="caption-description">
-                  <Link to="/clothes/id/12345678">Jual kemeja Uniqlo Original Like New jarang Pake</Link>
+                  Jual kemeja Uniqlo Original Like New jarang Pake
                 </p>
                 <p className="caption-location">
                   <img src={ location } width="18" alt="" />

@@ -11,6 +11,8 @@ import {
 
 import check from '../assets/image/product-item-check.png'
 import location from '../assets/image/product-item-location.png'
+import views from '../assets/image/views-product.png'
+import time from '../assets/image/time-product.png'
 
 class ProductItemDescription extends Component {
 
@@ -18,10 +20,15 @@ class ProductItemDescription extends Component {
     super(props)
 
     this.handleAddToCartPage = this.handleAddToCartPage.bind(this)
+    this.goToDetailPesanan = this.goToDetailPesanan.bind(this)
   }
 
   handleAddToCartPage() {
     this.props.history.push('/keranjang-belanja')
+  }
+
+  goToDetailPesanan() {
+    this.props.history.push('/detail-pesanan')
   }
 
   render() {
@@ -69,27 +76,41 @@ class ProductItemDescription extends Component {
           </Col>
         </Row>
         <Row className="pro-item-row-address">
-          <Col md={ 6 }>
+          <Col md={ 4 } sm={ 4 }>
             <span className="pro-item-location">
-              <img src={ location } className="pro-item-image-location" alt="" />
-              Jln. MT Haryono, Pancoran Jakarta Selatan, Jakarta 1278 
+              <Col md={ 3 } sm={ 3 } xs={ 3 }>
+                <img src={ location } className="pro-item-image-location" alt="" />
+              </Col>
+              <Col md={ 9 } sm={ 9 } xs={ 9 }>
+                Jln. MT Haryono, Pancoran Jakarta Selatan, Jakarta 1278
+              </Col>
             </span>
           </Col>
-          <Col md={ 3 }>
+          <Col md={ 4 } sm={ 4 }>
             <span className="pro-item-hours">
-              20 hours ago
+              <Col md={ 3 } sm={ 3 } xs={ 3 }>
+                <img src={ time } alt="" />
+              </Col>
+              <Col md={ 9 } sm={ 9 } xs={ 9 }>
+                20 hours ago
+              </Col>
             </span>
           </Col>
-          <Col md={ 3 }>
+          <Col md={ 4 } sm={ 4 }>
             <span className="pro-item-views">
-              1223 views
+              <Col md={ 3 } sm={ 3 } xs={ 3 }>
+                <img src={ views } alt="" />
+              </Col>
+              <Col md={ 9 } sm={ 9 } xs={ 9 }>
+                1223 views
+              </Col>
             </span>
           </Col>
         </Row>
         <Row>
           <Col md={ 12 }>
             <p className="pro-item-deskripsi">DESKRIPSI PRODUK</p>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+            <p className="pro-item-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
           </Col>
         </Row>
         <Row className="pro-item-button-keranjang">
@@ -102,7 +123,7 @@ class ProductItemDescription extends Component {
         </Row>
         <Row className="pro-item-button-beli-sekarang">
           <Col md={ 12 }>
-            <Button bsStyle="danger" className="btn-block">BELI SEKARANG</Button>
+            <Button bsStyle="danger" className="btn-block" onClick={ this.goToDetailPesanan }>BELI SEKARANG</Button>
           </Col>
         </Row>
       </div>

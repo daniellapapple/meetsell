@@ -3,16 +3,43 @@ import {
   Row,
   Col
 } from 'react-bootstrap'
+import $ from 'jquery'
 
 import location from '../assets/image/recommend-item-location.png'
 
 class SearchResultProductItem extends Component {
 
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      idtoggle: ''
+    }
+
+    this.toggleWishlist = this.toggleWishlist.bind(this)
+  }
+
+  toggleWishlist(id) {
+    this.setState({
+      idToggle: id
+    })
+    setTimeout(() => {
+      $(`#${ this.state.idToggle }`).toggleClass('in-wishlist')
+    }, 300)
+  }
+
   render() {
+    const idToggle = this.state.idToggle
+
     return (
       <div>
         <Row>
           <Col md={ 4 }>
+            <div 
+              className="icon-wishlist" 
+              id={ (idToggle === 'aaa') ? idToggle : 'ini aaa' } onClick={ () => this.toggleWishlist('aaa') }
+            >
+            </div>
             <div className="recommend-wrap-item">
               <div className="image-item">
                 <img src="https://www.bigissueshop.com/media/product/2017/10/05/845_2077_w300.jpg" alt="" className="img-responsive" />
@@ -28,6 +55,11 @@ class SearchResultProductItem extends Component {
             </div>
           </Col>
           <Col md={ 4 }>
+            <div 
+              className="icon-wishlist" 
+              id={ (idToggle === 'bbb') ? idToggle : 'ini aaa' } onClick={ () => this.toggleWishlist('bbb') }
+            >
+            </div>
             <div className="recommend-wrap-item">
               <div className="image-item">
                 <img src="https://ecs7.tokopedia.net/img/cache/300/catalog/2017/9/4/15524491/15524491_d41fbc70-4134-40d1-b4c5-5a7904399b7e.png" alt="" className="img-responsive" />
@@ -43,6 +75,11 @@ class SearchResultProductItem extends Component {
             </div>
           </Col>
           <Col md={ 4 }>
+            <div 
+              className="icon-wishlist" 
+              id={ (idToggle === 'ccc') ? idToggle : 'ini aaa' } onClick={ () => this.toggleWishlist('ccc') }
+            >
+            </div>
             <div className="recommend-wrap-item">
               <div className="image-item">
                 <img src="https://ecs7.tokopedia.net/img/cache/300/product-1/2016/4/21/253544/253544_1b95828c-cbd0-4636-8dfc-c9f089eb578d.jpg" alt="" className="img-responsive" />

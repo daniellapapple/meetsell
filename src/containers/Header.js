@@ -17,7 +17,8 @@ import {
 } from 'react-router-bootstrap'
 import {
   Link,
-  withRouter
+  withRouter,
+  NavLink
 } from 'react-router-dom'
 import { connect } from 'react-redux'
 
@@ -67,6 +68,8 @@ class Header extends Component {
     this.hideModalLogin = this.hideModalLogin.bind(this)
     this.showModalMyProfile = this.showModalMyProfile.bind(this)
     this.hideModalMyProfile = this.hideModalMyProfile.bind(this)
+    this.goToProdukDibeli = this.goToProdukDibeli.bind(this)
+    // this.goToProdukDijual = this.goToProdukDijual.bind(this)
     this.logout = this.logout.bind(this)
   }
 
@@ -189,6 +192,18 @@ class Header extends Component {
     })
   }
 
+  goToProdukDibeli() {
+    // this.props.history.push('/my-profile/produk-dibeli')
+    // return <ProdukTerbeli />
+    console.log(this.props.children)
+  }
+
+  goToProdukDijual() {
+    this.props.history.push('/my-profile/produk-dijual')
+    // return <ProdukTerjual />
+    // console.log(this.props.children)
+  }
+
   logout() {
     var button = document.querySelector('#loadATag')
     button.classList.add('load')
@@ -206,6 +221,7 @@ class Header extends Component {
         }]
       })
       this.hideModalMyProfile()
+      this.props.history.push('/')
     }, 1500)
   }
 
@@ -271,7 +287,9 @@ class Header extends Component {
         <Col md={ 12 } className="colom-popover-bottom-afterLogin">
           <div className="header-profile-name">
             <p className="name-profile-header">
-              { localStorage.getItem('name') }
+              <Link to="/my-profile">
+                { localStorage.getItem('name') }
+              </Link>
             </p>
             <p className="wallet-profile-header">
               <img src={ wallet } alt="" width="20" />
@@ -279,19 +297,29 @@ class Header extends Component {
             </p>
             <ul className="ul-header-profile">
               <li>
-                <Link to="/my-profile/produk-dibeli">Produk Dibeli</Link>
+                <NavLink to="/my-profile/produk-dibeli" activeClassName="is-active">
+                  Produk Dibeli
+                </NavLink>
               </li>
               <li>
-                <Link to="/my-profile/produk-dijual">Produk Dijual</Link>
+                <NavLink to="/my-profile/produk-dijual" activeClassName="is-active">
+                  Produk Dijual
+                </NavLink>
               </li>
               <li>
-                <Link to="/my-profile/review">Review</Link>
+                <NavLink to="/my-profile/review" activeClassName="is-active">
+                  Review
+                </NavLink>
               </li>
               <li>
-                <Link to="/my-profile/chat">Chat</Link>
+                <NavLink to="/my-profile/chat" activeClassName="is-active">
+                  Chat
+                </NavLink>
               </li>
               <li>
-                <Link to="/my-profile/wishlist">Wishlist</Link>
+                <NavLink to="/my-profile/wishlist" activeClassName="is-active">
+                  Wishlist
+                </NavLink>
               </li>
               <li>
                 <a onClick={ this.logout } id="loadATag">Logout</a>
@@ -403,4 +431,6 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps) (withRouter(Header))
+export default connect(mapStateToProps, mapDispatchToProps, null, {
+  pure: false
+}) (withRouter(Header))

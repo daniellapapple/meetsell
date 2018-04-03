@@ -2,10 +2,7 @@ import React, { Component } from 'react'
 import {
   Grid
 } from 'react-bootstrap'
-import {
-  BrowserRouter as Router,
-  Route
-} from 'react-router-dom'
+import { Route } from 'react-router'
 
 import Header from './Header'
 import Breadcrumb from '../components/profile-seller-breadcrumb'
@@ -22,14 +19,10 @@ class Profile extends Component {
       <div className="profile-page">
         <Header />
         <Breadcrumb />
-        <Router>
-          <div>
-            <Route exact path="/profile-seller" component={ ProdukTerlaris } />
-            <Route path="/profile-seller/semua-produk" component={ SemuaProduk } />
-            <Route path="/profile-seller/produk-terlaris" component={ ProdukTerlaris } />
-            <Route path="/profile-seller/review" component={ Review } />
-          </div>
-        </Router>
+        <Route exact path="/profile-seller" component={ ProdukTerlaris } />
+        <Route path="/profile-seller/semua-produk" component={ SemuaProduk } />
+        <Route path="/profile-seller/produk-terlaris" component={ ProdukTerlaris } />
+        <Route path="/profile-seller/review" component={ Review } />
         <div className="content-footer">
           <Grid>
             <ContentFooter />

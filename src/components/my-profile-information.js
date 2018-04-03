@@ -50,6 +50,9 @@ class MyProfileInformation extends Component {
             <li>
               <NavLink to="/my-profile/wishlist" activeClassName="is-active">Wishlist</NavLink>
             </li>
+            <li>
+              <NavLink to="/my-profile/pengaturan" activeClassName="is-active">Pengaturan</NavLink>
+            </li>
           </ul>
         </div>
       </div>
