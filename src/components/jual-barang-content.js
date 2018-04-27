@@ -45,11 +45,11 @@ class JualBarangContent extends Component {
                   </p>
                 </Col>
                 <Col md={ 9 }>
-                  <input type="radio" id="s-option" name="selector" defaultChecked />
-                  <label htmlFor="s-option">New</label>
+                  <input type="radio" id="a-option" name="selector" defaultChecked />
+                  <label htmlFor="a-option">New</label>
 
-                  <input type="radio" id="t-option" name="selector" />
-                  <label htmlFor="t-option">Second-hand</label>
+                  <input type="radio" id="b-option" name="selector" />
+                  <label htmlFor="b-option">Second-hand</label>
                 </Col>
               </FormGroup>
               <FormGroup controlId="jualBarangTitle" className="hidden-xs hidden-sm visible-lg visible-md">
@@ -100,7 +100,7 @@ class JualBarangContent extends Component {
                 </Col>
                 <Col md={ 4 }>
                   <div className="jual-barang-checkbox-free">
-                    <input type="checkbox" id="switch" /><label htmlFor="switch">Free</label>
+                    <input type="checkbox" id="switchs" /><label htmlFor="switchs">Free</label>
                     <span>Free</span>
                   </div>
                 </Col>
@@ -163,7 +163,7 @@ class JualBarangContent extends Component {
                   <label htmlFor="t-option">Second-hand</label>
                 </Col>
               </FormGroup>
-              <FormGroup controlId="jualBarangTitle" className="visible-xs visible-sm hidden-lg hidden-md">
+              <FormGroup controlId="jualBarangTitle1" className="visible-xs visible-sm hidden-lg hidden-md">
                 <Col md={ 2 }>
                   <p className="jual-barang-form-label">Title</p>
                 </Col>
@@ -171,7 +171,7 @@ class JualBarangContent extends Component {
                   <FormControl type="text"></FormControl>
                 </Col>
               </FormGroup>
-              <FormGroup controlId="jualBarangCurrentLocation" className="visible-xs visible-sm hidden-lg hidden-md">
+              <FormGroup controlId="jualBarangCurrentLocation1" className="visible-xs visible-sm hidden-lg hidden-md">
                 <Col md={ 2 }>
                   <p className="jual-barang-form-label">
                     Current Location
@@ -181,7 +181,7 @@ class JualBarangContent extends Component {
                   <FormControl type="text"></FormControl>
                 </Col>
               </FormGroup>
-              <FormGroup controlId="jualBarangChooseCategory" className="visible-xs visible-sm hidden-lg hidden-md">
+              <FormGroup controlId="jualBarangChooseCategory1" className="visible-xs visible-sm hidden-lg hidden-md">
                 <Col md={ 2 }>
                   <p className="jual-barang-form-label">
                     Choose Category
@@ -198,7 +198,7 @@ class JualBarangContent extends Component {
                 </Col>
                 <Col md={ 3 }></Col>
               </FormGroup>
-              <FormGroup controlId="jualBarangPrice" className="visible-xs visible-sm hidden-lg hidden-md">
+              <FormGroup controlId="jualBarangPrice1" className="visible-xs visible-sm hidden-lg hidden-md">
                 <Col md={ 2 }>
                   <p className="jual-barang-form-label">
                     Price
@@ -207,8 +207,8 @@ class JualBarangContent extends Component {
                 <Col md={ 7 }>
                   <FormControl type="text"></FormControl>
                   <p className="jual-barang-checkbox-ongkos">
-                    <input id="box1" type="checkbox" />
-                    <label htmlFor="box1">Harga termasuk ongkos kirim</label>
+                    <input id="box2" type="checkbox" />
+                    <label htmlFor="box2">Harga termasuk ongkos kirim</label>
                   </p>
                 </Col>
                 <Col md={ 3 }>
@@ -218,7 +218,7 @@ class JualBarangContent extends Component {
                   </div>
                 </Col>
               </FormGroup>
-              <FormGroup controlId="jualBarangTelephone" className="visible-xs visible-sm hidden-lg hidden-md">
+              <FormGroup controlId="jualBarangTelephone1" className="visible-xs visible-sm hidden-lg hidden-md">
                 <Col md={ 2 }>
                   <p className="jual-barang-form-label">
                     Telephone
@@ -229,7 +229,7 @@ class JualBarangContent extends Component {
                 </Col>
                 <Col md={ 3 }></Col>
               </FormGroup>
-              <FormGroup controlId="jualBarangProductDesc" className="visible-xs visible-sm hidden-lg hidden-md">
+              <FormGroup controlId="jualBarangProductDesc1" className="visible-xs visible-sm hidden-lg hidden-md">
                 <Col md={ 2 }>
                   <p className="jual-barang-form-label">
                     Product Description

@@ -14,6 +14,7 @@ import KeranjangBelanja from './containers/KeranjangBelanja'
 import MyProfile from './containers/MyProfile'
 import JualBarang from './containers/JualBarang'
 import Login from './containers/Login'
+import Faq from './containers/Faq'
 
 import ChatListPeople from './components/chat-list-people'
 
@@ -38,6 +39,7 @@ class App extends Component {
         <Route path="/my-profile" component={ MyProfile } />
         <Route path="/jual-barang" component={ JualBarang } />
         <Route path="/login" component={ Login } />
+        <Route path="/faq" component={ Faq } />
         <ChatListPeople />
       </div>
     );

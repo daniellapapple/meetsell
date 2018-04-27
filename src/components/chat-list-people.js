@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import $ from 'jquery'
 
-import ChatPeople from './chat-people'
+// import ChatPeople from './chat-people'
 
 class ChatListPeople extends Component {
 
@@ -12,7 +12,7 @@ class ChatListPeople extends Component {
   render() {
     return (
       <div className="chat-list-people" id="chat-list-people">
-        <ChatPeople />
+        {/* <ChatPeople /> */}
         <div className="header-chat-list-people" id="header-chat-list-people" onClick={ this.toggleChatList }>
           <p>ini chat list people</p>
         </div>

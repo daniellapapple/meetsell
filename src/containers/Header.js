@@ -21,6 +21,7 @@ import {
   NavLink
 } from 'react-router-dom'
 import { connect } from 'react-redux'
+import $ from 'jquery'
 
 import { header_search } from '../actions/headerSearchAction'
 import { get_data_user } from '../actions/headerLoginAction'
@@ -28,7 +29,7 @@ import { get_data_user } from '../actions/headerLoginAction'
 import logo from '../assets/image/logo/logo-1.1.png'
 import pic1 from '../assets/image/jual-barang-camera-1.1.png'
 import cart from '../assets/image/icon-cart.png'
-import wallet from '../assets/image/wallet.png'
+import wallet from '../assets/image/wallet-teal.png'
 
 import ModalLogin from '../components/navbar-header-login-modal'
 import MyProfileModal from '../components/navbar-my-profile-modal'
@@ -71,6 +72,52 @@ class Header extends Component {
     this.goToProdukDibeli = this.goToProdukDibeli.bind(this)
     // this.goToProdukDijual = this.goToProdukDijual.bind(this)
     this.logout = this.logout.bind(this)
+  }
+
+  componentDidMount() {
+    var didScroll;
+    var lastScrollTop = 0;
+    var delta = 5;
+    var navbarHeight = $('#ini-navbar').outerHeight();
+
+    $(window).scroll(function(event){
+        didScroll = true;
+    });
+    
+    setInterval(function() {
+        if (didScroll) {
+            hasScrolled();
+            didScroll = false;
+        }
+    }, 0);
+    
+    function hasScrolled() {
+      // Make sure they scroll more than delta
+      var st = $(document).scrollTop().valueOf()
+
+      if(Math.abs(lastScrollTop - st) <= delta)
+          return;
+      
+      // If they scrolled down and are past the navbar, add class .nav-up.
+      // This is necessary so you never see what is "behind" the navbar.
+      if (st > lastScrollTop && st > navbarHeight){
+          // Scroll Down
+          $('#wrap-navbar').css({
+            top: '-164px',
+            transition: '0.3s all ease'
+          })
+      } else {
+          // Scroll Up
+          if(st + $(window).height() < $(document).height()) {
+              $('#wrap-navbar').css({
+                top: '0px',
+                transition: '0.3s all ease'
+              })
+          }
+      }
+      
+      lastScrollTop = st;
+    }
   }
 
   handleInputEmailLogin(e) {
@@ -331,8 +378,8 @@ class Header extends Component {
     )
 
     return (
-      <div>
-        <Navbar>
+      <div className="ini-navbar" id="wrap-navbar">
+        <Navbar id="ini-navbar">
           <Navbar.Header>
             <Navbar.Brand>
               <Link to="/">
@@ -387,13 +434,17 @@ class Header extends Component {
                 <ButtonToolbar className="hidden-xs">
                   <OverlayTrigger trigger="click" placement="bottom" overlay={ popOverBottomAfterLogin }>
                     <Button className="btn-block header-btn-user">
-                      { this.state.dataUser[0].name }
+                      <span className="name-header-login">
+                        { this.state.dataUser[0].name }
+                      </span>
                       { photo_user }
                     </Button>
                   </OverlayTrigger>
                 </ButtonToolbar>
                 <Button className="btn-block btn-login-modal hidden-lg hidden-md hidden-sm visible-xs" onClick={ this.showModalMyProfile }>
-                  { this.state.dataUser[0].name }
+                  <span className="name-header-login">
+                    { this.state.dataUser[0].name }
+                  </span>
                   { photo_user }
                 </Button>
               </NavItem>

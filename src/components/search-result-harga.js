@@ -14,13 +14,13 @@ class SearchResultHarga extends Component {
         <FormGroup>
           <InputGroup>
             <InputGroup.Addon>Rp</InputGroup.Addon>
-            <FormControl type="text" placeholder="Harga Maksimum"></FormControl>
+            <FormControl type="text" placeholder="Maksimum"></FormControl>
           </InputGroup>
         </FormGroup>
         <FormGroup>
           <InputGroup>
             <InputGroup.Addon>Rp</InputGroup.Addon>
-            <FormControl type="text" placeholder="Harga Minimum"></FormControl>
+            <FormControl type="text" placeholder="Minimum"></FormControl>
           </InputGroup>
         </FormGroup>
       </div>

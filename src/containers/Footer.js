@@ -4,6 +4,9 @@ import {
   Row,
   Col
 } from 'react-bootstrap'
+import {
+  Link
+} from 'react-router-dom'
 
 import logo from '../assets/image/logo/logo-1.1.png'
 
@@ -21,13 +24,13 @@ class Footer extends Component {
               <p>MEETSELL</p>
               <ul>
                 <li>
-                  <a href="#tentang-kami">Tentang Kami</a>
+                  <Link to="/faq/tentang-kami">Tentang Kami</Link>
                 </li>
                 <li>
-                  <a href="#privasi-policy">Privasi Policy</a>
+                  <Link to="/faq/privacy-policy">Privacy Policy</Link>
                 </li>
                 <li>
-                  <a href="#aturan-penggunaan">Aturan penggunaan</a>
+                  <Link to="/faq/aturan-penggunaan">Aturan Penggunaan</Link>
                 </li>
               </ul>
             </Col>
@@ -35,16 +38,16 @@ class Footer extends Component {
               <p>BANTUAN</p>
               <ul>
                 <li>
-                  <a href="#pembeli">Pembeli</a>
+                  <Link to="/faq/pembeli">Pembeli</Link>
                 </li>
                 <li>
-                  <a href="#penjual">Penjual</a>
+                  <Link to="/faq/penjual">Penjual</Link>
                 </li>
                 <li>
-                  <a href="#tata-cara-penjual">Tata cara Penjual</a>
+                  <Link to="/faq/tata-cara-penjual">Tata Cara Penjual</Link>
                 </li>
                 <li>
-                  <a href="#tata-cara-pembeli">Tata cara Pembeli</a>
+                  <Link to="/faq/tata-cara-pembeli">Tata Cara Pembeli</Link>
                 </li>
               </ul>
             </Col>

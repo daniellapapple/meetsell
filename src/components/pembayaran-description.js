@@ -231,34 +231,34 @@ class DetailPesananDescription extends Component {
                   </Col>
                 </Row>
                 <Row>
-                  <Col md={ 6 } sm={ 8 }>
+                  <Col md={ 6 } sm={ 8 } xs={ 8 }>
                     <p className="detail-pesanan-harga-barang">Harga Barang</p>
                   </Col>
-                  <Col md={ 6 } sm={ 4 }>
+                  <Col md={ 6 } sm={ 4 } xs={ 4 }>
                     <p className="detail-pesanan-rp-harga-barang">Rp 190.000</p>
                   </Col>
                 </Row>
                 <Row>
-                  <Col md={ 6 } sm={ 8 }>
+                  <Col md={ 6 } sm={ 8 } xs={ 8 }>
                     <p className="detail-pesanan-biaya-admin">Biaya Admin</p>
                   </Col>
-                  <Col md={ 6 } sm={ 4 }>
+                  <Col md={ 6 } sm={ 4 } xs={ 4 }>
                     <p className="detail-pesanan-rp-biaya-admin">Rp 0</p>
                   </Col>
                 </Row>
                 <Row>
-                  <Col md={ 6 } sm={ 8 }>
+                  <Col md={ 6 } sm={ 8 } xs={ 8 }>
                     <p className="detail-pesanan-biaya-safe">Biaya Safe Pay</p>
                   </Col>
-                  <Col md={ 6 } sm={ 4 }>
+                  <Col md={ 6 } sm={ 4 } xs={ 4 }>
                     <p className="detail-pesanan-rp-biaya-safe">Rp 10.000</p>
                   </Col>
                 </Row>
                 <Row>
-                  <Col md={ 6 } sm={ 8 }>
+                  <Col md={ 6 } sm={ 8 } xs={ 8 }>
                     <p className="detail-pesanan-total">Total</p>
                   </Col>
-                  <Col md={ 6 } sm={ 4 }>
+                  <Col md={ 6 } sm={ 4 } xs={ 4 }>
                     <p className="detail-pesanan-rp-total">Rp 200.000</p>
                   </Col>
                 </Row>

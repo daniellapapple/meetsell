@@ -3,6 +3,9 @@ import {
   Row,
   Col
 } from 'react-bootstrap'
+import {
+  Redirect
+} from 'react-router'
 import $ from 'jquery'
 
 import location from '../assets/image/recommend-item-location.png'
@@ -13,10 +16,12 @@ class SearchResultProductItem extends Component {
     super(props)
 
     this.state = {
-      idtoggle: ''
+      idtoggle: '',
+      redirect: false
     }
 
     this.toggleWishlist = this.toggleWishlist.bind(this)
+    this.goToProductItem = this.goToProductItem.bind(this)
   }
 
   toggleWishlist(id) {
@@ -28,8 +33,18 @@ class SearchResultProductItem extends Component {
     }, 300)
   }
 
+  goToProductItem() {
+    this.setState({
+      redirect: true
+    })
+  }
+
   render() {
-    const idToggle = this.state.idToggle
+    const { idToggle, redirect } = this.state
+
+    if (redirect) {
+      return <Redirect to="/clothes/id/12345678" />
+    }
 
     return (
       <div>
@@ -40,7 +55,7 @@ class SearchResultProductItem extends Component {
               id={ (idToggle === 'aaa') ? idToggle : 'ini aaa' } onClick={ () => this.toggleWishlist('aaa') }
             >
             </div>
-            <div className="recommend-wrap-item">
+            <div className="recommend-wrap-item" onClick={ this.goToProductItem }>
               <div className="image-item">
                 <img src="https://www.bigissueshop.com/media/product/2017/10/05/845_2077_w300.jpg" alt="" className="img-responsive" />
               </div>

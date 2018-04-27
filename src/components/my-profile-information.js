@@ -6,7 +6,7 @@ import {
   NavLink
 } from 'react-router-dom'
 
-import wallet from '../assets/image/wallet.png'
+import wallet from '../assets/image/wallet-teal.png'
 
 class MyProfileInformation extends Component {
 

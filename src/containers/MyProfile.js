@@ -17,6 +17,8 @@ import Footer from './Footer'
 class MyProfile extends Component {
 
   componentDidMount() {
+    window.scrollTo(0, 0)
+
     if (!localStorage.getItem('qwerty')) {
       this.props.history.push('/')
     }

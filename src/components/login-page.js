@@ -28,6 +28,7 @@ class LoginPage extends Component {
       emailValidation: '',
       emailInputStatus: false,
       passwordInputan: '',
+      passwordValidation: '',
       wrongInputanLogin: ''
     }
 
@@ -65,6 +66,11 @@ class LoginPage extends Component {
     this.setState({
       passwordInputan: e.target.value
     })
+    if (e.target.value.length > 0) {
+      this.setState({
+        passwordValidation: ''
+      })
+    }
   }
 
   async handleSubmitLogin(e) {
@@ -105,6 +111,11 @@ class LoginPage extends Component {
           this.props.history.push('/')
         }
       }, 1500)
+    } else {
+      this.setState({
+        emailValidation: 'Email harus di isi!',
+        passwordValidation: 'Password harus di isi!'
+      })
     }
   }
 
@@ -150,6 +161,7 @@ class LoginPage extends Component {
                     </InputGroup.Addon>
                     <FormControl type="password" placeholder="Password" onChange={ this.handleInputPassword } />
                   </InputGroup>
+                  <p className="login-input-validation">{ this.state.passwordValidation }</p>
                 </FormGroup>
                 <div className="login-checkbox">
                   <Col md={ 6 } sm={ 6 } xs={ 6 }>

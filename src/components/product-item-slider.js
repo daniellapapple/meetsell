@@ -41,6 +41,11 @@ class ProductItemSlider extends Component {
         $(this).toggleClass('in-wishlist')
       })
     }
+
+    $('.thumbs-wrapper').attr('title', 'asd')
+    // $('.carousel')
+    // .find('ul.thumbs.animated')
+    // .attr('title', 'asd')
   }
 
   render() {

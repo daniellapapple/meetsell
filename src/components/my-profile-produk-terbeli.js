@@ -41,7 +41,7 @@ class MyProfileProdukTerbeli extends Component {
   }
 
   render() {
-    const { idToggle, redirect } = this.state
+    const { redirect } = this.state
 
     if (redirect) {
       return <Redirect to="/clothes/id/12345678" />
@@ -75,11 +75,6 @@ class MyProfileProdukTerbeli extends Component {
         </div>
         <div className="my-profile-wishlist-body">
           <Col md={ 4 }>
-            <div 
-              className="icon-wishlist" 
-              id={ (idToggle === 'aaa') ? idToggle : 'ini aaa' } onClick={ () => this.toggleWishlist('aaa') }
-            >
-            </div>
             <div className="recommend-wrap-item" onClick={ this.goToProductItem }>
               <div className="image-item">
                 <img src="http://www.satugadget.com.my/content/images/thumbs/0008014_apple-iphone-x-64gb-space-grey-original-malaysia-set_300.jpeg" alt="" className="img-responsive" />
@@ -97,11 +92,6 @@ class MyProfileProdukTerbeli extends Component {
             </div>
           </Col>
           <Col md={ 4 }>
-            <div 
-              className="icon-wishlist" 
-              id={ (idToggle === 'bbb') ? idToggle : 'ini aaa' } onClick={ () => this.toggleWishlist('bbb') }
-            >
-            </div>
             <div className="recommend-wrap-item">
               <div className="image-item">
                 <img src="http://www.hawkshop.com/webitemimages/103/W41820-t.jpg" alt="" className="img-responsive" />
@@ -119,11 +109,6 @@ class MyProfileProdukTerbeli extends Component {
             </div>
           </Col>
           <Col md={ 4 }>
-            <div 
-              className="icon-wishlist" 
-              id={ (idToggle === 'ccc') ? idToggle : 'ini aaa' } onClick={ () => this.toggleWishlist('ccc') }
-            >
-            </div>
             <div className="recommend-wrap-item">
               <div className="image-item">
                 <img src="http://www.anneahira.com/images_wp/cara-memilih-sepeda.jpg" alt="" className="img-responsive" />
@@ -141,11 +126,6 @@ class MyProfileProdukTerbeli extends Component {
             </div>
           </Col>
           <Col md={ 4 }>
-            <div 
-              className="icon-wishlist" 
-              id={ (idToggle === 'ddd') ? idToggle : 'ini aaa' } onClick={ () => this.toggleWishlist('ddd') }
-            >
-            </div>
             <div className="recommend-wrap-item">
               <div className="image-item">
                 <img src="https://www.bigissueshop.com/media/product/2017/10/05/845_2077_w300.jpg" alt="" className="img-responsive" />

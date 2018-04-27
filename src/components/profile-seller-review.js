@@ -87,16 +87,16 @@ class ProfileReview extends Component {
                 </div>
                 <div className="profile-review-item-rating">
                   <fieldset className="rating">
-                    <input type="radio" id="starss5" name="rating" value="5" /><label className = "full" htmlFor="starss5" title="Awesome - 5 stars"></label>
-                    <input type="radio" id="starss4half" name="rating" value="4 and a half" /><label className="half" htmlFor="starss4half" title="Pretty good - 4.5 stars"></label>
-                    <input type="radio" id="starss4" name="rating" value="4" /><label className = "full" htmlFor="starss4" title="Pretty good - 4 stars"></label>
-                    <input type="radio" id="starss3half" name="rating" value="3 and a half" /><label className="half" htmlFor="starss3half" title="Meh - 3.5 stars"></label>
-                    <input type="radio" id="starss3" name="rating" value="3" /><label className = "full" htmlFor="starss3" title="Meh - 3 stars"></label>
-                    <input type="radio" id="starss2half" name="rating" value="2 and a half" /><label className="half" htmlFor="starss2half" title="Kinda bad - 2.5 stars"></label>
-                    <input type="radio" id="starss2" name="rating" value="2" /><label className = "full" htmlFor="starss2" title="Kinda bad - 2 stars"></label>
-                    <input type="radio" id="starss1half" name="rating" value="1 and a half" /><label className="half" htmlFor="starss1half" title="Meh - 1.5 stars"></label>
-                    <input type="radio" id="starss1" name="rating" value="1" /><label className = "full" htmlFor="starss1" title="Sucks big time - 1 star"></label>
-                    <input type="radio" id="starsshalf" name="rating" value="half" /><label className="half" htmlFor="starsshalf" title="Sucks big time - 0.5 stars"></label>
+                    <input type="radio" id="starss5" name="ratings" value="5" /><label className = "full" htmlFor="starss5" title="Awesome - 5 stars"></label>
+                    <input type="radio" id="starss4half" name="ratings" value="4 and a half" /><label className="half" htmlFor="starss4half" title="Pretty good - 4.5 stars"></label>
+                    <input type="radio" id="starss4" name="ratings" value="4" /><label className = "full" htmlFor="starss4" title="Pretty good - 4 stars"></label>
+                    <input type="radio" id="starss3half" name="ratings" value="3 and a half" /><label className="half" htmlFor="starss3half" title="Meh - 3.5 stars"></label>
+                    <input type="radio" id="starss3" name="ratings" value="3" /><label className = "full" htmlFor="starss3" title="Meh - 3 stars"></label>
+                    <input type="radio" id="starss2half" name="ratings" value="2 and a half" /><label className="half" htmlFor="starss2half" title="Kinda bad - 2.5 stars"></label>
+                    <input type="radio" id="starss2" name="ratings" value="2" /><label className = "full" htmlFor="starss2" title="Kinda bad - 2 stars"></label>
+                    <input type="radio" id="starss1half" name="ratings" value="1 and a half" /><label className="half" htmlFor="starss1half" title="Meh - 1.5 stars"></label>
+                    <input type="radio" id="starss1" name="ratings" value="1" /><label className = "full" htmlFor="starss1" title="Sucks big time - 1 star"></label>
+                    <input type="radio" id="starsshalf" name="ratings" value="half" /><label className="half" htmlFor="starsshalf" title="Sucks big time - 0.5 stars"></label>
                   </fieldset>
                 </div>
                 <div className="profile-review-other-comment">
@@ -123,16 +123,16 @@ class ProfileReview extends Component {
                 </div>
                 <div className="profile-review-item-rating">
                   <fieldset className="rating">
-                    <input type="radio" id="stars5" name="rating" value="5" /><label className = "full" htmlFor="stars5" title="Awesome - 5 stars"></label>
-                    <input type="radio" id="stars4half" name="rating" value="4 and a half" /><label className="half" htmlFor="stars4half" title="Pretty good - 4.5 stars"></label>
-                    <input type="radio" id="stars4" name="rating" value="4" /><label className = "full" htmlFor="stars4" title="Pretty good - 4 stars"></label>
-                    <input type="radio" id="stars3half" name="rating" value="3 and a half" /><label className="half" htmlFor="stars3half" title="Meh - 3.5 stars"></label>
-                    <input type="radio" id="stars3" name="rating" value="3" /><label className = "full" htmlFor="stars3" title="Meh - 3 stars"></label>
-                    <input type="radio" id="stars2half" name="rating" value="2 and a half" /><label className="half" htmlFor="stars2half" title="Kinda bad - 2.5 stars"></label>
-                    <input type="radio" id="stars2" name="rating" value="2" /><label className = "full" htmlFor="stars2" title="Kinda bad - 2 stars"></label>
-                    <input type="radio" id="stars1half" name="rating" value="1 and a half" /><label className="half" htmlFor="stars1half" title="Meh - 1.5 stars"></label>
-                    <input type="radio" id="stars1" name="rating" value="1" /><label className = "full" htmlFor="stars1" title="Sucks big time - 1 star"></label>
-                    <input type="radio" id="starshalf" name="rating" value="half" /><label className="half" htmlFor="starshalf" title="Sucks big time - 0.5 stars"></label>
+                    <input type="radio" id="s5" name="rati" value="5" /><label className = "full" htmlFor="s5" title="Awesome - 5 stars"></label>
+                    <input type="radio" id="s4half" name="rati" value="4 and a half" /><label className="half" htmlFor="s4half" title="Pretty good - 4.5 stars"></label>
+                    <input type="radio" id="s4" name="rati" value="4" /><label className = "full" htmlFor="s4" title="Pretty good - 4 stars"></label>
+                    <input type="radio" id="s3half" name="rati" value="3 and a half" /><label className="half" htmlFor="s3half" title="Meh - 3.5 stars"></label>
+                    <input type="radio" id="s3" name="rati" value="3" /><label className = "full" htmlFor="s3" title="Meh - 3 stars"></label>
+                    <input type="radio" id="s2half" name="rati" value="2 and a half" /><label className="half" htmlFor="s2half" title="Kinda bad - 2.5 stars"></label>
+                    <input type="radio" id="s2" name="rati" value="2" /><label className = "full" htmlFor="s2" title="Kinda bad - 2 stars"></label>
+                    <input type="radio" id="s1half" name="rati" value="1 and a half" /><label className="half" htmlFor="s1half" title="Meh - 1.5 stars"></label>
+                    <input type="radio" id="s1" name="rati" value="1" /><label className = "full" htmlFor="s1" title="Sucks big time - 1 star"></label>
+                    <input type="radio" id="shalf" name="rati" value="half" /><label className="half" htmlFor="shalf" title="Sucks big time - 0.5 stars"></label>
                   </fieldset>
                 </div>
                 <div className="profile-review-other-comment">

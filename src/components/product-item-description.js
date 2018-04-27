@@ -8,6 +8,7 @@ import {
   Link,
   withRouter
 } from 'react-router-dom'
+import $ from 'jquery'
 
 import check from '../assets/image/product-item-check.png'
 import location from '../assets/image/product-item-location.png'
@@ -29,6 +30,10 @@ class ProductItemDescription extends Component {
 
   goToDetailPesanan() {
     this.props.history.push('/detail-pesanan')
+  }
+
+  showChatPeople() {
+    $('.chat-list-people').slideDown()
   }
 
   render() {
@@ -118,7 +123,7 @@ class ProductItemDescription extends Component {
             <Button className="btn-block" onClick={ this.handleAddToCartPage }>Tambah ke Keranjang</Button>
           </Col>
           <Col md={ 6 }>
-            <Button className="btn-block">Chat Penjual</Button>
+            <Button className="btn-block" onClick={ this.showChatPeople }>Chat Penjual</Button>
           </Col>
         </Row>
         <Row className="pro-item-button-beli-sekarang">

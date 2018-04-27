@@ -5,7 +5,7 @@ import {
   Col
 } from 'react-bootstrap'
 
-import wallet from '../assets/image/wallet.png'
+import wallet from '../assets/image/wallet-teal.png'
 
 class ModalLogin extends Component {
 
@@ -16,6 +16,7 @@ class ModalLogin extends Component {
         aria-labelledby="contained-modal-title-sm"
         show={ this.props.showModal }
         onHide={ this.props.hideModal }
+        className="navbar-my-profile-modal"
       >
         <Modal.Body>
         <Col md={ 12 }>

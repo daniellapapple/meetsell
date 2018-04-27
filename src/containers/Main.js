@@ -7,6 +7,10 @@ import Footer from './Footer'
 
 class Main extends Component {
 
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
+
   render() {
     return (
       <div>

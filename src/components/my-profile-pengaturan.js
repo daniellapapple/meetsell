@@ -105,7 +105,8 @@ class MyProfilePengaturan extends Component {
                 </Col>
               </FormGroup>
 
-              <Button>Simpan</Button>
+              <Button className="hidden-xs visible-lg visible-md visible-sm">Simpan</Button>
+              <Button className="btn-block hidden-lg hidden-md hidden-sm visible-xs">Simpan</Button>
             </Form>
             </div>
           </Col>

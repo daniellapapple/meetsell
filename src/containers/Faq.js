@@ -4,20 +4,16 @@ import {
 } from 'react-bootstrap'
 
 import Header from './Header'
-import Breadcrumb from '../components/keranjang-belanja-breadcrumb'
-import Content from '../components/keranjang-belanja-content'
+import Breadcrumb from '../components/faq-breadcrumb'
+import Content from '../components/faq-content'
 import ContentFooter from '../components/content-footer'
 import Footer from './Footer'
 
-class KeranjangBelanja extends Component {
-
-  componentDidMount() {
-    window.scrollTo(0, 0)
-  }
+class Faq extends Component {
 
   render() {
     return (
-      <div className="keranjang-belanja-page">
+      <div className="faq">
         <Header />
         <Breadcrumb />
         <Content />
@@ -33,4 +29,4 @@ class KeranjangBelanja extends Component {
 
 }
 
-export default KeranjangBelanja
+export default Faq
