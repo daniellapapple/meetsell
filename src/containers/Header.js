@@ -24,7 +24,7 @@ import { connect } from 'react-redux'
 import $ from 'jquery'
 
 import { header_search } from '../actions/headerSearchAction'
-import { get_data_user } from '../actions/headerLoginAction'
+// import { get_data_user } from '../actions/headerLoginAction' ==> ini ke redux
 
 import logo from '../assets/image/logo/logo-1.1.png'
 import pic1 from '../assets/image/jual-barang-camera-1.1.png'
@@ -169,7 +169,7 @@ class Header extends Component {
         localStorage.setItem('photo_key', resJson.data.photo_key)
         localStorage.setItem('lat', resJson.data.lat)
         localStorage.setItem('lng', resJson.data.lng)
-        this.props.getDataUser(resJson.data)
+        // this.props.getDataUser(resJson.data) ==> ini ke redux
         this.getDataLogin(resJson.data.name, resJson.data.email, resJson.data.phone, resJson.data.phone_code, resJson.data.photo_key, resJson.data.lat, resJson.data.lng)
         this.hideModalLogin()
       } else {
@@ -479,8 +479,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    headerSearch: (input) => dispatch(header_search(input)),
-    getDataUser: (data) => dispatch(get_data_user(data))
+    headerSearch: (input) => dispatch(header_search(input))
+    // ,
+    // getDataUser: (data) => dispatch(get_data_user(data)) ==> ini ke redux
   }
 }
 

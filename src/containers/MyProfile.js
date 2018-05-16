@@ -18,10 +18,6 @@ class MyProfile extends Component {
 
   componentDidMount() {
     window.scrollTo(0, 0)
-
-    if (!localStorage.getItem('qwerty')) {
-      this.props.history.push('/')
-    }
   }
 
   render() {
@@ -44,5 +40,4 @@ class MyProfile extends Component {
 
 }
 
-export default withRouter(MyProfile)
-// export default MyProfile
+export default MyProfile

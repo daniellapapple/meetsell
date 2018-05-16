@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router'
+import {
+  Route,
+  Redirect
+} from 'react-router'
+import { withRouter } from 'react-router-dom'
 
 import Main from './containers/Main'
 import Register from './containers/Register'
@@ -21,14 +25,19 @@ import ChatListPeople from './components/chat-list-people'
 class App extends Component {
 
   render() {
+    const PrivateRoute = ({ component: Component, ...rest }) => (
+      <Route { ...rest } render={(props) => (
+        localStorage.getItem('qwerty') !== null
+        ? <Component { ...props } />
+        : <Redirect to="/" />
+      )} />
+    )
+
     return (
       <div>
-        <Route exact path="/" component={ Main } 
-            />
-        <Route path="/register" component={ Register } 
-        />
-        <Route path="/search-result=:result" component={ SearchResult } 
-        />
+        <Route exact path="/" component={ Main } />
+        <Route path="/register" component={ Register } />
+        <Route path="/search-result=:result" component={ SearchResult } />
         <Route path="/clothes/id/12345678" component={ ProductItem } />
         <Route path="/detail-pesanan" component={ DetailPesanan } />
         <Route path="/pembayaran" component={ Pembayaran } />
@@ -36,7 +45,7 @@ class App extends Component {
         <Route path="/konfirmasi-cod" component={ KonfirmasiCod } />
         <Route path="/profile-seller" component={ ProfileSeller } />
         <Route path="/keranjang-belanja" component={ KeranjangBelanja } />
-        <Route path="/my-profile" component={ MyProfile } />
+        <PrivateRoute path="/my-profile" component={ MyProfile } />
         <Route path="/jual-barang" component={ JualBarang } />
         <Route path="/login" component={ Login } />
         <Route path="/faq" component={ Faq } />
@@ -46,4 +55,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
