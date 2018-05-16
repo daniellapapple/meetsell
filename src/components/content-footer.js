@@ -4,7 +4,11 @@ import {
   Col
 } from 'react-bootstrap'
 
-import ikon from '../assets/image/jual-barang-camera.png'
+import variasi from '../assets/image/content-footer/variasi.png'
+import jaminan from '../assets/image/content-footer/jaminan.png'
+import keamanan from '../assets/image/content-footer/keamanan.png'
+import manfaat from '../assets/image/content-footer/manfaat.png'
+
 
 class ContentFooter extends Component {
 
@@ -14,23 +18,23 @@ class ContentFooter extends Component {
         <Row>
           <Col md={ 3 } sm={ 3 } className="text-center">
             <div className="ikon-content-footer">
-              <img src={ ikon } width="50" alt="" />
+              <img src={ variasi } width="50" alt="" />
             </div>
             <div className="title-content-footer">
-              <p>Jaminan 100% Aman</p>
+              <p>Variasi Barang</p>
             </div>
           </Col>
           <Col md={ 3 } sm={ 3 } className="text-center">
             <div className="ikon-content-footer">
-              <img src={ ikon } width="50" alt="" />
+              <img src={ jaminan } width="50" alt="" />
             </div>
             <div className="title-content-footer">
-              <p>Manfaat Berlebihan</p>
+              <p>Jaminan 100% aman</p>
             </div>
           </Col>
           <Col md={ 3 } sm={ 3 } className="text-center">
             <div className="ikon-content-footer">
-              <img src={ ikon } width="50" alt="" />
+              <img src={ keamanan } width="50" alt="" />
             </div>
             <div className="title-content-footer">
               <p>Keamanan Bertransaksi</p>
@@ -38,10 +42,10 @@ class ContentFooter extends Component {
           </Col>
           <Col md={ 3 } sm={ 3 } className="text-center">
             <div className="ikon-content-footer">
-              <img src={ ikon } width="50" alt="" />
+              <img src={ manfaat } width="50" alt="" />
             </div>
             <div className="title-content-footer">
-              <p>Variasi Barang</p>
+              <p>Manfaat Berlebih</p>
             </div>
           </Col>
         </Row>

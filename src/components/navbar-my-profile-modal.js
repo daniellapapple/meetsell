@@ -4,6 +4,9 @@ import {
   Button,
   Col
 } from 'react-bootstrap'
+import {
+  NavLink
+} from 'react-router-dom'
 
 import wallet from '../assets/image/wallet-teal.png'
 
@@ -28,19 +31,19 @@ class ModalLogin extends Component {
             </p>
             <ul className="ul-header-profile-modal">
               <li>
-                <a>Produk Dibeli</a>
+                <NavLink to="/my-profile/produk-dibeli" activeClassName="is-active">Produk Dibeli</NavLink>
               </li>
               <li>
-                <a>Produk Dijual</a>
+                <NavLink to="/my-profile/produk-dijual" activeClassName="is-active">Produk Dijual</NavLink>
               </li>
               <li>
-                <a>Review</a>
+                <NavLink to="/my-profile/review" activeClassName="is-active">Review</NavLink>
               </li>
               <li>
-                <a>Chat</a>
+                <NavLink to="/my-profile/chat" activeClassName="is-active">Chat <span className="chat-notif-profile-modal">1</span></NavLink>
               </li>
               <li>
-                <a>Wishlist</a>
+                <NavLink to="/my-profile/wishlist" activeClassName="is-active">Wishlist</NavLink>
               </li>
               <li>
                 <a onClick={ this.props.logout } id="loadATag">Logout</a>

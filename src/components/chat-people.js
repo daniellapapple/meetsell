@@ -10,7 +10,9 @@ class ChatPeople extends Component {
         </div>
         <div className="body-chat-list-people" id="body-chat-list-people">
           <p>Tony Start</p>
-          <p>Tony Hawk</p>
+          <p className="chat-input-type">
+            <input type="text" />
+          </p>
         </div>
       </div>
     )

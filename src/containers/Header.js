@@ -69,8 +69,6 @@ class Header extends Component {
     this.hideModalLogin = this.hideModalLogin.bind(this)
     this.showModalMyProfile = this.showModalMyProfile.bind(this)
     this.hideModalMyProfile = this.hideModalMyProfile.bind(this)
-    this.goToProdukDibeli = this.goToProdukDibeli.bind(this)
-    // this.goToProdukDijual = this.goToProdukDijual.bind(this)
     this.logout = this.logout.bind(this)
   }
 
@@ -106,6 +104,7 @@ class Header extends Component {
             top: '-164px',
             transition: '0.3s all ease'
           })
+          // $('#wrap-navbar').slideUp()
       } else {
           // Scroll Up
           if(st + $(window).height() < $(document).height()) {
@@ -113,11 +112,20 @@ class Header extends Component {
                 top: '0px',
                 transition: '0.3s all ease'
               })
+              // $('#wrap-navbar').slideDown()
           }
       }
       
       lastScrollTop = st;
     }
+
+    if (localStorage.getItem('qwerty')) {
+      $('.navbar-toggle')
+      .after('<span class="navbar-toggle-notif">1</span>')
+    }
+
+    $('.far.fa-user')
+    .after('<span class="navbar-notif-tablet">1</span>')
   }
 
   handleInputEmailLogin(e) {
@@ -239,18 +247,6 @@ class Header extends Component {
     })
   }
 
-  goToProdukDibeli() {
-    // this.props.history.push('/my-profile/produk-dibeli')
-    // return <ProdukTerbeli />
-    console.log(this.props.children)
-  }
-
-  goToProdukDijual() {
-    this.props.history.push('/my-profile/produk-dijual')
-    // return <ProdukTerjual />
-    // console.log(this.props.children)
-  }
-
   logout() {
     var button = document.querySelector('#loadATag')
     button.classList.add('load')
@@ -269,6 +265,10 @@ class Header extends Component {
       })
       this.hideModalMyProfile()
       this.props.history.push('/')
+      $('.navbar-toggle-notif')
+      .css({
+        display: 'none'
+      })
     }, 1500)
   }
 
@@ -361,6 +361,7 @@ class Header extends Component {
               <li>
                 <NavLink to="/my-profile/chat" activeClassName="is-active">
                   Chat
+                  <span className="chat-notif-profile-modal">1</span>
                 </NavLink>
               </li>
               <li>
@@ -446,6 +447,7 @@ class Header extends Component {
                     { this.state.dataUser[0].name }
                   </span>
                   { photo_user }
+                  <span className="chat-notif-profile">1</span>
                 </Button>
               </NavItem>
             </Nav> }

@@ -33,7 +33,10 @@ class ProductItemDescription extends Component {
   }
 
   showChatPeople() {
-    $('.chat-list-people').slideDown()
+    $('.chat-list-people').css({
+      display: 'block'
+    })
+    $('#body-chat-list-people').slideDown()
   }
 
   render() {

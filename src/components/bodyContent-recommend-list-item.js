@@ -16,7 +16,8 @@ class Recommend_list_item extends Component {
     super(props)
 
     this.state = {
-      idToggle: ''
+      idToggle: '',
+      itemTitle: 'Jual kemeja Uniqlo Original Like New jarang Pake dijamin pokoknya. dilihat dulu. iya oke gimana? oke kok'
     }
 
     this.goToProductItem = this.goToProductItem.bind(this)
@@ -53,7 +54,7 @@ class Recommend_list_item extends Component {
             <div className="caption-item">
               <p className="caption-price">Rp 190.000</p>
               <p className="caption-description">
-                Jual kemeja Uniqlo Original Like New jarang Pake
+                { this.state.itemTitle.substr(0, 60) } ...
               </p>
               <p className="caption-location">
                 <img src={ location } width="18" alt="" />

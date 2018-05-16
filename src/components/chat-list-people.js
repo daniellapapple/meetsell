@@ -1,7 +1,12 @@
 import React, { Component } from 'react'
+import {
+  FormControl,
+  FormGroup
+} from 'react-bootstrap'
 import $ from 'jquery'
 
 // import ChatPeople from './chat-people'
+// import SendChat from '../assets/image/send-chat.png'
 
 class ChatListPeople extends Component {
 
@@ -9,16 +14,29 @@ class ChatListPeople extends Component {
     $('#body-chat-list-people').slideToggle()
   }
 
+  closeChat() {
+    $('.chat-list-people').css({
+      display: 'none'
+    })
+  }
+
   render() {
     return (
       <div className="chat-list-people" id="chat-list-people">
         {/* <ChatPeople /> */}
         <div className="header-chat-list-people" id="header-chat-list-people" onClick={ this.toggleChatList }>
-          <p>ini chat list people</p>
+          <p>
+            Tatjana Shapira Online
+            <span className="close-button" onClick={ this.closeChat }>x</span>
+          </p>
         </div>
         <div className="body-chat-list-people" id="body-chat-list-people">
-          <p>Tony Start</p>
-          <p>Tony Hawk</p>
+          <div className="chat-space">
+            <p>Hi, how are you?</p>
+          </div>
+          <FormGroup>
+            <FormControl type="text" placeholder="type your message..." />
+          </FormGroup>
         </div>
       </div>
     )

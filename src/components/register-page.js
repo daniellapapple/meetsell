@@ -135,7 +135,7 @@ class RegisterPage extends Component {
         })
       });
       let responseJson = await response.json();
-      // console.log(responseJson.data)
+      console.log(responseJson.data)
       console.log(responseJson.status.message)
       this.handleShowModal()
     }
@@ -160,11 +160,11 @@ class RegisterPage extends Component {
         <Grid>
           <Row>
             <Col md={ 12 } className="text-center">
-              <Link to="/">
-                <p>
+              <p>
+                <Link to="/">
                   <img src={ logo } alt="" width="250" />
-                </p>
-              </Link>
+                </Link>
+              </p>
               <p className="register-daftar-baru">
                 DAFTAR AKUN BARU SEKARANG
               </p>

@@ -42,16 +42,12 @@ class ProductItemSlider extends Component {
       })
     }
 
-    $('.thumbs-wrapper').attr('title', 'asd')
-    // $('.carousel')
-    // .find('ul.thumbs.animated')
-    // .attr('title', 'asd')
   }
 
   render() {
     return (
       <div>
-        <Carousel showArrows={ false }>
+        <Carousel showArrows={ false } className="pr_slider">
           <div id="slide1">
             <img src="https://basspro.scene7.com/is/image/BassPro/2269413_2269408_is?$Prod_PLPThumb$" alt="" />
           </div>
