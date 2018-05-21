@@ -64,7 +64,7 @@ class Recommend_list_item extends Component {
           </div>
         </Col>
         <Col md={ 3 } sm={ 6 }>
-          <div className="icon-wishlist" id={ (idToggle === 'bbb') ? idToggle : 'ini bbb' } onClick={ this.toggleWishlist.bind(this, 'bbb') }>
+          <div className="icon-wishlist" id={ (idToggle === 'bbb') ? idToggle : 'ini bbb' } onClick={ () => this.toggleWishlist('bbb') }>
           </div>
           <div className="recommend-wrap-item">
             <div className="image-item">

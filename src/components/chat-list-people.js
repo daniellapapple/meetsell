@@ -5,9 +5,6 @@ import {
 } from 'react-bootstrap'
 import $ from 'jquery'
 
-// import ChatPeople from './chat-people'
-// import SendChat from '../assets/image/send-chat.png'
-
 class ChatListPeople extends Component {
 
   toggleChatList() {
@@ -23,7 +20,6 @@ class ChatListPeople extends Component {
   render() {
     return (
       <div className="chat-list-people" id="chat-list-people">
-        {/* <ChatPeople /> */}
         <div className="header-chat-list-people" id="header-chat-list-people" onClick={ this.toggleChatList }>
           <p>
             Tatjana Shapira Online

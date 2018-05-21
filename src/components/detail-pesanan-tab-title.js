@@ -16,7 +16,7 @@ class DetailPesananTabTitle extends Component {
       $('.detail-pesanan-line-tab-1 span').css({
         border: '1px solid #26A69A'
       })
-    } 
+    }
     
     if (window.location.href.indexOf('pembayaran') !== -1) {
       $('.detail-pesanan-line-tab-1').css({
