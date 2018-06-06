@@ -9,10 +9,10 @@ class MyProfileReview extends Component {
     return (
       <div className="profile-review">
         <div className="profile-review-top">
-          <Col md={ 6 } sm={ 6 } xs={ 4 }>
+          <Col md={ 12 } sm={ 12 } xs={ 12 }>
             <p className="review">REVIEW</p>
           </Col>
-          <Col md={ 6 } sm={ 6 } xs={ 8 } className="text-right">
+          {/* <Col md={ 6 } sm={ 6 } xs={ 8 } className="text-right">
             <div className="profile-produk-bagikan">
               BAGIKAN:
               <div className="profile-produk-social-button">
@@ -30,7 +30,7 @@ class MyProfileReview extends Component {
                 </a>
               </div>
             </div>
-          </Col>
+          </Col> */}
         </div>
         <div className="profile-review-item">
           <div className="profile-review-wrap-item">

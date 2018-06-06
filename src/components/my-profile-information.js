@@ -6,33 +6,33 @@ import {
   NavLink
 } from 'react-router-dom'
 
-import wallet from '../assets/image/wallet-teal.png'
+// import wallet from '../assets/image/wallet-teal.png'
 
 class MyProfileInformation extends Component {
 
   render() {
+    let member_since = localStorage.getItem('member_since').substr(0, 10)
+    let d = new Date(member_since)
+    let dateToStr = d.toDateString()
+
     return (
       <div className="my-profile-information-wrap">
         <div className="my-profile-information-header"></div>
         <img src="https://ecs7.tokopedia.net/img/cache/300/product-1/2016/4/21/253544/253544_1b95828c-cbd0-4636-8dfc-c9f089eb578d.jpg" alt="" className="my-profile-information-image-header" />
         <div className="my-profile-information-nama-wrap">
-          <Col md={ 6 } sm={ 6 } xs={ 6 }>
-            <p className="my-profile-information-nama">Jack Black</p>
-          </Col>
-          <Col md={ 6 } sm={ 6 } xs={ 6 } className="text-right">
-            <p className="my-profile-information-edit">
-              <i className="far fa-edit"></i>
-              Edit
+          <Col md={ 12 } sm={ 12 } xs={ 12 }>
+            <p className="my-profile-information-nama">
+              { localStorage.getItem('name') }
             </p>
           </Col>
         </div>
         <p className="my-profile-member-since">
-          member since 12 Maret 2018
+          member since { dateToStr }
         </p>
-        <div className="my-profile-wallet">
+        {/* <div className="my-profile-wallet">
           <img src={ wallet } alt="" width="30" />
           Rp 200.000
-        </div>
+        </div> */}
         <div className="my-profile-information-list-link">
           <ul>
             <li>

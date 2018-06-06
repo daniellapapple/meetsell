@@ -45,18 +45,21 @@ class ProductItemSlider extends Component {
   }
 
   render() {
+    console.log(this.props.slider, 'ini slider')
+
     return (
       <div>
-        <Carousel showArrows={ false } className="pr_slider">
-          <div id="slide1">
-            <img src="https://basspro.scene7.com/is/image/BassPro/2269413_2269408_is?$Prod_PLPThumb$" alt="" />
-          </div>
-          <div id="slide2">
-            <img src="https://d2ul0w83gls0j4.cloudfront.net/taxonomy/300/0102/20171024151632.jpg" alt="" />
-          </div>
-          <div id="slide3">
-            <img src="https://d2ul0w83gls0j4.cloudfront.net/taxonomy/300/0108/20171024150159.jpg" alt="" />
-          </div>
+        <Carousel
+          showArrows={true}
+          className="pr_slider"
+        >
+          { this.props.slider.map((res, idx) => {
+            return (
+              <div id={ `slide${idx}` }>
+                <img src={ `https://s3-ap-southeast-1.amazonaws.com/meetsell-d/${res}` } key={idx} alt="" />
+              </div>
+            )
+          }) }
         </Carousel>
       </div>
     )

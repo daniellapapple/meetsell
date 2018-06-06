@@ -13,11 +13,17 @@ class ProductItem extends Component {
   }
 
   render() {
+    let objParam = {
+      id_user: this.props.match.params.id_user,
+      id_produk: this.props.match.params.id_produk,
+      nama_produk: this.props.match.params.nama_produk
+    };
+
     return (
       <div>
         <Header />
         <Breadcrumb />
-        <Description />
+        <Description param={ objParam } />
         <Recommend />
         <Footer />
       </div>

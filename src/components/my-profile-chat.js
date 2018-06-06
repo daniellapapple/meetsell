@@ -16,10 +16,10 @@ class MyProfileChat extends Component {
     return (
       <div className="my-profile-chat">
         <div className="my-profile-chat-top">
-          <Col md={ 6 } sm={ 6 } xs={ 4 }>
+          <Col md={ 12 } sm={ 12 } xs={ 12 }>
             <p className="chat">CHAT</p>
           </Col>
-          <Col md={ 6 } sm={ 6 } xs={ 8 } className="text-right">
+          {/* <Col md={ 6 } sm={ 6 } xs={ 8 } className="text-right">
             <div className="my-profile-chat-bagikan">
               BAGIKAN:
               <div className="my-profile-chat-social-button">
@@ -37,7 +37,7 @@ class MyProfileChat extends Component {
                 </a>
               </div>
             </div>
-          </Col>
+          </Col> */}
         </div>
         <div className="my-profile-chat-body">
           <Col md={ 4 }>

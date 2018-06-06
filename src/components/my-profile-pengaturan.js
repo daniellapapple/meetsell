@@ -14,10 +14,10 @@ class MyProfilePengaturan extends Component {
     return (
       <div className="my-profile-pengaturan">
         <div className="my-profile-pengaturan-top">
-          <Col md={ 6 } sm={ 6 } xs={ 4 }>
+          <Col md={ 12 } sm={ 12 } xs={ 12 }>
             <p className="pengaturan">PENGATURAN</p>
           </Col>
-          <Col md={ 6 } sm={ 6 } xs={ 8 } className="text-right">
+          {/* <Col md={ 6 } sm={ 6 } xs={ 8 } className="text-right">
             <div className="my-profile-pengaturan-bagikan">
               BAGIKAN:
               <div className="my-profile-pengaturan-social-button">
@@ -35,7 +35,7 @@ class MyProfilePengaturan extends Component {
                 </a>
               </div>
             </div>
-          </Col>
+          </Col> */}
         </div>
         <div className="my-profile-pengaturan-body">
           <Col md={ 3 }>
@@ -48,66 +48,66 @@ class MyProfilePengaturan extends Component {
           </Col>
           <Col md={ 9 }>
             <div className="my-profile-pengaturan-form">
-            <Form horizontal>
-              <FormGroup controlId="formHorizontalNama">
-                <Col componentClass={ControlLabel} sm={3}>
-                  Nama
-                </Col>
-                <Col sm={9}>
-                  <FormControl type="text" />
-                </Col>
-              </FormGroup>
+              <Form horizontal>
+                <FormGroup controlId="formHorizontalNama">
+                  <Col componentClass={ControlLabel} sm={3}>
+                    Nama
+                  </Col>
+                  <Col sm={9}>
+                    <FormControl type="text" />
+                  </Col>
+                </FormGroup>
 
-              <FormGroup controlId="formHorizontalNotlp">
-                <Col componentClass={ControlLabel} sm={3}>
-                  Nomor Telepon
-                </Col>
-                <Col sm={9}>
-                  <FormControl type="text" />
-                </Col>
-              </FormGroup>
+                <FormGroup controlId="formHorizontalNotlp">
+                  <Col componentClass={ControlLabel} sm={3}>
+                    Nomor Telepon
+                  </Col>
+                  <Col sm={9}>
+                    <FormControl type="text" />
+                  </Col>
+                </FormGroup>
 
-              <FormGroup controlId="formHorizontalAkunBank">
-                <Col componentClass={ControlLabel} sm={3}>
-                  Akun Bank
-                </Col>
-                <Col sm={9}>
-                  <FormControl type="text" />
-                </Col>
-              </FormGroup>
+                <FormGroup controlId="formHorizontalAkunBank">
+                  <Col componentClass={ControlLabel} sm={3}>
+                    Akun Bank
+                  </Col>
+                  <Col sm={9}>
+                    <FormControl type="text" />
+                  </Col>
+                </FormGroup>
 
-              <FormGroup controlId="formHorizontalLokasi">
-                <Col componentClass={ControlLabel} sm={3}>
-                  Lokasi
-                </Col>
-                <Col sm={9}>
-                  <FormControl type="text" />
-                </Col>
-              </FormGroup>
+                <FormGroup controlId="formHorizontalLokasi">
+                  <Col componentClass={ControlLabel} sm={3}>
+                    Lokasi
+                  </Col>
+                  <Col sm={9}>
+                    <FormControl type="text" />
+                  </Col>
+                </FormGroup>
 
-              <p className="line-form-email"></p>
+                <p className="line-form-email"></p>
 
-              <FormGroup controlId="formHorizontalEmail">
-                <Col componentClass={ControlLabel} sm={3}>
-                  Email
-                </Col>
-                <Col sm={9}>
-                  <FormControl type="email" />
-                </Col>
-              </FormGroup>
+                <FormGroup controlId="formHorizontalEmail">
+                  <Col componentClass={ControlLabel} sm={3}>
+                    Email
+                  </Col>
+                  <Col sm={9}>
+                    <FormControl type="email" />
+                  </Col>
+                </FormGroup>
 
-              <FormGroup controlId="formHorizontalPassword">
-                <Col componentClass={ControlLabel} sm={3}>
-                  Password
-                </Col>
-                <Col sm={9}>
-                  <FormControl type="password" />
-                </Col>
-              </FormGroup>
+                <FormGroup controlId="formHorizontalPassword">
+                  <Col componentClass={ControlLabel} sm={3}>
+                    Password
+                  </Col>
+                  <Col sm={9}>
+                    <FormControl type="password" />
+                  </Col>
+                </FormGroup>
 
-              <Button className="hidden-xs visible-lg visible-md visible-sm">Simpan</Button>
-              <Button className="btn-block hidden-lg hidden-md hidden-sm visible-xs">Simpan</Button>
-            </Form>
+                <Button className="hidden-xs visible-lg visible-md visible-sm">Simpan</Button>
+                <Button className="btn-block hidden-lg hidden-md hidden-sm visible-xs">Simpan</Button>
+              </Form>
             </div>
           </Col>
         </div>

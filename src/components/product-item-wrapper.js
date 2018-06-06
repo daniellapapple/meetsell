@@ -3,13 +3,40 @@ import {
   Grid,
   Row,
   Col
-} from 'react-bootstrap'
+} from 'react-bootstrap';
+
+import productService from '../lib/product-service';
 
 import SocialMediaButton from './product-item-socmed-button'
 import ProductSlider from './product-item-slider'
 import Description from './product-item-description'
 
 class ProductItemDescription extends Component {
+
+  constructor() {
+    super();
+
+    this.state = {
+      detailProSlider: []
+    }
+
+    this._getDetailProduct = this._getDetailProduct.bind(this);
+  };
+
+  componentDidMount() {
+    this._getDetailProduct();
+  };
+
+  _getDetailProduct() {
+    let id_produk = this.props.param.id_produk;
+    productService.getProductDetail(id_produk, (res) => {
+      this.setState({
+        detailProSlider: res.data.images
+      });
+    }, (err) => {
+      console.log(err);
+    });
+  };
 
   render() {
     return (
@@ -22,7 +49,7 @@ class ProductItemDescription extends Component {
                 <SocialMediaButton />
               </div>
               <div className="pro-item-slider">
-                <ProductSlider />
+    { this.state.detailProSlider.length > 0 && <ProductSlider slider={this.state.detailProSlider} /> }
               </div>
             </Col>
             <Col md={ 6 }>

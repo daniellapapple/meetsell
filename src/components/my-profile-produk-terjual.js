@@ -49,10 +49,10 @@ class MyProfileProdukTerjual extends Component {
     return (
       <div className="my-profile-wishlist">
         <div className="my-profile-wishlist-top">
-          <Col md={ 6 } sm={ 6 } xs={ 4 }>
+          <Col md={ 12 } sm={ 12 } xs={ 12 }>
             <p className="wishlist">PRODUK DIJUAL</p>
           </Col>
-          <Col md={ 6 } sm={ 6 } xs={ 8 } className="text-right">
+          {/* <Col md={ 6 } sm={ 6 } xs={ 8 } className="text-right">
             <div className="my-profile-wishlist-bagikan">
               BAGIKAN:
               <div className="my-profile-wishlist-social-button">
@@ -70,7 +70,7 @@ class MyProfileProdukTerjual extends Component {
                 </a>
               </div>
             </div>
-          </Col>
+          </Col> */}
         </div>
         <div className="my-profile-wishlist-body">
           <Col md={ 4 }>

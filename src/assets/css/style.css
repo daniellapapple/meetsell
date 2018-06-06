@@ -20,6 +20,10 @@ a:focus {
   text-decoration: none
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 /* ===== HEADER ===== */
 
 .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
@@ -1141,7 +1145,8 @@ a.link-wrap-product-item:hover {
 .recommend-wrap-item {
   border: 1px solid #e4e4e4;
   border-radius: 5px;
-  transition: all 0.3s ease
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
 }
 
 .recommend-wrap-item:hover {
@@ -1153,6 +1158,9 @@ a.link-wrap-product-item:hover {
   border-radius: 5px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .recommend-wrap-item .caption-item p {
@@ -1268,13 +1276,21 @@ p.content-footer-caption {
   margin-bottom: 20px;
 }
 
-@media (max-width: 991px) {
-  .content-footer .text-center.col-md-3 {
-    margin-bottom: 40px !important;
-  }
+.bodyContent-recommended .icon-wishlist {
+  cursor: pointer;
+  width: 22px;
+  height: 21px;
+  opacity: .5;
+  background: url('../image/wishlist-gray.png');
+  position: absolute;
+  bottom: 111px;
+  /* top: 15px; */
+  right: 29px;
+  background-size: 100%;
+  z-index: 999
 }
 
-.icon-wishlist {
+.product-item-description .icon-wishlist {
   cursor: pointer;
   width: 22px;
   height: 21px;
@@ -1286,6 +1302,7 @@ p.content-footer-caption {
   background-size: 100%;
   z-index: 999
 }
+
 .icon-wishlist:hover {
   opacity: 1;
 }
@@ -1301,6 +1318,17 @@ p.content-footer-caption {
   position: relative;
 }
 
+@media (max-width: 991px) {
+  .content-footer .text-center.col-md-3 {
+    margin-bottom: 40px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .icon-wishlist {
+    bottom: 91px;
+  }
+}
 
 /* ===== FOOTER ===== */
 
@@ -2068,6 +2096,9 @@ button.filter-modal-search-button.btn.btn-default {
 
 .image-item {
   position: relative;
+  height: 250px;
+  display: flex;
+  align-items: center;
 }
 
 button.btn-block.btn-filter.btn.btn-default {
@@ -2535,6 +2566,10 @@ p.pro-item-description {
   transform: translate3d(0px, 0px, 0px) !important;
 }
 
+.carousel .slider-wrapper.axis-horizontal .slider {
+  align-items: center;
+}
+
 @media (min-width: 768px) and (max-width: 1199px) {
   .product-item-breadcrumb {
     margin-top: 162px
@@ -2572,6 +2607,10 @@ p.pro-item-description {
 .detail-pesanan-tab-title p {
   color: #e4e4e4;
   font-weight: bold;
+}
+
+.detail-pesanan-tab-title p:hover {
+  cursor: pointer;
 }
 
 .detail-pesanan-tab-title {
@@ -3930,8 +3969,14 @@ p.my-profile-information-edit {
   overflow: hidden;
 }
 
+.my-profile-information-nama-wrap .col-md-12.col-sm-12.col-xs-12 {
+  padding: 0;
+}
+
 p.my-profile-member-since {
   color: gray;
+  border-bottom: 1px solid #e4e4e4;
+  padding-bottom: 35px;
 }
 
 .my-profile-wallet img {
@@ -5031,6 +5076,11 @@ p.login-wrong-inputan {
   font-size: 13px
 }
 
+.header-btn-user img {
+  margin-left: 5px;
+  border-radius: 50%
+}
+
 .header-btn-user i.far.fa-user {
   font-size: 15px;
   margin-left: 10px;
@@ -5044,10 +5094,6 @@ p.login-wrong-inputan {
 
 .header-btn-user.active a {
   background: transparent !important;
-}
-
-p.name-profile-header {
-  font-weight: bold;
 }
 
 .name-profile-header a {
@@ -5089,7 +5135,7 @@ ul.ul-header-profile {
   margin-right: 8px;
 }
 
-p.name-profile-header {
+p.name-profile-header a {
   font-weight: bold;
   border-bottom: 1px solid #e4e4e4;
   padding-bottom: 20px;
@@ -5141,6 +5187,11 @@ button.btn-block.btn-login-modal.btn.btn-default i.far.fa-user {
   background: #e4e4e4;
   color: gray;
   margin-top: -15px;
+}
+
+.btn-login-modal img {
+  margin-left: 5px;
+  border-radius: 50%
 }
 
 @media (max-width: 991px) {
@@ -5304,7 +5355,7 @@ span.chat-notif-profile {
   border-radius: 50%;
   position: relative;
   top: -10px;
-  left: -16px
+  left: 0px
   /* position: absolute;
   top: 4px;
   left: 188px; */
@@ -5453,4 +5504,44 @@ span.chat-notif-profile-modal {
 
 .faq-link-item .is-active {
   font-weight: bold
+}
+
+/* ========== FORGOT PASSWORD PAGE ========== */
+
+.forgot-password-page {
+  padding: 70px 0;
+  margin-bottom: 300px;
+}
+
+.forgot-password-wrap .forgot-password-caption:nth-last-child(2) {
+  margin-bottom: 0;
+}
+
+.forgot-password-wrap .forgot-password-caption:nth-last-child(1) {
+  margin-bottom: 25px;
+}
+
+.forgot-password-caption {
+  color: #333;
+}
+
+.forgot-password-page span.input-group-addon {
+  border: 1px solid #e4e4e4;
+  border-right: none;
+}
+
+.forgot-password-page .form-control {
+  border-color: #e4e4e4;
+  box-shadow: none;
+  border-left: none
+}
+
+p.forgot-password-form-label.text-center {
+  font-weight: bold;
+}
+
+.forgot-password-page button.btn-block.btn.btn-default {
+  background: #26A69A;
+  color: white;
+  border: none;
 }

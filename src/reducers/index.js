@@ -2,10 +2,10 @@ import {
   combineReducers
 } from 'redux'
 
-import HeaderSearchReducer from './headerSearchReducer'
-import HeaderLoginReducer from './headerLoginReducer'
+import searchReducer from './searchReducer'
+import userReducer from './userReducer'
 
 export default combineReducers({
-  HeaderSearchReducer,
-  HeaderLoginReducer
+  searchReducer,
+  userReducer
 })

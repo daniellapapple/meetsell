@@ -15,6 +15,8 @@ import {
   withRouter
 } from 'react-router-dom'
 
+import UserService from '../lib/user-service'
+
 import logo from '../assets/image/logo/logo-1.png'
 
 import ModalSuccess from './register-success-modal'
@@ -48,15 +50,17 @@ class RegisterPage extends Component {
   handleInputNama(e) {
     let valueNama = e.target.value
     this.setState({
-      namaInputan: e.target.value
+      namaInputan: valueNama
     })
     if (valueNama.length > 20) {
       this.setState({
-        namaValidation: 'Nama maksimal 20 karakter!'
+        namaValidation: 'Nama maksimal 20 karakter!',
+        namaInputStatus: false
       })
     } else if (valueNama.length === 0) {
       this.setState({
-        namaValidation: 'Nama harus di isi!'
+        namaValidation: 'Nama harus di isi!',
+        namaInputStatus: false
       })
     } else {
       this.setState({
@@ -77,11 +81,13 @@ class RegisterPage extends Component {
     })
     if (!validateEmail(valueEmail)) {
       this.setState({
-        emailValidation: 'Harap masukkan format email yang benar!'
+        emailValidation: 'Harap masukkan format email yang benar!',
+        emailInputStatus: false
       })
     } else if (valueEmail.length === 0) {
       this.setState({
-        emailValidation: 'Email harus di isi!'
+        emailValidation: 'Email harus di isi!',
+        emailInputStatus: false
       })
     } else {
       this.setState({
@@ -98,11 +104,13 @@ class RegisterPage extends Component {
     })
     if (valuePassword.length < 6) {
       this.setState({
-        passwordValidation: 'Password minimal 6 karakter!'
+        passwordValidation: 'Password minimal 6 karakter!',
+        passwordInputStatus: false
       })
     } else if (valuePassword.length === 0) {
       this.setState({
-        passwordValidation: 'Password harus di isi!'
+        passwordValidation: 'Password harus di isi!',
+        passwordInputStatus: false
       })
     } else {
       this.setState({
@@ -114,6 +122,10 @@ class RegisterPage extends Component {
 
   async handleSubmitRegister(e) {
     e.preventDefault()
+    let name = this.state.namaInputan
+    let email = this.state.emailInputan
+    let password = this.state.passwordInputan
+
     if (this.state.namaInputan === '' && this.state.emailInputan === '' && this.state.passwordInputan === '') {
       this.setState({
         namaValidation: 'Nama harus di isi!',
@@ -121,23 +133,11 @@ class RegisterPage extends Component {
         passwordValidation: 'Password harus di isi!'
       })
     } else if (this.state.namaInputStatus === true && this.state.emailInputStatus === true && this.state.passwordInputStatus === true) {
-     let response = await fetch(process.env.REACT_APP_MEET_API + 'signup', {
-        method: 'post',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          'name': this.state.namaInputan,
-          'email': this.state.emailInputan,
-          'password': this.state.passwordInputan,
-          'signup_method': 'default'
-        })
-      });
-      let responseJson = await response.json();
-      console.log(responseJson.data)
-      console.log(responseJson.status.message)
-      this.handleShowModal()
+      UserService.signUp(name, email, password, (res) => {
+        this.handleShowModal()
+      }, (error) => {
+        console.log(error)
+      })
     }
   }
 

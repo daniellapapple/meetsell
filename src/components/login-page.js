@@ -8,13 +8,13 @@ import {
   FormControl,
   Button
 } from 'react-bootstrap'
-import {
-  Link
-} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import { get_data_user } from '../actions/headerLoginAction'
+import UserService from '../lib/user-service'
+
+import { get_data_user } from '../actions/userAction'
 
 import logo from '../assets/image/logo/logo-1.png'
 
@@ -48,11 +48,13 @@ class LoginPage extends Component {
     })
     if (!validateEmail(valueEmail)) {
       this.setState({
-        emailValidation: 'Harap masukkan format email yang benar!'
+        emailValidation: 'Harap masukkan format email yang benar!',
+        emailInputStatus: false
       })
     } else if (valueEmail.length === 0) {
       this.setState({
-        emailValidation: 'Email harus di isi!'
+        emailValidation: 'Email harus di isi!',
+        emailInputStatus: false
       })
     } else {
       this.setState({
@@ -63,10 +65,11 @@ class LoginPage extends Component {
   }
 
   handleInputPassword(e) {
+    let valuePassword = e.target.value
     this.setState({
-      passwordInputan: e.target.value
+      passwordInputan: valuePassword
     })
-    if (e.target.value.length > 0) {
+    if (valuePassword.length > 0) {
       this.setState({
         passwordValidation: ''
       })
@@ -75,41 +78,48 @@ class LoginPage extends Component {
 
   async handleSubmitLogin(e) {
     e.preventDefault()
-    if (this.state.emailInputStatus === true) {
+    let email = this.state.emailInputan
+    let password = this.state.passwordInputan
+
+    if (this.state.emailInputStatus) {
       var button = document.querySelector('#loadButton')
       button.classList.add('load')
       setTimeout(async () => {
-        let fetch_login = await fetch(process.env.REACT_APP_MEET_API + 'login', {
-          method: 'post',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            'email': this.state.emailInputan,
-            'password': this.state.passwordInputan
-          })
+        UserService.login(email, password, (res) => {
+          console.log(res, 'ini result')
+          if (res.data === null) {
+            this.setState({
+              wrongInputanLogin: 'Email/Password Anda masukkan salah!'
+            })
+            button.classList.remove('load')
+          } else {
+            let id = res.data.id
+            let token = res.data.token
+            let name = res.data.name
+            let email = res.data.email
+            let phone = res.data.phone
+            let phone_code = res.data.phone_code
+            let photo_key = res.data.photo_key
+            let lat = res.data.lat
+            let lng = res.data.lng
+            let member_since = res.data.member_since
+
+            localStorage.setItem('id', id)
+            localStorage.setItem('token', token)
+            localStorage.setItem('name', name)
+            localStorage.setItem('email', email)
+            localStorage.setItem('phone', phone)
+            localStorage.setItem('phone_code', phone_code)
+            localStorage.setItem('photo_key', photo_key)
+            localStorage.setItem('lat', lat)
+            localStorage.setItem('lng', lng)
+            localStorage.setItem('member_since', member_since)
+            this.props.get_data_user(res.data)
+            this.props.history.push('/')
+          }
+        }, (error) => {
+          console.log(error)
         })
-
-        let resJson = await fetch_login.json()
-
-        if (resJson.data === null) {
-          this.setState({
-            wrongInputanLogin: 'Email/Password Anda masukkan salah!'
-          })
-          button.classList.remove('load')
-        } else {
-          localStorage.setItem('qwerty', resJson.data.token)
-          localStorage.setItem('name', resJson.data.name)
-          localStorage.setItem('email', resJson.data.email)
-          localStorage.setItem('phone', resJson.data.phone)
-          localStorage.setItem('phone_code', resJson.data.phone_code)
-          localStorage.setItem('photo_key', resJson.data.photo_key)
-          localStorage.setItem('lat', resJson.data.lat)
-          localStorage.setItem('lng', resJson.data.lng)
-          this.props.get_data_user(resJson.data)
-          this.props.history.push('/')
-        }
       }, 1500)
     } else {
       this.setState({
@@ -169,9 +179,7 @@ class LoginPage extends Component {
                     <label htmlFor="box1">Ingat saya</label>
                   </Col>
                   <Col md={ 6 } sm={ 6 } xs={ 6 } className="text-right">
-                    <a href="#forgot-password">
-                      Forgot password?
-                    </a>
+                    <Link to="/forgot-password">Forgot Password?</Link>
                   </Col>
                 </div>
                 <Button type="submit" id="loadButton" onClick={ this.handleSubmitLogin }>

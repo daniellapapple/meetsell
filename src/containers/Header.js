@@ -23,8 +23,10 @@ import {
 import { connect } from 'react-redux'
 import $ from 'jquery'
 
-import { header_search } from '../actions/headerSearchAction'
-// import { get_data_user } from '../actions/headerLoginAction' ==> ini ke redux
+import UserService from '../lib/user-service'
+
+import { header_search } from '../actions/searchAction'
+import { get_data_user } from '../actions/userAction'
 
 import logo from '../assets/image/logo/logo-1.1.png'
 import pic1 from '../assets/image/jual-barang-camera-1.1.png'
@@ -142,42 +144,47 @@ class Header extends Component {
 
   async handleSubmitLogin(e) {
     e.preventDefault()
+    let email = this.state.emailInputan
+    let password = this.state.passwordInputan
+
     var button = document.querySelector('#loadButton')
     button.classList.add('load')
     setTimeout(async () => {
-      let fetch_login = await fetch(process.env.REACT_APP_MEET_API + 'login', {
-        method: 'post',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          'email': this.state.emailInputan,
-          'password': this.state.passwordInputan
-        })
+      UserService.login(email, password, (res) => {
+        if (res.data === null) {
+          this.setState({
+            wrongInputan: 'Email/Password Anda masukkan salah!'
+          })
+          button.classList.remove('load')
+        } else {
+          let id = res.data.id
+          let token = res.data.token
+          let name = res.data.name
+          let email = res.data.email
+          let phone = res.data.phone
+          let phone_code = res.data.phone_code
+          let photo_key = res.data.photo_key
+          let lat = res.data.lat
+          let lng = res.data.lng
+          let member_since = res.data.member_since
+
+          localStorage.setItem('id', id)
+          localStorage.setItem('token', token)
+          localStorage.setItem('name', name)
+          localStorage.setItem('email', email)
+          localStorage.setItem('phone', phone)
+          localStorage.setItem('phone_code', phone_code)
+          localStorage.setItem('photo_key', photo_key)
+          localStorage.setItem('lat', lat)
+          localStorage.setItem('lng', lng)
+          localStorage.setItem('member_since', member_since)
+          this.props.getDataUser(res.data)
+          this.getDataLogin(name, email, phone, phone_code, photo_key, lat, lng)
+          this.hideModalLogin()
+        }
+      }, (error) => {
+        console.log(error)
       })
-
-      let resJson = await fetch_login.json()
-      console.log(resJson)
-
-      if (resJson.data !== null) {
-        localStorage.setItem('qwerty', resJson.data.token)
-        localStorage.setItem('name', resJson.data.name)
-        localStorage.setItem('email', resJson.data.email)
-        localStorage.setItem('phone', resJson.data.phone)
-        localStorage.setItem('phone_code', resJson.data.phone_code)
-        localStorage.setItem('photo_key', resJson.data.photo_key)
-        localStorage.setItem('lat', resJson.data.lat)
-        localStorage.setItem('lng', resJson.data.lng)
-        // this.props.getDataUser(resJson.data) ==> ini ke redux
-        this.getDataLogin(resJson.data.name, resJson.data.email, resJson.data.phone, resJson.data.phone_code, resJson.data.photo_key, resJson.data.lat, resJson.data.lng)
-        this.hideModalLogin()
-      } else {
-        button.classList.remove('load')
-        this.setState({
-          wrongInputan: 'Email/Password Anda masukkan salah!'
-        })
-      }
     }, 1500)
   }
 
@@ -251,23 +258,29 @@ class Header extends Component {
     var button = document.querySelector('#loadATag')
     button.classList.add('load')
     setTimeout(() => {
-      localStorage.clear()
-      this.setState({
-        dataUser: [{
-          'name': null,
-          'phone': null,
-          'phone_code': null,
-          'photo_key': null,
-          'email': null,
-          'lat': null,
-          'lng': null
-        }]
-      })
-      this.hideModalMyProfile()
-      this.props.history.push('/')
-      $('.navbar-toggle-notif')
-      .css({
-        display: 'none'
+      UserService.logout((error) => {
+        console.log(error)
+      }, (res) => {
+        if (res.status.code === 0) {
+          localStorage.clear()
+          this.setState({
+            dataUser: [{
+              'name': null,
+              'phone': null,
+              'phone_code': null,
+              'photo_key': null,
+              'email': null,
+              'lat': null,
+              'lng': null
+            }]
+          })
+          this.hideModalMyProfile()
+          this.props.history.push('/')
+          $('.navbar-toggle-notif')
+          .css({
+            display: 'none'
+          })
+        }
       })
     }, 1500)
   }
@@ -277,7 +290,7 @@ class Header extends Component {
     if (this.state.dataUser[0].photo_key === 'null' || this.state.dataUser[0].photo_key === null) {
       photo_user = <i className="far fa-user"></i>
     } else {
-      photo_user = <img src={ this.state.dataUser[0].photo_key } alt="" width="30" />
+      photo_user = <img src={ 'https://s3-ap-southeast-1.amazonaws.com/meetsell-d/' + this.state.dataUser[0].photo_key } alt="" width="30" />
     }
 
     const popOverBottomLogin = (
@@ -306,9 +319,9 @@ class Header extends Component {
                 <label htmlFor="box1">Ingat saya</label>
               </Col>
               <Col md={ 6 } sm={ 6 } xs={ 6 } className="text-right">
-                <a href="#forgot-password" className="navbar-forgot-password">
-                  Forgot password?
-                </a>
+                <Link to="/forgot-password" className="navbar-forgot-password">
+                  Forgot Password?
+                </Link>
               </Col>
             </div>
             <div className="navbar-login-notif-wrong">
@@ -334,6 +347,7 @@ class Header extends Component {
         <Col md={ 12 } className="colom-popover-bottom-afterLogin">
           <div className="header-profile-name">
             <p className="name-profile-header">
+              Halo,
               <Link to="/my-profile">
                 { localStorage.getItem('name') }
               </Link>
@@ -473,15 +487,14 @@ class Header extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    data_user: state.HeaderLoginReducer.dataUser
+    data_user: state.userReducer.dataUser
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    headerSearch: (input) => dispatch(header_search(input))
-    // ,
-    // getDataUser: (data) => dispatch(get_data_user(data)) ==> ini ke redux
+    headerSearch: (input) => dispatch(header_search(input)),
+    getDataUser: (data) => dispatch(get_data_user(data))
   }
 }
 

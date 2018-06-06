@@ -1,16 +1,45 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import {
   Grid,
   Row,
   Col,
   Pagination
-} from 'react-bootstrap'
+} from 'react-bootstrap';
 
-import RecommendListItem from '../components/bodyContent-recommend-list-item'
+import productService from '../lib/product-service';
+
+import RecommendListItem from '../components/bodyContent-recommend-list-item';
 import PopulerListItem from '../components/bodyContent-populer-list-item'
-import ContentFooter from '../components/content-footer'
+import ContentFooter from '../components/content-footer';
 
 class BodyContent extends Component {
+
+  constructor() {
+    super();
+
+    this.state = {
+      productFeed: [],
+      productFeedTitle: ''
+    };
+
+    this._getFeed = this._getFeed.bind(this);
+  };
+
+  componentDidMount() {
+    this._getFeed();
+  };
+
+  _getFeed() {
+    productService.feed('page', (res) => {
+      if (res.status.code === 0) {
+        this.setState({
+          productFeed: res.data.products
+        });
+      };
+    }, (err) => {
+      console.log(err);
+    });
+  };
 
   render() {
     return (
@@ -25,10 +54,10 @@ class BodyContent extends Component {
                 <a href="#seeAll-recommend">See all</a>
               </Col>
             </Row>
-            <RecommendListItem />
+            <RecommendListItem product={ this.state.productFeed } />
           </Grid>
         </div>
-        <div className="bodyContent-terpopuler">
+        {/* <div className="bodyContent-terpopuler">
           <Grid>
             <Row>
               <Col md={ 6 } sm={ 6 } xs={ 6 } className="left-title">
@@ -58,16 +87,16 @@ class BodyContent extends Component {
               </Col>
             </Row>
           </Grid>
-        </div>
+        </div> */}
         <div className="content-footer">
           <Grid>
             <ContentFooter />
           </Grid>
         </div>
       </div>
-    )
-  }
+    );
+  };
 
-}
+};
 
-export default BodyContent
+export default BodyContent;

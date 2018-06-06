@@ -4,7 +4,8 @@ import {
   Col
 } from 'react-bootstrap'
 import {
-  withRouter
+  withRouter,
+  Link
 } from 'react-router-dom'
 import $ from 'jquery'
 
@@ -16,8 +17,7 @@ class Recommend_list_item extends Component {
     super(props)
 
     this.state = {
-      idToggle: '',
-      itemTitle: 'Jual kemeja Uniqlo Original Like New jarang Pake dijamin pokoknya. dilihat dulu. iya oke gimana? oke kok'
+      idToggle: ''
     }
 
     this.goToProductItem = this.goToProductItem.bind(this)
@@ -36,85 +36,49 @@ class Recommend_list_item extends Component {
     this.props.history.push('/clothes/id/12345678')
   }
 
+  formatCurrency(nominal) {
+    if (nominal === undefined || nominal === 0) {
+      return 'FREE';
+    }
+    let reverse = nominal.toString().split('').reverse().join('');
+    let formated = reverse.match(/\d{1,3}/g);
+    return 'Rp ' + formated.join('.').split('').reverse().join('')
+  }
+
   render() {
-    const idToggle = this.state.idToggle
+    console.log(this.props.product, 'ini product')
+    const idToggle = this.state.idToggle;
 
     return (
       <Row>
-        <Col md={ 3 } sm={ 6 }>
-          <div 
-            className="icon-wishlist" 
-            id={ (idToggle === 'aaa') ? idToggle : 'ini aaa' } onClick={ () => this.toggleWishlist('aaa') }
-          >
-          </div>
-          <div className="recommend-wrap-item" onClick={ this.goToProductItem }>
-            <div className="image-item">
-              <img src="https://www.bigissueshop.com/media/product/2017/10/05/845_2077_w300.jpg" alt="" className="img-responsive" />
-            </div>
-            <div className="caption-item">
-              <p className="caption-price">Rp 190.000</p>
-              <p className="caption-description">
-                { this.state.itemTitle.substr(0, 60) } ...
-              </p>
-              <p className="caption-location">
-                <img src={ location } width="18" alt="" />
-                Jakarta Pusat
-              </p>
-            </div>
-          </div>
-        </Col>
-        <Col md={ 3 } sm={ 6 }>
-          <div className="icon-wishlist" id={ (idToggle === 'bbb') ? idToggle : 'ini bbb' } onClick={ () => this.toggleWishlist('bbb') }>
-          </div>
-          <div className="recommend-wrap-item">
-            <div className="image-item">
-              <img src="https://www.uvicbookstore.ca/images/pic/sweatshirts.jpg" 
-              alt="" className="img-responsive"/>
-            </div>
-            <div className="caption-item">
-              <p className="caption-price">Rp 190.000</p>
-              <p className="caption-description">Jual kemeja Uniqlo Original Like New jarang Pake</p>
-              <p className="caption-location">
-                <img src={ location } width="18" alt="" />
-                Jawa Barat
-              </p>
-            </div>
-          </div>
-        </Col>
-        <Col md={ 3 } sm={ 6 }>
-          <div className="icon-wishlist" id={ (idToggle === 'ccc') ? idToggle : 'ini ccc' } onClick={ () => this.toggleWishlist('ccc') }>
-          </div>
-          <div className="recommend-wrap-item">
-            <div className="image-item">
-              <img src="http://www.patagonia.com/dis/dw/image/v2/ABBM_PRD/on/demandware.static/-/Sites-patagonia-master/default/dwcb979ba9/images/hi-res/84065_PBH.jpg?sw=300&sh=300&sfrm=png" alt="" className="img-responsive" />
-            </div>
-            <div className="caption-item">
-              <p className="caption-price">Rp 1.090.000</p>
-              <p className="caption-description">Jual kemeja Uniqlo Original Like New jarang Pake</p>
-              <p className="caption-location">
-                <img src={ location } width="18" alt="" />
-                Jakarta Barat
-              </p>
-            </div>
-          </div>
-        </Col>
-        <Col md={ 3 } sm={ 6 }>
-          <div className="icon-wishlist" id={ (idToggle === 'ddd') ? idToggle : 'ini ccc' } onClick={ () => this.toggleWishlist('ddd') }>
-          </div>
-          <div className="recommend-wrap-item">
-            <div className="image-item">
-              <img src="https://content.competitivecyclist.com/images/items/medium/CLB/CLB002W/CH.jpg" alt="" className="img-responsive" />
-            </div>
-            <div className="caption-item">
-              <p className="caption-price">Rp 190.000</p>
-              <p className="caption-description">Jual kemeja Uniqlo Original Like New jarang Pake</p>
-              <p className="caption-location">
-                <img src={ location } width="18" alt="" />
-                Jakarta Barat
-              </p>
-            </div>
-          </div>
-        </Col>
+        { this.props.product.map((res,idx) => {
+          return (
+            <Col md={ 3 } sm={ 6 } key={ idx }>
+              <Link to={ `/${res.seller_id}/${res.id}/${res.title.split(' ').join('-').toLowerCase()}` }>
+                <div className="recommend-wrap-item" onClick={ this.goToProductItem }>
+                  <div className="image-item">
+                    <img src={ `https://s3-ap-southeast-1.amazonaws.com/meetsell-d/${res.main_image_key}` } alt="" className="img-responsive" />
+                  </div>
+                  <div className="caption-item">
+                    <p className="caption-price">{ this.formatCurrency(res.price) }</p>
+                    <p className="caption-description" title={res.title}>
+                      { (res.title.length < 60) ? res.title : res.title.substr(0, 60) + '...' }
+                    </p>
+                    <p className="caption-location">
+                      <img src={ location } width="18" alt="" />
+                      Jakarta Pusat
+                    </p>
+                  </div>
+                </div>
+              </Link>
+              <div 
+                className="icon-wishlist" 
+                id={ (idToggle === res.id) ? idToggle : res.id } onClick={ () => this.toggleWishlist(res.id) }
+              >
+              </div>
+            </Col>
+          )
+        }) }
       </Row>
     )
   }

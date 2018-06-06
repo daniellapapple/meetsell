@@ -18,6 +18,7 @@ import MyProfile from './containers/MyProfile'
 import JualBarang from './containers/JualBarang'
 import Login from './containers/Login'
 import Faq from './containers/Faq'
+import ForgotPassword from './containers/ForgotPassword'
 
 import ChatListPeople from './components/chat-list-people'
 
@@ -26,7 +27,7 @@ class App extends Component {
   render() {
     const PrivateRoute = ({ component: Component, ...rest }) => (
       <Route { ...rest } render={(props) => (
-        localStorage.getItem('qwerty') !== null
+        localStorage.getItem('token') !== null
         ? <Component { ...props } />
         : <Redirect to="/" />
       )} />
@@ -37,7 +38,7 @@ class App extends Component {
         <Route exact path="/" component={ Main } />
         <Route path="/register" component={ Register } />
         <Route path="/search-result=:result" component={ SearchResult } />
-        <Route path="/clothes/id/12345678" component={ ProductItem } />
+        <Route path="/:id_user/:id_produk/:nama_produk" component={ ProductItem } />
         <Route path="/detail-pesanan" component={ DetailPesanan } />
         <Route path="/pembayaran" component={ Pembayaran } />
         <Route path="/konfirmasi-pembayaran" component={ KonfirmasiPembayaran } />
@@ -48,6 +49,7 @@ class App extends Component {
         <Route path="/jual-barang" component={ JualBarang } />
         <Route path="/login" component={ Login } />
         <Route path="/faq" component={ Faq } />
+        <Route path="/forgot-password" component={ ForgotPassword } />
         <ChatListPeople />
       </div>
     );

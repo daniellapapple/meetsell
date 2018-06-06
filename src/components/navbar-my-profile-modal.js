@@ -24,7 +24,9 @@ class ModalLogin extends Component {
         <Modal.Body>
         <Col md={ 12 }>
           <div className="header-profile-name-modal">
-            <p className="name-profile-header-modal">{ localStorage.getItem('name') }</p>
+            <p className="name-profile-header-modal">
+              { localStorage.getItem('name') }
+            </p>
             <p className="wallet-profile-header-modal">
               <img src={ wallet } alt="" width="20" />
               Rp 109.000
