@@ -17,13 +17,29 @@ class ProductItemDescription extends Component {
     super();
 
     this.state = {
-      detailProSlider: []
+      detailProSlider: [],
+      detailCaption: [{
+        category_id: null,
+        post_date: '',
+        title: '',
+        lat: null,
+        lng: null,
+        wish: false,
+        seller_id: null,
+        price: 0,
+        seen: null,
+        seller_photo_key: '',
+        condition: '',
+        seller_name: '',
+        desc: null,
+        images: []
+      }]
     }
 
     this._getDetailProduct = this._getDetailProduct.bind(this);
   };
 
-  componentDidMount() {
+  componentWillMount() {
     this._getDetailProduct();
   };
 
@@ -31,7 +47,23 @@ class ProductItemDescription extends Component {
     let id_produk = this.props.param.id_produk;
     productService.getProductDetail(id_produk, (res) => {
       this.setState({
-        detailProSlider: res.data.images
+        detailProSlider: res.data.images,
+        detailCaption: [{
+          category_id: res.data.category_id,
+          post_date: res.data.post_date,
+          title: res.data.title,
+          lat: res.data.lat,
+          lng: res.data.lng,
+          wish: res.data.wish,
+          seller_id: res.data.seller_id,
+          price: res.data.price,
+          seen: res.data.seen,
+          seller_photo_key: res.data.seller_photo_key,
+          condition: res.data.condition,
+          seller_name: res.data.seller_name,
+          desc: res.data.desc,
+          images: res.data.images
+        }]
       });
     }, (err) => {
       console.log(err);
@@ -49,11 +81,11 @@ class ProductItemDescription extends Component {
                 <SocialMediaButton />
               </div>
               <div className="pro-item-slider">
-    { this.state.detailProSlider.length > 0 && <ProductSlider slider={this.state.detailProSlider} /> }
+                { this.state.detailProSlider.length > 0 && <ProductSlider slider={this.state.detailProSlider} /> }
               </div>
             </Col>
             <Col md={ 6 }>
-              <Description />
+              <Description detailCaption={ this.state.detailCaption } />
             </Col>
           </Row>
         </div>

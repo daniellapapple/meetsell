@@ -25,11 +25,22 @@ import ChatListPeople from './components/chat-list-people'
 class App extends Component {
 
   render() {
-    const PrivateRoute = ({ component: Component, ...rest }) => (
+    const PrivateRouteMyProfile = ({ component: Component, ...rest }) => (
       <Route { ...rest } render={(props) => (
         localStorage.getItem('token') !== null
         ? <Component { ...props } />
         : <Redirect to="/" />
+      )} />
+    )
+
+    const PrivateRouteJualBarang = ({ component: Component, ...rest }) => (
+      <Route { ...rest } render={(props) => (
+        localStorage.getItem('token') !== null
+        ? <Component { ...props } />
+        : <Redirect to={{
+          pathname: '/login',
+          state: {codes: 'jual barang'}
+        }} />
       )} />
     )
 
@@ -43,10 +54,10 @@ class App extends Component {
         <Route path="/pembayaran" component={ Pembayaran } />
         <Route path="/konfirmasi-pembayaran" component={ KonfirmasiPembayaran } />
         <Route path="/konfirmasi-cod" component={ KonfirmasiCod } />
-        <Route path="/profile-seller" component={ ProfileSeller } />
+        <Route path="/profile/:id_user/:nama_user" component={ ProfileSeller } />
         <Route path="/keranjang-belanja" component={ KeranjangBelanja } />
-        <PrivateRoute path="/my-profile" component={ MyProfile } />
-        <Route path="/jual-barang" component={ JualBarang } />
+        <PrivateRouteMyProfile path="/profile/:id_user/:nama_user" component={ MyProfile } />
+        <PrivateRouteJualBarang path="/jual-barang" component={ JualBarang } />
         <Route path="/login" component={ Login } />
         <Route path="/faq" component={ Faq } />
         <Route path="/forgot-password" component={ ForgotPassword } />

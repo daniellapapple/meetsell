@@ -10,10 +10,13 @@ import {
 } from 'react-router-dom'
 import $ from 'jquery'
 
+import Env from '../lib/env';
+
 import check from '../assets/image/product-item-check.png'
 import location from '../assets/image/product-item-location.png'
 import views from '../assets/image/views-product.png'
 import time from '../assets/image/time-product.png'
+import calendar from '../assets/image/calendar-product.png'
 
 class ProductItemDescription extends Component {
 
@@ -40,31 +43,43 @@ class ProductItemDescription extends Component {
   }
 
   render() {
+    let timeWrap = Env.timeAgo(Env.getDateTimeFormat(this.props.detailCaption[0].post_date))
+    let imgWrap
+
+    if (timeWrap !== undefined) {
+      if (timeWrap.indexOf('-') === -1) {
+        imgWrap = <img src={ time } alt="" />
+      } else {
+        imgWrap = <img src={ calendar } alt="" />
+      }
+    }
+
     return (
       <div>
         <Row>
           <Col md={ 12 }>
-            <p className="pro-item-kondisi">BEKAS</p>
+            <p className="pro-item-kondisi">{ this.props.detailCaption[0].condition }</p>
           </Col>
         </Row>
         <Row>
           <Col md={ 12 }>
-            <p className="pro-item-harga">Rp 190.000</p>
+            <p className="pro-item-harga">{ Env.formatCurrency(this.props.detailCaption[0].price) }</p>
           </Col>
         </Row>
         <Row>
           <Col md={ 12 }>
-            <h2>Jual kemeja Uniqlo Original Like New jarang Pake</h2>
+            <h2>{ this.props.detailCaption[0].title }</h2>
           </Col>
         </Row>
         <Row>
-          <Col md={ 2 } sm={ 2 } xs={ 3 }>
-            <img src="http://i0.wp.com/infoheboh.com/wp-content/uploads/2015/11/Tatjana-Saphira-20.jpg?resize=300%2C300" alt="" />
+          <Col md={ 2 } sm={ 2 } xs={ 3 } className="text-center">
+            { (this.props.detailCaption[0].seller_photo_key !== null) ? <img src={ Env.urlS3(this.props.detailCaption[0].seller_photo_key) } alt="" /> : <p className="initial-name">{ Env.getInitialName(this.props.detailCaption[0].seller_name) }</p> }
+
           </Col>
           <Col md={ 10 } sm={ 10 } xs={ 9 }>
             <p className="pro-item-seller-name">
               <Link to="/profile-seller">
-                Tatjana Shapira Online
+                { this.props.detailCaption[0].seller_name }
               </Link>
               <img src={ check } alt="" className="pro-item-check-name" />
             </p>
@@ -97,10 +112,10 @@ class ProductItemDescription extends Component {
           <Col md={ 4 } sm={ 4 }>
             <span className="pro-item-hours">
               <Col md={ 3 } sm={ 3 } xs={ 3 }>
-                <img src={ time } alt="" />
+                { imgWrap }
               </Col>
               <Col md={ 9 } sm={ 9 } xs={ 9 }>
-                20 hours ago
+                { Env.timeAgo(Env.getDateTimeFormat(this.props.detailCaption[0].post_date)) }
               </Col>
             </span>
           </Col>
@@ -110,7 +125,7 @@ class ProductItemDescription extends Component {
                 <img src={ views } alt="" />
               </Col>
               <Col md={ 9 } sm={ 9 } xs={ 9 }>
-                1223 views
+                { this.props.detailCaption[0].seen } views
               </Col>
             </span>
           </Col>
@@ -118,14 +133,17 @@ class ProductItemDescription extends Component {
         <Row>
           <Col md={ 12 }>
             <p className="pro-item-deskripsi">DESKRIPSI PRODUK</p>
-            <p className="pro-item-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+            <p className="pro-item-description">{ this.props.detailCaption[0].desc }</p>
           </Col>
         </Row>
         <Row className="pro-item-button-keranjang">
-          <Col md={ 6 }>
+          <Col md={ 4 }>
             <Button className="btn-block" onClick={ this.handleAddToCartPage }>Tambah ke Keranjang</Button>
           </Col>
-          <Col md={ 6 }>
+          <Col md={ 4 }>
+            <Button className="btn-block" onClick={ this.showChatPeople }>Tambah ke Wishlist</Button>
+          </Col>
+          <Col md={ 4 }>
             <Button className="btn-block" onClick={ this.showChatPeople }>Chat Penjual</Button>
           </Col>
         </Row>

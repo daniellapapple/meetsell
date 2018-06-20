@@ -25,6 +25,8 @@ import $ from 'jquery'
 
 import UserService from '../lib/user-service'
 
+import Env from '../lib/env';
+
 import { header_search } from '../actions/searchAction'
 import { get_data_user } from '../actions/userAction'
 
@@ -286,9 +288,10 @@ class Header extends Component {
   }
 
   render() {
+    // PHOTO HEADER USER
     let photo_user
     if (this.state.dataUser[0].photo_key === 'null' || this.state.dataUser[0].photo_key === null) {
-      photo_user = <i className="far fa-user"></i>
+      photo_user = <span className="initial-name">{ Env.getInitialName(this.state.dataUser[0].name) }</span>
     } else {
       photo_user = <img src={ 'https://s3-ap-southeast-1.amazonaws.com/meetsell-d/' + this.state.dataUser[0].photo_key } alt="" width="30" />
     }
@@ -342,13 +345,15 @@ class Header extends Component {
       </Popover>
     )
 
+    let splitNama = localStorage.getItem('name').split(' ');
+    let joinNama = splitNama.join('-').toLowerCase();
     const popOverBottomAfterLogin = (
       <Popover id="popover-positioned-bottom-after-login">
         <Col md={ 12 } className="colom-popover-bottom-afterLogin">
           <div className="header-profile-name">
             <p className="name-profile-header">
               Halo,
-              <Link to="/my-profile">
+              <Link to={ `/profile/${localStorage.getItem('id')}/${joinNama}` }>
                 { localStorage.getItem('name') }
               </Link>
             </p>

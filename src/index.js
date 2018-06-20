@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
+import JavascriptTimeAgo from 'javascript-time-ago'
 
 import './index.css';
 import App from './App';
@@ -14,8 +15,11 @@ import './assets/fontawesome/web-fonts-with-css/css/fontawesome-all.css'
 
 import store from './store'
 
-import jQuery from 'jquery'
-window.$ = window.jQuery = jQuery
+import en from 'javascript-time-ago/locale/en'
+import ru from 'javascript-time-ago/locale/ru'
+
+JavascriptTimeAgo.locale(en)
+JavascriptTimeAgo.locale(ru)
 
 ReactDOM.render(
   <Provider store={ store }>

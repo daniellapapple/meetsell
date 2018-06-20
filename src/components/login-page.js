@@ -37,6 +37,10 @@ class LoginPage extends Component {
     this.handleSubmitLogin = this.handleSubmitLogin.bind(this)
   }
 
+  // componentWillReceiveProps(nextProps) {
+  //   console.log(nextProps, '===============')
+  // };
+
   handleInputEmail(e) {
     let valueEmail = e.target.value
     let validateEmail = (email) => {
@@ -115,7 +119,11 @@ class LoginPage extends Component {
             localStorage.setItem('lng', lng)
             localStorage.setItem('member_since', member_since)
             this.props.get_data_user(res.data)
-            this.props.history.push('/')
+            if (this.props.location.state !== undefined) {
+              this.props.history.push('/jual-barang');
+            } else {
+              this.props.history.push('/');
+            };
           }
         }, (error) => {
           console.log(error)

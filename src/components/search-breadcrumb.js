@@ -40,8 +40,9 @@ class SearchBreadcrumb extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    inputKategori: state.HeaderSearchReducer.kategoriSearch
-  }
-}
+    inputKategori: state.searchReducer.kategoriSearch
+  };
+};
 
-export default connect(mapStateToProps)(withRouter(SearchBreadcrumb))
+export default connect(mapStateToProps)(withRouter(SearchBreadcrumb));
+// export default withRouter(SearchBreadcrumb);

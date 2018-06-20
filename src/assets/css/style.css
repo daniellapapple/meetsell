@@ -26,6 +26,17 @@ a:hover {
 
 /* ===== HEADER ===== */
 
+span.initial-name {
+  background: #3E6270;
+  border-radius: 50%;
+  margin-left: 5px;
+  width: 35px;
+  display: inline-block;
+  height: 35px;
+  line-height: 35px;
+  margin-top: -8px;
+}
+
 .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
   background-color: transparent;
 }
@@ -376,11 +387,11 @@ span.navbar-notif-tablet {
   }
 }
 
-@media (max-width: 1199px) {
+/* @media (max-width: 1199px) {
   div#popover-positioned-bottom-before-login {
     margin-top: 41px;
   }
-}
+} */
 
 @media (max-width: 416px) {
   .navbar-toggle.collapsed {
@@ -935,11 +946,11 @@ span.navbar-notif-tablet {
 
 @media (min-width: 767px) and (max-width: 991px) {
   .navbar-header {
-    width: 100%
+    width: 22%
   }
 
   .navbar-form.navbar-left {
-    width: 78%
+    width: 59%
   }
 
   .navbar-left .header-input-search.form-group {
@@ -952,8 +963,19 @@ span.navbar-notif-tablet {
   }
 
   button.header-btn-jual-barang.btn.btn-default {
-    margin-left: 15px;
-    margin-right: 15px
+    margin-left: 11px;
+    margin-right: -12px;
+    font-size: 12px;
+  }
+
+  button.header-btn-cari.btn.btn-default {
+    padding: 9px 14px;
+    margin-left: 5px;
+    font-size: 12px;
+  }
+
+  div#popover-positioned-bottom-after-login {
+    left: 570px;
   }
 }
 
@@ -961,28 +983,27 @@ span.navbar-notif-tablet {
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .popover {
-    left: 511px !important;
+    left: 570px !important;
     width: 25% !important;
   }
 
-  .popover.bottom>.arrow {
-    left: 50% !important
+  #popover-positioned-bottom-before-login .popover.bottom>.arrow {
+    left: 72% !important
   }
 
   #popover-positioned-bottom-before-login {
-    left: 519px !important;
+    left: 516px !important;
     width: 30% !important;
   }
 }
 
 @media (min-width: 1024px) and (max-width: 1199px) {
   .popover {
-    left: 744px !important;
     width: 20% !important;
   }
 
-  .popover.bottom>.arrow {
-    left: 50% !important
+  #popover-positioned-bottom-before-loggin .popover.bottom>.arrow {
+    left: 62% !important
   }
 
   #popover-positioned-bottom-before-login {
@@ -993,7 +1014,7 @@ span.navbar-notif-tablet {
 
 @media (min-width: 768px) and (max-width: 1199px) {
   .navbar {
-    padding-bottom: 22px
+    padding-bottom: 0px
   }
 
   .header-input-search span.input-group {
@@ -1001,7 +1022,7 @@ span.navbar-notif-tablet {
   }
 
   .jumbotron-content {
-    margin-top: 162px !important
+    margin-top: 70px !important
   }
 
   span.name-header-login {
@@ -1024,11 +1045,12 @@ span.navbar-notif-tablet {
   }
 
   .navbar-header {
-    width: 100%
+    width: 18%
   }
 
   .header-btn-cari.btn.btn-default {
     width: 10%;
+    padding: 7px 0 !important;
   }
 
   button.header-btn-jual-barang.btn.btn-default {
@@ -1036,20 +1058,21 @@ span.navbar-notif-tablet {
     position: relative;
     left: 20px;
     margin-left: -2px;
-    margin-right: 30px
+    margin-right: 30px;
+    padding: 7px 0px !important;
   }
 
   .navbar-left {
     padding: 10px 0;
-    width: 83%;
+    width: 68%;
   }
 
   .navbar-left .header-input-search.form-group {
-    width: 57%;
+    width: 48%;
   }
 
   .navbar-left .form-group .input-group input[type=text] {
-    width: 204%
+    width: 140%
   }
 }
 
@@ -1103,6 +1126,16 @@ span.list-group-item:hover {
 
 .row-xs-list-group-item a:hover {
   background-color: #f5f5f5;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .list-group .list-group-item img {
+    width: 13%;
+  }
+
+  .jumbotron-content .list-group-item {
+    padding: 0px 15px 17px;
+  }
 }
 
 /* ===== BODY CONTENT ===== */
@@ -1326,7 +1359,7 @@ p.content-footer-caption {
 
 @media (max-width: 767px) {
   .icon-wishlist {
-    bottom: 91px;
+    bottom: 91px !important;
   }
 }
 
@@ -2117,6 +2150,17 @@ button.btn-block.btn-filter.btn.btn-default:focus {
 
 /* ========== PRODUCT ITEM PAGE ========== */
 
+p.initial-name {
+  background: #3E6270;
+  border-radius: 50%;
+  height: 65px;
+  color: white;
+  font-size: 20px;
+  width: 65px;
+  margin: auto;
+  line-height: 65px;
+}
+
 .product-item-breadcrumb i.fas.fa-home {
   margin-right: 5px;
 }
@@ -2275,7 +2319,7 @@ button.btn-block.btn-filter.btn.btn-default:focus {
 }
 
 .product-item-description img.pro-item-check-name {
-  width: 6%;
+  width: 3%;
   margin-left: 6px;
 }
 
@@ -2365,12 +2409,17 @@ button.btn-block.btn-filter.btn.btn-default:focus {
   color: #26A69A;
 }
 
+.product-item-description .pro-item-button-keranjang button.btn-block.btn.btn-default:hover {
+  background: #26A69A;
+  color: white;
+}
+
 .pro-item-location .col-md-10 {
   padding: 0;
 }
 
 .pro-item-hours img {
-  width: 100%;
+  width: 99%;
 }
 
 .pro-item-views img {
@@ -2539,7 +2588,14 @@ p.pro-item-description {
   transition: none;
   border: none;
   padding: 0;
-  margin-right: 10px
+  margin-right: 10px;
+  height: 80px;
+  display: inline-flex;
+}
+
+.carousel .thumb img {
+  vertical-align: top;
+  max-height: 100%;
 }
 
 .carousel .slider-wrapper {
@@ -4595,7 +4651,12 @@ p.line-form-email {
   }
 }
 
-/* ========== PROFILE PAGE ========== */
+/* ========== JUAL BARANG PAGE ========== */
+
+span.jual-barang-required {
+  color: indianred;
+  margin-left: 3px;
+}
 
 .jual-barang-breadcrumb {
   border-bottom: 1px solid #e4e4e4;
@@ -4618,24 +4679,31 @@ p.line-form-email {
 
 .jual-barang-content-wrap {
   padding: 30px 0;
-  margin-bottom: 300px
+  margin-bottom: 300px;
 }
 
 p.jual-barang-content-title {
   color: #333;
   font-weight: bold;
-  margin-bottom: 30px;
+  margin-bottom: 0px;
 }
 
 p.jual-barang-form-label {
   color: #333;
   font-weight: bold;
-  margin-bottom: 0
+  margin-bottom: 0;
 }
 
 p.jual-barang-upload-foto-label-bawah {
   color: silver;
   font-size: 11px;
+}
+
+p.jual-barang-validasi-required {
+  color: indianred;
+  font-style: italic;
+  font-size: 13px;
+  margin-bottom: 30px;
 }
 
 input#jualBarangUploadFoto {
@@ -4694,6 +4762,9 @@ input#jualBarangUploadFoto {
   -moz-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
+}
+.upload-zone.changed:before {
+  border-color: indianred;
 }
 .upload-zone:hover {
   background: #e4e4e4;
@@ -4767,11 +4838,6 @@ input#jualBarangUploadFoto {
 .upload-zone img {
   display: block;
   width: 40%;
-  -webkit-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -o-border-radius: 50%;
-  border-radius: 50%;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -4826,6 +4892,9 @@ input#jualBarangUploadFoto {
   -moz-box-shadow: inset 0 0 0 18px #fff;
   -webkit-box-shadow: inset 0 0 0 18px #fff;
   box-shadow: inset 0 0 0 18px #fff;
+}
+.jual-barang-content-wrap input[type="radio"] + label.changed:before {
+  border-color: indianred;
 }
 .jual-barang-content-wrap input[type="radio"] + label:after {
   top: 49%;
@@ -4940,6 +5009,10 @@ input#jualBarangTitle {
   border-color: #e4e4e4;
 }
 
+input#jualBarangTitle.changed {
+  border-color: indianred;
+}
+
 input#jualBarangTitle1 {
   box-shadow: none;
   border-color: #e4e4e4;
@@ -4948,6 +5021,10 @@ input#jualBarangTitle1 {
 input#jualBarangCurrentLocation {
   box-shadow: none;
   border-color: #e4e4e4;
+}
+
+input#jualBarangCurrentLocation.changed {
+  border-color: indianred;
 }
 
 input#jualBarangCurrentLocation1 {
@@ -4960,6 +5037,10 @@ select#jualBarangChooseCategory {
   border-color: #e4e4e4;
 }
 
+select#jualBarangChooseCategory.changed {
+  border-color: indianred;
+}
+
 select#jualBarangChooseCategory1 {
   box-shadow: none;
   border-color: #e4e4e4;
@@ -4970,9 +5051,18 @@ input#jualBarangPrice {
   border-color: #e4e4e4;
 }
 
+input#jualBarangPrice.changed {
+  border-color: indianred;
+}
+
 input#jualBarangPrice1 {
   box-shadow: none;
   border-color: #e4e4e4;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }
 
 input#jualBarangTelephone {
@@ -4990,9 +5080,50 @@ textarea#jualBarangProductDesc {
   border-color: #e4e4e4;
 }
 
+textarea#jualBarangProductDesc.changed {
+  border-color: indianred;
+}
+
 textarea#jualBarangProductDesc1 {
   box-shadow: none;
   border-color: #e4e4e4;
+}
+
+.jual-barang-image-preview-col-wrap {
+  display: flex;
+}
+
+.jual-barang-image-preview-wrap {
+  display: flex;
+  margin-right: 7px;
+  position: relative;
+  height: 75px;
+}
+
+.jual-barang-image-preview-wrap img.jual-barang-image-preview {
+  width: 74px;
+  border-radius: 5px;
+  max-width: 100%;
+}
+
+.jual-barang-image-preview-wrap i.far.fa-trash-alt {
+  position: absolute;
+  left: 57px;
+  top: 0px;
+  background: white;
+  padding-right: 5px;
+  padding-top: 5px;
+  padding-left: 3px;
+  padding-bottom: 5px;
+  border-bottom-left-radius: 5px;
+  border-top-right-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.jual-barang-image-preview-wrap i.far.fa-trash-alt:hover {
+  background: #3E6270;
+  color: white;
 }
 
 @media (min-width: 768px) and (max-width: 1199px) {
@@ -5154,7 +5285,7 @@ p.wallet-profile-header {
 
 div#popover-positioned-bottom-after-login {
   width: 15%;
-  margin-top: 16px
+  margin-top: 11px
 }
 
 a#loadATag:after {
@@ -5208,7 +5339,7 @@ button.btn-block.btn-login-modal.btn.btn-default i.far.fa-user {
 
 @media (max-width: 1199px) {
   div#popover-positioned-bottom-after-login {
-    margin-top: 38px;
+    margin-top: 12px;
   }
 }
 

@@ -15,10 +15,10 @@ class Jumbotron extends Component {
       <Grid>
         <div className="jumbotron-content">
           <Row>
-            <Col md={ 3 } className="hidden-xs">
+            <Col md={ 3 } sm={ 3 } className="hidden-xs">
               <JumboListGroupItem />
             </Col>
-            <Col md={ 9 } className="hidden-xs">
+            <Col md={ 9 } sm={ 9 } className="hidden-xs">
               <JumboSlider />
             </Col>
             <Col sm={ 12 } className="hidden-md visible-xs">
