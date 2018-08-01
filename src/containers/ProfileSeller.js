@@ -20,15 +20,16 @@ class Profile extends Component {
   }
 
   render() {
+    console.log(this.props.match.params.id_user, 'dari parent')
+
     return (
       <div className="profile-page">
         <Header />
         <Breadcrumb />
-        <Route exact path="/profile-seller" component={ ProdukTerlaris } />
-        <Route path="/profile-seller/semua-produk" component={ SemuaProduk } />
-        <Route path="/profile-seller/produk-terlaris" component={ ProdukTerlaris } />
-        <Route path="/profile-seller/review" component={ Review } />
-        <Route path="/profile-seller/laporkan" component={ Laporkan } />
+        <Route exact path="/profiles/:id_user/:nama_user/semua-produk" component={ SemuaProduk } />
+        <Route path="/profiles/:id_user/:nama_user/produk-terlaris" component={ ProdukTerlaris } />
+        <Route path="/profiles/:id_user/:nama_user/review" component={ Review } />
+        <Route path="/profiles/:id_user/:nama_user/laporkan" component={ Laporkan } />
         <div className="content-footer">
           <Grid>
             <ContentFooter />

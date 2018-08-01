@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import { Carousel } from 'react-responsive-carousel'
+import { connect } from 'react-redux'
+
+import Env from '../lib/env';
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 
@@ -12,13 +15,15 @@ class ProductItemSlider extends Component {
           showArrows={true}
           className="pr_slider"
         >
-          { this.props.slider.map((res, idx) => {
-            return (
-              <div id={ `slide${idx}` } key={idx}>
-                <img src={ `https://s3-ap-southeast-1.amazonaws.com/meetsell-d/${res}` } key={idx} alt="" />
+          {
+            this.props.productItem.productDetail &&
+            (this.props.param.id_produk === this.props.productItem.productDetail.data.product_id)
+            ? this.props.productItem.productDetail.data.images.map((item, idx) => {
+              return <div id={ `slide${idx}` } key={ idx }>
+                <img src={ Env.urlS3(item) } alt="" />
               </div>
-            )
-          }) }
+            }) : ''
+          }
         </Carousel>
       </div>
     )
@@ -26,4 +31,10 @@ class ProductItemSlider extends Component {
 
 }
 
-export default ProductItemSlider
+const mapStateToProps = (state) => {
+  return {
+    productItem: state.productReducer.productItem
+  }
+};
+
+export default connect(mapStateToProps)(ProductItemSlider);

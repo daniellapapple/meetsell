@@ -5,6 +5,9 @@ import {
   Col,
   Pagination
 } from 'react-bootstrap';
+import { connect } from 'react-redux';
+
+import { get_product_feed_api } from '../actions/productAction';
 
 import productService from '../lib/product-service';
 
@@ -30,15 +33,8 @@ class BodyContent extends Component {
   };
 
   _getFeed() {
-    productService.feed('page', (res) => {
-      if (res.status.code === 0) {
-        this.setState({
-          productFeed: res.data.products
-        });
-      };
-    }, (err) => {
-      console.log(err);
-    });
+    let page = 0;
+    this.props.product_feed(page);
   };
 
   render() {
@@ -99,4 +95,10 @@ class BodyContent extends Component {
 
 };
 
-export default BodyContent;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    product_feed: (page) => dispatch(get_product_feed_api(page))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(BodyContent);

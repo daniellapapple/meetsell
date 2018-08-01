@@ -1221,7 +1221,8 @@ a.link-wrap-product-item:hover {
 .recommend-wrap-item p.caption-location {
   color: gray;
   margin-top: 5px;
-  font-weight: lighter
+  font-weight: lighter;
+  font-size: 13px;
 }
 
 .recommend-wrap-item i.fas.fa-map-marker {
@@ -1245,6 +1246,9 @@ a.link-wrap-product-item:hover {
 
 .recommend-wrap-item .caption-location img {
   margin-right: 5px;
+  width: 6%;
+  position: relative;
+  top: -2px;
 }
 
 .bodyContent-terpopuler {
@@ -1316,14 +1320,14 @@ p.content-footer-caption {
   opacity: .5;
   background: url('../image/wishlist-gray.png');
   position: absolute;
-  bottom: 111px;
-  /* top: 15px; */
+  /* bottom: 111px; */
+  top: 15px;
   right: 29px;
   background-size: 100%;
   z-index: 999
 }
 
-.product-item-description .icon-wishlist {
+.product-item-recommend .icon-wishlist {
   cursor: pointer;
   width: 22px;
   height: 21px;
@@ -1349,6 +1353,25 @@ p.content-footer-caption {
 
 .bodyContent-recommended .col-md-3.col-sm-6 {
   position: relative;
+}
+
+.add-to-cart-icon {
+  width: 21px;
+  height: 21px;
+  display: inline-block;
+  position: absolute;
+  z-index: 999;
+  right: 29px;
+  bottom: 113px;
+  cursor: pointer;
+  background: url('../image/add-to-cart-product.png');
+  background-size: 100%;
+  transition: all 0.2s ease;
+}
+
+.add-to-cart-icon:hover {
+  background: url('../image/add-to-cart-product-hover.png');
+  background-size: 100%;
 }
 
 @media (max-width: 991px) {
@@ -2150,6 +2173,10 @@ button.btn-block.btn-filter.btn.btn-default:focus {
 
 /* ========== PRODUCT ITEM PAGE ========== */
 
+#login-alert-chat-penjual .popover-content {
+  color: indianred;
+}
+
 p.initial-name {
   background: #3E6270;
   border-radius: 50%;
@@ -2451,7 +2478,8 @@ p.initial-name {
 }
 
 p.pro-item-description {
-  color: #333
+  color: #333;
+  margin-bottom: 25px;
 }
 
 @media (min-width: 560px) and (max-width: 767px) {
@@ -3800,6 +3828,29 @@ button.btn-laporkan.btn.btn-default {
   margin-bottom: 0
 }
 
+.icon-wishlist {
+  cursor: pointer;
+  width: 22px;
+  height: 21px;
+  opacity: .5;
+  background: url('../image/wishlist-gray.png');
+  position: absolute;
+  bottom: 111px;
+  /* top: 15px; */
+  right: 29px;
+  background-size: 100%;
+  z-index: 999
+}
+
+.profile-information-wrap .initial-name {
+  width: 75px;
+  height: 75px;
+  line-height: 75px;
+  text-align: center;
+  position: relative;
+  top: -38px;
+}
+
 @media (max-width: 991px) {
   .profile-review-top {
     margin-top: 40px
@@ -3854,6 +3905,11 @@ p.keranjang-belanja-seller-name {
 
 .keranjang-belanja-wrap-item i.fas.fa-trash-alt {
   color: silver;
+  cursor: pointer;
+}
+
+.keranjang-belanja-wrap-item i.fas.fa-trash-alt:hover {
+  color: indianred;
 }
 
 .keranjang-belanja-wrap-image-item img {
@@ -3887,6 +3943,7 @@ p.keranjang-belanja-harga {
   overflow: hidden;
   border: 1px solid #e4e4e4;
   border-radius: 5px;
+  margin-bottom: 20px;
 }
 
 .keranjang-belanja-wrap-item-body {
@@ -3937,6 +3994,49 @@ p.keranjang-belanja-terms {
   color: white;
   font-weight: bold;
   border: none;
+}
+
+.keranjang-belanja-wrap-item-body
+.col-md-9 .col-md-10
+p:nth-last-child(1) {
+  color: silver;
+  cursor: pointer;
+  width: 60px;
+}
+
+.keranjang-belanja-wrap-item-body
+.col-md-9 .col-md-10
+p:nth-last-child(1):hover {
+  color: indianred;
+}
+
+.keranjang-belanja-wrap-item-body
+.col-md-9 .col-md-10
+p:nth-last-child(1):hover i {
+  color: indianred;
+}
+
+.keranjang-belanja-wrap-item-body
+.col-md-9 .col-md-10
+p:nth-last-child(1)
+i.fas.fa-trash-alt {
+  margin-right: 3px;
+}
+
+span.header-keranjang-belanja {
+  position: relative;
+}
+
+span.header-keranjang-belanja span {
+  position: absolute;
+  color: white;
+  background: indianred;
+  width: 17px;
+  height: 17px;
+  line-height: 17px;
+  text-align: center;
+  border-radius: 50%;
+  right: -40px;
 }
 
 @media (max-width: 991px) {
@@ -4344,6 +4444,15 @@ p.my-profile-chat-item-body-line {
 .my-profile-chat-item-body-chat-input {
   overflow: hidden;
   padding-right: 15px;
+}
+
+.my-profile-information-wrap .initial-name {
+  width: 75px;
+  height: 75px;
+  line-height: 75px;
+  position: relative;
+  top: -38px;
+  text-align: center;
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -5397,12 +5506,20 @@ p.wallet-profile-header-modal img {
 
 /* ========== CHAT LIST ========== */
 
-.chat-list-people {
+.chat-list-people-wrap {
   position: fixed;
   bottom: 0;
   right: 30px;
-  z-index: 999999999;
-  display: none
+  z-index: 9999999;
+}
+
+.chat-list-people {
+  /* position: fixed;
+  bottom: 0;
+  right: 30px;
+  z-index: 999999999; */
+  display: none;
+  margin: 0 5px;
 }
 
 .header-chat-list-people {
@@ -5427,6 +5544,7 @@ p.wallet-profile-header-modal img {
   display: none;
   padding: 0 10px;
   border: 1px solid #e4e4e4;
+  margin-bottom: -15px;
 }
 
 .body-chat-list-people p {
@@ -5445,9 +5563,9 @@ p.wallet-profile-header-modal img {
   box-shadow: none
 }
 
-.body-chat-list-people .form-group {
+/* .body-chat-list-people .form-group {
   margin-bottom: 7px
-}
+} */
 
 .chat-input-type .form-group {
   margin-bottom: 0
@@ -5472,6 +5590,11 @@ span.close-button {
   border-radius: 50%;
   width: 20px;
   text-align: center;
+  color: white;
+  position: relative;
+  right: 8px;
+  top: 10px;
+  cursor: pointer;
   transition: 0.2s all ease
 }
 

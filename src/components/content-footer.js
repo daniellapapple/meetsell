@@ -9,7 +9,6 @@ import jaminan from '../assets/image/content-footer/jaminan.png'
 import keamanan from '../assets/image/content-footer/keamanan.png'
 import manfaat from '../assets/image/content-footer/manfaat.png'
 
-
 class ContentFooter extends Component {
 
   render() {

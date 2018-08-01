@@ -6,6 +6,8 @@ import {
   NavLink
 } from 'react-router-dom'
 
+import Env from '../lib/env';
+
 // import wallet from '../assets/image/wallet-teal.png'
 
 class MyProfileInformation extends Component {
@@ -18,7 +20,9 @@ class MyProfileInformation extends Component {
     return (
       <div className="my-profile-information-wrap">
         <div className="my-profile-information-header"></div>
-        <img src="https://ecs7.tokopedia.net/img/cache/300/product-1/2016/4/21/253544/253544_1b95828c-cbd0-4636-8dfc-c9f089eb578d.jpg" alt="" className="my-profile-information-image-header" />
+        {/* <img src="https://ecs7.tokopedia.net/img/cache/300/product-1/2016/4/21/253544/253544_1b95828c-cbd0-4636-8dfc-c9f089eb578d.jpg" alt="" className="my-profile-information-image-header" /> */}
+        { (localStorage.getItem('photo_key') !== 'null') ? <img src={ Env.urlS3(localStorage.getItem('photo_key')) } alt="" className="my-profile-information-image-header" /> : <p className="initial-name">{ Env.getInitialName(localStorage.getItem('name')) }</p> }
+        {/* { imgWrap } */}
         <div className="my-profile-information-nama-wrap">
           <Col md={ 12 } sm={ 12 } xs={ 12 }>
             <p className="my-profile-information-nama">
@@ -36,22 +40,22 @@ class MyProfileInformation extends Component {
         <div className="my-profile-information-list-link">
           <ul>
             <li>
-              <NavLink to="/my-profile/produk-dibeli" activeClassName="is-active">Produk Dibeli</NavLink>
+              <NavLink to={ `/profile/${localStorage.getItem('id')}/${localStorage.getItem('name')}/produk-dibeli` } activeClassName="is-active">Produk Dibeli</NavLink>
             </li>
             <li>
-              <NavLink to="/my-profile/produk-dijual" activeClassName="is-active">Produk Dijual</NavLink>
+              <NavLink to={ `/profile/${localStorage.getItem('id')}/${localStorage.getItem('name')}/produk-dijual` } activeClassName="is-active">Produk Dijual</NavLink>
             </li>
             <li>
-              <NavLink to="/my-profile/review" activeClassName="is-active">Review</NavLink>
+              <NavLink to={ `/profile/${localStorage.getItem('id')}/${localStorage.getItem('name')}/review` } activeClassName="is-active">Review</NavLink>
             </li>
             <li>
-              <NavLink to="/my-profile/chat" activeClassName="is-active">Chat</NavLink>
+              <NavLink to={ `/profile/${localStorage.getItem('id')}/${localStorage.getItem('name')}/chat` } activeClassName="is-active">Chat</NavLink>
             </li>
             <li>
-              <NavLink to="/my-profile/wishlist" activeClassName="is-active">Wishlist</NavLink>
+              <NavLink to={ `/profile/${localStorage.getItem('id')}/${localStorage.getItem('name')}/wishlist` } activeClassName="is-active">Wishlist</NavLink>
             </li>
             <li>
-              <NavLink to="/my-profile/pengaturan" activeClassName="is-active">Pengaturan</NavLink>
+              <NavLink to={ `/profile/${localStorage.getItem('id')}/${localStorage.getItem('name')}/pengaturan` } activeClassName="is-active">Pengaturan</NavLink>
             </li>
           </ul>
         </div>

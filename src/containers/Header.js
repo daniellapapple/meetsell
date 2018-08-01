@@ -28,7 +28,7 @@ import UserService from '../lib/user-service'
 import Env from '../lib/env';
 
 import { header_search } from '../actions/searchAction'
-import { get_data_user } from '../actions/userAction'
+import { get_data_user, login_api, logout_api } from '../actions/userAction'
 
 import logo from '../assets/image/logo/logo-1.1.png'
 import pic1 from '../assets/image/jual-barang-camera-1.1.png'
@@ -144,50 +144,43 @@ class Header extends Component {
     })
   }
 
-  async handleSubmitLogin(e) {
+  handleSubmitLogin(e) {
     e.preventDefault()
     let email = this.state.emailInputan
     let password = this.state.passwordInputan
 
     var button = document.querySelector('#loadButton')
     button.classList.add('load')
-    setTimeout(async () => {
-      UserService.login(email, password, (res) => {
-        if (res.data === null) {
-          this.setState({
-            wrongInputan: 'Email/Password Anda masukkan salah!'
-          })
-          button.classList.remove('load')
-        } else {
-          let id = res.data.id
-          let token = res.data.token
-          let name = res.data.name
-          let email = res.data.email
-          let phone = res.data.phone
-          let phone_code = res.data.phone_code
-          let photo_key = res.data.photo_key
-          let lat = res.data.lat
-          let lng = res.data.lng
-          let member_since = res.data.member_since
+    let paramsData = {
+      email: email,
+      password: password
+    }
+    this.props.login(paramsData);
 
-          localStorage.setItem('id', id)
-          localStorage.setItem('token', token)
-          localStorage.setItem('name', name)
-          localStorage.setItem('email', email)
-          localStorage.setItem('phone', phone)
-          localStorage.setItem('phone_code', phone_code)
-          localStorage.setItem('photo_key', photo_key)
-          localStorage.setItem('lat', lat)
-          localStorage.setItem('lng', lng)
-          localStorage.setItem('member_since', member_since)
-          this.props.getDataUser(res.data)
-          this.getDataLogin(name, email, phone, phone_code, photo_key, lat, lng)
-          this.hideModalLogin()
-        }
-      }, (error) => {
-        console.log(error)
-      })
-    }, 1500)
+    setTimeout(() => {
+      let resData = this.props.data_user;
+
+      if (resData === null) {
+        this.setState({
+          wrongInputan: 'Email/Password Anda masukkan salah!'
+        })
+        button.classList.remove('load')
+      } else {
+        let id = resData.id;
+        let token = resData.token;
+        let name = resData.name;
+        let email = resData.email;
+        let phone = resData.phone;
+        let phone_code = resData.phone_code;
+        let photo_key = resData.photo_key;
+        let lat = resData.lat;
+        let lng = resData.lng;
+        let member_since = resData.member_since;
+
+        this.getDataLogin(name, email, phone, phone_code, photo_key, lat, lng)
+        this.hideModalLogin()
+      }
+    }, 1500);
   }
 
   getDataLogin(name, email, phone, phone_code, photo_key, lat, lng) {
@@ -259,31 +252,28 @@ class Header extends Component {
   logout() {
     var button = document.querySelector('#loadATag')
     button.classList.add('load')
+    this.props.logout();
     setTimeout(() => {
-      UserService.logout((error) => {
-        console.log(error)
-      }, (res) => {
-        if (res.status.code === 0) {
-          localStorage.clear()
-          this.setState({
-            dataUser: [{
-              'name': null,
-              'phone': null,
-              'phone_code': null,
-              'photo_key': null,
-              'email': null,
-              'lat': null,
-              'lng': null
-            }]
-          })
-          this.hideModalMyProfile()
-          this.props.history.push('/')
-          $('.navbar-toggle-notif')
-          .css({
-            display: 'none'
-          })
-        }
-      })
+      let logoutUser = this.props.logout_user;
+      if (logoutUser) {
+        this.setState({
+          dataUser: [{
+            'name': null,
+            'phone': null,
+            'phone_code': null,
+            'photo_key': null,
+            'email': null,
+            'lat': null,
+            'lng': null
+          }]
+        })
+        this.hideModalMyProfile()
+        this.props.history.push('/')
+        $('.navbar-toggle-notif')
+        .css({
+          display: 'none'
+        })
+      }
     }, 1500)
   }
 
@@ -345,15 +335,18 @@ class Header extends Component {
       </Popover>
     )
 
-    let splitNama = localStorage.getItem('name').split(' ');
-    let joinNama = splitNama.join('-').toLowerCase();
+    let joinNama;
+    if (localStorage.getItem('name') !== null) {
+      let splitNama = localStorage.getItem('name').split(' ');
+      joinNama = splitNama.join('-').toLowerCase();
+    }
     const popOverBottomAfterLogin = (
       <Popover id="popover-positioned-bottom-after-login">
         <Col md={ 12 } className="colom-popover-bottom-afterLogin">
           <div className="header-profile-name">
             <p className="name-profile-header">
               Halo,
-              <Link to={ `/profile/${localStorage.getItem('id')}/${joinNama}` }>
+              <Link to={ `/profile/${localStorage.getItem('id')}/${joinNama}/produk-dibeli` }>
                 { localStorage.getItem('name') }
               </Link>
             </p>
@@ -363,29 +356,34 @@ class Header extends Component {
             </p>
             <ul className="ul-header-profile">
               <li>
-                <NavLink to="/my-profile/produk-dibeli" activeClassName="is-active">
+                <NavLink to={ `/profile/${localStorage.getItem('id')}/${localStorage.getItem('name')}/produk-dibeli` } activeClassName="is-active">
                   Produk Dibeli
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/my-profile/produk-dijual" activeClassName="is-active">
+                <NavLink to={ `/profile/${localStorage.getItem('id')}/${localStorage.getItem('name')}/produk-dijual` } activeClassName="is-active">
                   Produk Dijual
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/my-profile/review" activeClassName="is-active">
+                <NavLink to={ `/profile/${localStorage.getItem('id')}/${localStorage.getItem('name')}/review` } activeClassName="is-active">
                   Review
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/my-profile/chat" activeClassName="is-active">
+                <NavLink to={ `/profile/${localStorage.getItem('id')}/${localStorage.getItem('name')}/chat` } activeClassName="is-active">
                   Chat
                   <span className="chat-notif-profile-modal">1</span>
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/my-profile/wishlist" activeClassName="is-active">
+                <NavLink to={ `/profile/${localStorage.getItem('id')}/${localStorage.getItem('name')}/wishlist` } activeClassName="is-active">
                   Wishlist
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to={ `/profile/${localStorage.getItem('id')}/${localStorage.getItem('name')}/pengaturan` } activeClassName="is-active">
+                  Pengaturan
                 </NavLink>
               </li>
               <li>
@@ -430,7 +428,10 @@ class Header extends Component {
                   Jual Barang
                 </Button>
                 <Link to="/keranjang-belanja">
-                  <img src={ cart } alt="" width="30" className="header-icon-cart hidden-xs" />
+                  {/* <span className="header-keranjang-belanja"> */}
+                    <img src={ cart } alt="" width="30" className="header-icon-cart hidden-xs" />
+                    {/* <span>1</span>
+                  </span> */}
                 </Link>
               </form>
             </Navbar.Form>
@@ -492,14 +493,17 @@ class Header extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    data_user: state.userReducer.dataUser
+    data_user: state.userReducer.dataUser,
+    logout_user: state.userReducer.logoutUser
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     headerSearch: (input) => dispatch(header_search(input)),
-    getDataUser: (data) => dispatch(get_data_user(data))
+    getDataUser: (data) => dispatch(get_data_user(data)),
+    login: (data) => dispatch(login_api(data)),
+    logout: () => dispatch(logout_api())
   }
 }
 

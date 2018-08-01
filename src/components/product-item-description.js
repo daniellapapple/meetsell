@@ -2,13 +2,23 @@ import React, { Component } from 'react'
 import {
   Row,
   Col,
-  Button
+  Button,
+  ButtonToolbar,
+  OverlayTrigger,
+  Popover
 } from 'react-bootstrap'
 import {
   Link,
   withRouter
 } from 'react-router-dom'
 import $ from 'jquery'
+import { connect } from 'react-redux';
+
+import {
+  chat_id_penjual,
+  get_data_guest_api
+} from '../actions/userAction';
+import { get_product_detail_item_feed_api, add_to_cart_api } from '../actions/productAction';
 
 import Env from '../lib/env';
 
@@ -22,65 +32,100 @@ class ProductItemDescription extends Component {
 
   constructor(props) {
     super(props)
-
+    
+    this.state = {
+      loginChanged: true
+    }
     this.handleAddToCartPage = this.handleAddToCartPage.bind(this)
     this.goToDetailPesanan = this.goToDetailPesanan.bind(this)
   }
 
-  handleAddToCartPage() {
-    this.props.history.push('/keranjang-belanja')
+  handleAddToCartPage(productId) {
+    // console.log(true, 'true');
+    this.props.add_to_cart(productId);
   }
 
   goToDetailPesanan() {
     this.props.history.push('/detail-pesanan')
   }
 
-  showChatPeople() {
-    $('.chat-list-people').css({
-      display: 'block'
-    })
-    $('#body-chat-list-people').slideDown()
-  }
+  showChatPeople(id, namaSeller) {
+    // let chatIdPeople = this.props.chatPenjualId;
+    // this.props.chatPenjualId(id);
+    // this.props.getProfileGuest(id)
+    // localStorage.setItem('seller-name', namaSeller)
+    // console.log(id, 'id show chat people')
+    // $(`#chat${id}`).css({
+    //   display: 'inline-block'
+    // });
+    this.props.getProfileGuest(id);
+  };
 
   render() {
-    let timeWrap = Env.timeAgo(Env.getDateTimeFormat(this.props.detailCaption[0].post_date))
-    let imgWrap
+    let linkWrap;
+    let imgWrap;
+    if (this.props.productItem.productDetail) {
+      let timeWrap = Env.timeAgo(Env.getDateTimeFormat(this.props.productItem.productDetail.data.post_date));
 
-    if (timeWrap !== undefined) {
-      if (timeWrap.indexOf('-') === -1) {
-        imgWrap = <img src={ time } alt="" />
-      } else {
-        imgWrap = <img src={ calendar } alt="" />
+      if (timeWrap !== undefined) {
+        if (timeWrap.indexOf('ago') !== -1) {
+          imgWrap = <img src={ time } alt="" />
+        } else if (timeWrap.indexOf('yesterday') !== -1) {
+          imgWrap = <img src={ calendar } alt="" />
+        } else {
+          imgWrap = <img src={ calendar } alt="" />
+        }
       }
-    }
+
+      let seller_name = this.props.productItem.productDetail.data.seller_name.split(' ');
+      let joinName = seller_name.join('-').toLowerCase();
+      if (this.props.productItem.productDetail.data.seller_id === parseInt(localStorage.getItem('id'))) {
+        linkWrap = (<Link to={ `/profile/${this.props.productItem.productDetail.data.seller_id}/${joinName}/produk-dibeli` }>
+          { this.props.productItem.productDetail.data.seller_name }
+        </Link>);
+      } else {
+        linkWrap = (<Link to={ `/profiles/${this.props.productItem.productDetail.data.seller_id}/${joinName}/semua-produk` }>
+          { this.props.productItem.productDetail.data.seller_name }
+        </Link>);
+      };
+    };
+
+    const loginAlert = (
+      <Popover id="login-alert-chat-penjual">
+        anda harus login terlebih dahulu!
+      </Popover>
+    );
 
     return (
       <div>
         <Row>
           <Col md={ 12 }>
-            <p className="pro-item-kondisi">{ this.props.detailCaption[0].condition }</p>
+            { this.props.productItem.productDetail && <p className="pro-item-kondisi">{ this.props.productItem.productDetail.data.condition }</p> }
           </Col>
         </Row>
         <Row>
           <Col md={ 12 }>
-            <p className="pro-item-harga">{ Env.formatCurrency(this.props.detailCaption[0].price) }</p>
+            { this.props.productItem.productDetail && <p className="pro-item-harga">{ Env.formatCurrency(this.props.productItem.productDetail.data.price) }</p> }
           </Col>
         </Row>
         <Row>
           <Col md={ 12 }>
-            <h2>{ this.props.detailCaption[0].title }</h2>
+            { this.props.productItem.productDetail && <h2>{ this.props.productItem.productDetail.data.title }</h2> }
           </Col>
         </Row>
         <Row>
           <Col md={ 2 } sm={ 2 } xs={ 3 } className="text-center">
-            { (this.props.detailCaption[0].seller_photo_key !== null) ? <img src={ Env.urlS3(this.props.detailCaption[0].seller_photo_key) } alt="" /> : <p className="initial-name">{ Env.getInitialName(this.props.detailCaption[0].seller_name) }</p> }
+            { this.props.productItem.productDetail && this.props.productItem.productDetail.data.seller_photo_key !== null && 
+              <img src={ Env.urlS3(this.props.productItem.productDetail.data.seller_photo_key) } alt="" />
+            }
+            { this.props.productItem.productDetail && this.props.productItem.productDetail.data.seller_photo_key === null && 
+              <p className="initial-name">{ Env.getInitialName(this.props.productItem.productDetail.data.seller_name) }</p>
+            }
 
           </Col>
           <Col md={ 10 } sm={ 10 } xs={ 9 }>
             <p className="pro-item-seller-name">
-              <Link to="/profile-seller">
-                { this.props.detailCaption[0].seller_name }
-              </Link>
+              { linkWrap }
               <img src={ check } alt="" className="pro-item-check-name" />
             </p>
             <fieldset className="rating">
@@ -115,7 +160,9 @@ class ProductItemDescription extends Component {
                 { imgWrap }
               </Col>
               <Col md={ 9 } sm={ 9 } xs={ 9 }>
-                { Env.timeAgo(Env.getDateTimeFormat(this.props.detailCaption[0].post_date)) }
+                { this.props.productItem.productDetail && 
+                  Env.timeAgo(Env.getDateTimeFormat(this.props.productItem.productDetail.data.post_date))
+                }
               </Col>
             </span>
           </Col>
@@ -125,7 +172,9 @@ class ProductItemDescription extends Component {
                 <img src={ views } alt="" />
               </Col>
               <Col md={ 9 } sm={ 9 } xs={ 9 }>
-                { this.props.detailCaption[0].seen } views
+                { this.props.productItem.productDetail && 
+                  this.props.productItem.productDetail.data.seen + ' views'
+                }
               </Col>
             </span>
           </Col>
@@ -133,29 +182,58 @@ class ProductItemDescription extends Component {
         <Row>
           <Col md={ 12 }>
             <p className="pro-item-deskripsi">DESKRIPSI PRODUK</p>
-            <p className="pro-item-description">{ this.props.detailCaption[0].desc }</p>
+            { this.props.productItem.productDetail && <p className="pro-item-description">{ this.props.productItem.productDetail.data.desc }</p> }
           </Col>
         </Row>
-        <Row className="pro-item-button-keranjang">
+        { this.props.productItem.productDetail &&
+          (this.props.productItem.productDetail.data.seller_id !== parseInt(localStorage.getItem('id'))) ? <Row className="pro-item-button-keranjang">
           <Col md={ 4 }>
-            <Button className="btn-block" onClick={ this.handleAddToCartPage }>Tambah ke Keranjang</Button>
+            <Button className="btn-block" onClick={ () => this.handleAddToCartPage(this.props.productItem.productDetail.data.product_id) }>Tambah ke Keranjang</Button>
           </Col>
           <Col md={ 4 }>
             <Button className="btn-block" onClick={ this.showChatPeople }>Tambah ke Wishlist</Button>
           </Col>
           <Col md={ 4 }>
-            <Button className="btn-block" onClick={ this.showChatPeople }>Chat Penjual</Button>
+            {/* <Button className="btn-block" onClick={ () => this.showChatPeople(this.props.detailCaption[0].seller_id, this.props.detailCaption[0].seller_name) }>Chat Penjual</Button> */}
+            { this.state.loginChanged &&
+              localStorage.getItem('token') === null && <ButtonToolbar>
+              <OverlayTrigger trigger="click" placement="top" overlay={loginAlert}>
+                <Button className="btn-block">Chat Penjual</Button>
+              </OverlayTrigger>
+            </ButtonToolbar> }
+            { this.state.loginChanged &&
+              localStorage.getItem('token') !== null &&
+              <Button className="btn-block" onClick={() => this.showChatPeople(this.props.productItem.productDetail.data.seller_id)}>Chat Penjual</Button>
+            }
           </Col>
-        </Row>
-        <Row className="pro-item-button-beli-sekarang">
+        </Row> : '' }
+        { this.props.productItem.productDetail &&
+          (this.props.productItem.productDetail.data.seller_id !== parseInt(localStorage.getItem('id'))) ? <Row className="pro-item-button-beli-sekarang">
           <Col md={ 12 }>
             <Button bsStyle="danger" className="btn-block" onClick={ this.goToDetailPesanan }>BELI SEKARANG</Button>
           </Col>
-        </Row>
+        </Row> : <Button bsStyle="danger" className="btn-block">Edit Product</Button> }
       </div>
     )
   }
 
 }
 
-export default withRouter(ProductItemDescription)
+const mapStateToProps = (state) => {
+  return {
+    chatPenjualId: state.userReducer.chatPenjualId,
+    productItem: state.productReducer.productItem,
+    loginUser: state.userReducer.loginUser
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    chatPenjualId: (id) => dispatch(chat_id_penjual(id)),
+    getProfileGuest: (id) => dispatch(get_data_guest_api(id)),
+    product: (id) => dispatch(get_product_detail_item_feed_api(id)),
+    add_to_cart: (id) => dispatch(add_to_cart_api(id))
+  }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProductItemDescription));

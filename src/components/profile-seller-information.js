@@ -4,6 +4,9 @@ import {
   Button
 } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
+import { connect } from 'react-redux';
+
+import Env from '../lib/env';
 
 import Check from '../assets/image/product-item-check.png'
 import Location from '../assets/image/product-item-location.png'
@@ -11,17 +14,26 @@ import Location from '../assets/image/product-item-location.png'
 class ProfileInformation extends Component {
 
   render() {
+    let splitNama, joinNama, initialName;
+    if (this.props.profileGuest.length > 0) {
+      initialName = Env.getInitialName(this.props.profileGuest[0].data.data.name);
+      splitNama = this.props.profileGuest[0].data.data.name.split(' ');
+      joinNama = splitNama.join('-').toLowerCase();
+    }
+
     return (
       <div className="profile-information-wrap">
         <div className="profile-information-header"></div>
-        <img src="http://i0.wp.com/infoheboh.com/wp-content/uploads/2015/11/Tatjana-Saphira-20.jpg?resize=300%2C300" alt="" className="profile-information-image-header" />
-        <p className="profile-information-nama">
-          Tatjana Shapira Online
-        </p>
-        <p className="profile-information-penjual-premium">
+        { this.props.profileGuest.length > 0 &&
+          (this.props.profileGuest[0].data.data.photo_key !== null) ? <img src={ Env.urlS3(this.props.profileGuest[0].data.data.photo_key) } alt=""  className="profile-information-image-header" /> : <p className="initial-name">{ initialName }</p>
+        }
+        { this.props.profileGuest.length > 0 && <p className="profile-information-nama">
+          { this.props.profileGuest[0].data.data.name }
+        </p> }
+        { this.props.profileGuest.length > 0 && <p className="profile-information-penjual-premium">
           <img src={ Check } alt="" />
-          PENJUAL PREMIUM
-        </p>
+          PENJUAL { this.props.profileGuest[0].data.data.type }
+        </p> }
         <div className="profile-information-rating">
           <fieldset className="rating">
             <input type="radio" id="star5" name="ratin" value="5" /><label className = "full" htmlFor="star5" title="Awesome - 5 stars"></label>
@@ -51,16 +63,16 @@ class ProfileInformation extends Component {
         <div className="profile-information-list-link">
           <ul>
             <li>
-              <NavLink to="/profile-seller/semua-produk" activeClassName="is-active">Semua Produk</NavLink>
+              { this.props.profileGuest.length > 0 && <NavLink to={ `/profiles/${this.props.profileGuest[0].id}/${joinNama}/semua-produk` } activeClassName="is-active">Semua Produk</NavLink> }
             </li>
             <li>
-              <NavLink to="/profile-seller/produk-terlaris" activeClassName="is-active">Produk Terlaris</NavLink>
+              { this.props.profileGuest.length > 0 && <NavLink to={ `/profiles/${this.props.profileGuest[0].id}/${joinNama}/produk-terlaris` } activeClassName="is-active">Produk Terlaris</NavLink> }
             </li>
             <li>
-              <NavLink to="/profile-seller/review" activeClassName="is-active">Review</NavLink>
+              { this.props.profileGuest.length > 0 && <NavLink to={ `/profiles/${this.props.profileGuest[0].id}/${joinNama}/review` } activeClassName="is-active">Review</NavLink> }
             </li>
             <li>
-              <NavLink to="/profile-seller/laporkan" activeClassName="is-active">Laporkan</NavLink>
+              { this.props.profileGuest.length > 0 && <NavLink to={ `/profiles/${this.props.profileGuest[0].id}/${joinNama}/laporkan` } activeClassName="is-active">Laporkan</NavLink> }
             </li>
           </ul>
         </div>
@@ -70,4 +82,10 @@ class ProfileInformation extends Component {
 
 }
 
-export default ProfileInformation
+const mapStateToProps = (state) => {
+  return {
+    profileGuest: state.userReducer.profileGuest
+  }
+}
+
+export default connect(mapStateToProps)(ProfileInformation);

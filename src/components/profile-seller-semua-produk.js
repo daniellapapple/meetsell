@@ -1,8 +1,13 @@
 import React, { Component } from 'react'
 import {
   Col
-} from 'react-bootstrap'
-import { Redirect } from 'react-router'
+} from 'react-bootstrap';
+import { Redirect } from 'react-router';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import $ from 'jquery';
+
+import Env from '../lib/env';
 
 import location from '../assets/image/product-item-location.png'
 
@@ -12,11 +17,28 @@ class ProfileSellerSemuaProduk extends Component {
     super(props)
 
     this.state = {
-      redirect: false
+      redirect: false,
+      product_id: 0,
+      loginChanged: true
     }
 
-    this.goToProductItem = this.goToProductItem.bind(this)
+    this.goToProductItem = this.goToProductItem.bind(this);
+    this._toggleWishlist = this._toggleWishlist.bind(this);
   }
+
+  componentDidUpdate(prevProps) {
+    console.log(prevProps, 'prev props')
+    console.log(this.props, 'propsssssss')
+  }
+
+  _toggleWishlist(id) {
+    this.setState({
+      product_id: id
+    });
+    setTimeout(() => {
+      $(`#${this.state.product_id}`).toggleClass('in-wishlist');
+    }, 150);
+  };
 
   goToProductItem() {
     this.setState({
@@ -25,7 +47,7 @@ class ProfileSellerSemuaProduk extends Component {
   }
 
   render() {
-    const { redirect } = this.state
+    const { redirect, product_id, loginChanged } = this.state
 
     if (redirect) {
       return <Redirect to="/clothes/id/12345678" />
@@ -58,74 +80,34 @@ class ProfileSellerSemuaProduk extends Component {
           </Col>
         </div>
         <div className="profile-produk-terlaris-item">
-          <Col md={ 4 }>
-            <div className="recommend-wrap-item" onClick={ this.goToProductItem }>
-              <div className="image-item">
-                <img src="https://ibox.co.id/media/catalog/category/menu-iphone-6.png" alt="" className="img-responsive" />
+          { this.props.profileGuest.length > 0 &&
+        this.props.profileGuest[0].data.data.products.map((item, idx) => {
+        return (
+          <Col md={ 4 } key={ idx }>
+            <Link to={ `/product/${this.props.profileGuest[0].id}/${item.id}/${item.title.split(' ').join('-').toLowerCase()}` }>
+              <div className="recommend-wrap-item">
+                <div className="image-item">
+                  <img src={ Env.urlS3(item.main_image_key) } alt="" className="img-responsive" />
+                </div>
+                <div className="caption-item">
+                  <p className="caption-price">{ Env.formatCurrency(item.price) }</p>
+                  <p className="caption-description">
+                    { (item.title.length < 60) ? item.title : item.title.substr(0, 60) + '...' }
+                  </p>
+                  <p className="caption-location">
+                    <img src={ location } width="18" alt="" />
+                    Jakarta Pusat
+                  </p>
+                </div>
               </div>
-              <div className="caption-item">
-                <p className="caption-price">Rp 190.000</p>
-                <p className="caption-description">
-                  Jual kemeja Uniqlo Original Like New jarang Pake
-                </p>
-                <p className="caption-location">
-                  <img src={ location } width="18" alt="" />
-                  Jakarta Pusat
-                </p>
-              </div>
-            </div>
-          </Col>
-          <Col md={ 4 }>
-            <div className="recommend-wrap-item">
-              <div className="image-item">
-                <img src="http://pusatsepedalistrik.com/wp-content/uploads/2017/05/Untitled-1-2.png" alt="" className="img-responsive" />
-              </div>
-              <div className="caption-item">
-                <p className="caption-price">Rp 190.000</p>
-                <p className="caption-description">
-                  Jual kemeja Uniqlo Original Like New jarang Pake
-                </p>
-                <p className="caption-location">
-                  <img src={ location } width="18" alt="" />
-                  Jakarta Pusat
-                </p>
-              </div>
-            </div>
-          </Col>
-          <Col md={ 4 }>
-            <div className="recommend-wrap-item">
-              <div className="image-item">
-                <img src="https://i.ebayimg.com/images/g/qLgAAOSwWxNYw9JJ/s-l300.jpg" alt="" className="img-responsive" />
-              </div>
-              <div className="caption-item">
-                <p className="caption-price">Rp 190.000</p>
-                <p className="caption-description">
-                  Jual kemeja Uniqlo Original Like New jarang Pake
-                </p>
-                <p className="caption-location">
-                  <img src={ location } width="18" alt="" />
-                  Jakarta Pusat
-                </p>
-              </div>
-            </div>
-          </Col>
-          <Col md={ 4 }>
-            <div className="recommend-wrap-item">
-              <div className="image-item">
-                <img src="https://www.bigissueshop.com/media/product/2017/10/05/845_2077_w300.jpg" alt="" className="img-responsive" />
-              </div>
-              <div className="caption-item">
-                <p className="caption-price">Rp 190.000</p>
-                <p className="caption-description">
-                  Jual kemeja Uniqlo Original Like New jarang Pake
-                </p>
-                <p className="caption-location">
-                  <img src={ location } width="18" alt="" />
-                  Jakarta Pusat
-                </p>
-              </div>
-            </div>
-          </Col>
+            </Link>
+            { loginChanged &&
+            localStorage.getItem('id') !== null && <div 
+              className="icon-wishlist" 
+              id={ (product_id === item.id) ? product_id : item.id } onClick={ () => this._toggleWishlist(item.id) }
+            >
+            </div> }
+          </Col> ) }) }
         </div>
       </div>
     )
@@ -133,4 +115,11 @@ class ProfileSellerSemuaProduk extends Component {
 
 }
 
-export default ProfileSellerSemuaProduk
+const mapStateToProps = (state) => {
+  return {
+    profileGuest: state.userReducer.profileGuest,
+    loginUser: state.userReducer.loginUser
+  };
+};
+
+export default connect(mapStateToProps)(ProfileSellerSemuaProduk)

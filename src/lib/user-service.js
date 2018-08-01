@@ -76,4 +76,26 @@ export default class UserService {
     }
   }
 
-}
+  static async getProfileGuest(guestId, onFail, onSuccess) {
+    try {
+      let params = {
+        guest_id: guestId
+      };
+
+      let API = process.env.REACT_APP_MEET_API;
+      let res = await fetch(API + 'profile/guest', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(params)
+      })
+      let resJSON = await res.json();
+      onSuccess(resJSON);
+    } catch(error) {
+      onFail(error)
+    };
+  };
+
+};

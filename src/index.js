@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux'
-import { BrowserRouter } from 'react-router-dom'
-import JavascriptTimeAgo from 'javascript-time-ago'
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
+// import { PersistGate } from 'redux-persist/integration/react'
 
 import './index.css';
 import App from './App';
@@ -13,18 +14,15 @@ import './assets/bootstrap/css/bootstrap.min.css'
 import './assets/css/style.css'
 import './assets/fontawesome/web-fonts-with-css/css/fontawesome-all.css'
 
-import store from './store'
-
-import en from 'javascript-time-ago/locale/en'
-import ru from 'javascript-time-ago/locale/ru'
-
-JavascriptTimeAgo.locale(en)
-JavascriptTimeAgo.locale(ru)
+// import { store, persistor } from './store';
+import store from './store';
 
 ReactDOM.render(
   <Provider store={ store }>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    {/* <PersistGate loading={ null } persistor={ persistor }> */}
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    {/* </PersistGate> */}
   </Provider>, document.getElementById('root'));
 registerServiceWorker();

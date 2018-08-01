@@ -15,14 +15,12 @@ export default class Env {
   }
 
   static urlS3(assetName) {
-    // if (assetName === null) return
-    if (assetName.indexOf('.') === -1 && assetName !== '') {
+    // if (assetName === undefined) return null
+    if (assetName.indexOf('.') === -1) {
       return `https://graph.facebook.com/v2.5/${assetName}/picture?type=large`;
     }
 
-    if (assetName !== '') {
-      return 'https://s3-ap-southeast-1.amazonaws.com/meetsell-d/' + assetName;
-    }
+    return 'https://s3-ap-southeast-1.amazonaws.com/meetsell-d/' + assetName;
   }
 
   // WARNING: return date with local timezone!
@@ -57,6 +55,10 @@ export default class Env {
 
       if (fromDate.indexOf('hour ago') !== -1) {
         return fromDate;
+      }
+
+      if (fromDate.indexOf('day ago') !== -1) {
+        return 'yesterday';
       }
 
       if (fromDate.indexOf('hours ago') !== -1) {
@@ -123,6 +125,10 @@ export default class Env {
   static getImageSource(key, base64) {
     let ext = this.getExtension(key);
     return 'data:image/' + ext + ';base64,' + base64
+  }
+
+  static getRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
 };

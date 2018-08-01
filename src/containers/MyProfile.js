@@ -25,13 +25,13 @@ class MyProfile extends Component {
       <div className="my-profile">
         <Header />
         <Breadcrumb />
-          <Route exact path="/my-profile" component={ Chat } />
-          <Route path="/my-profile/produk-dibeli" component={ ProdukTerbeli } />
-          <Route path="/my-profile/produk-dijual" component={ ProdukTerjual } />
-          <Route path="/my-profile/review" component={ Review } />
-          <Route path="/my-profile/chat" component={ Chat } />
-          <Route path="/my-profile/wishlist" component={ Wishlist } />
-          <Route path="/my-profile/pengaturan" component={ Pengaturan } />
+          <Route exact path="/profile/:id_user/:nama_user/chat" component={ Chat } />
+          <Route path="/profile/:id_user/:nama_user/produk-dibeli" component={ ProdukTerbeli } />
+          <Route path="/profile/:id_user/:nama_user/produk-dijual" component={ ProdukTerjual } />
+          <Route path="/profile/:id_user/:nama_user/review" component={ Review } />
+          <Route path="/profile/:id_user/:nama_user/chat" component={ Chat } />
+          <Route path="/profile/:id_user/:nama_user/wishlist" component={ Wishlist } />
+          <Route path="/profile/:id_user/:nama_user/pengaturan" component={ Pengaturan } />
         <Footer />
       </div>
     )

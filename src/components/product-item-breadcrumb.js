@@ -2,23 +2,32 @@ import React, { Component } from 'react'
 import {
   Grid,
   Breadcrumb
-} from 'react-bootstrap'
+} from 'react-bootstrap';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class ProductItemBreadcrumb extends Component {
+
+  constructor() {
+    super();
+
+    this.goToHome = this.goToHome.bind(this);
+  }
+
+  goToHome(){
+    this.props.history.push('/');
+  }
 
   render() {
     return (
       <Grid>
         <div className="product-item-breadcrumb">
           <Breadcrumb>
-            <Breadcrumb.Item href="#">
+            <Breadcrumb.Item onClick={ this.goToHome }>
               <i className="fas fa-home"></i>
               Home
             </Breadcrumb.Item>
-            <Breadcrumb.Item href="http://getbootstrap.com/components/#breadcrumbs">
-              Library
-            </Breadcrumb.Item>
-            <Breadcrumb.Item active>Data</Breadcrumb.Item>
+            { this.props.productItem.productDetail && <Breadcrumb.Item active>{ this.props.productItem.productDetail.data.title }</Breadcrumb.Item> }
           </Breadcrumb>
         </div>
       </Grid>
@@ -27,4 +36,10 @@ class ProductItemBreadcrumb extends Component {
 
 }
 
-export default ProductItemBreadcrumb
+const mapStateToProps = (state) => {
+  return {
+    productItem: state.productReducer.productItem
+  }
+}
+
+export default withRouter(connect(mapStateToProps)(ProductItemBreadcrumb));

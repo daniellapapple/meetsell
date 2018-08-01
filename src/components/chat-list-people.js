@@ -4,35 +4,44 @@ import {
   FormGroup
 } from 'react-bootstrap'
 import $ from 'jquery'
+import { connect } from 'react-redux';
+
+import { get_data_guest_api } from '../actions/userAction';
 
 class ChatListPeople extends Component {
 
-  toggleChatList() {
-    $('#body-chat-list-people').slideToggle()
+  constructor(props) {
+    super(props);
+
+    this.chatPeople = props.chatPeople;
   }
 
-  closeChat() {
-    $('.chat-list-people').css({
-      display: 'none'
-    })
-  }
+  componentDidMount() {
+    // let idGuest = this.props.chatPenjualId;
+    // console.log(idGuest, 'id guest profile')
+    // this.props.getGuestProfile(idGuest);
+  };
 
   render() {
+    console.log(this.props.profileGuest, 'ini profile guest')
+
     return (
-      <div className="chat-list-people" id="chat-list-people">
-        <div className="header-chat-list-people" id="header-chat-list-people" onClick={ this.toggleChatList }>
-          <p>
-            Tatjana Shapira Online
-            <span className="close-button" onClick={ this.closeChat }>x</span>
-          </p>
-        </div>
-        <div className="body-chat-list-people" id="body-chat-list-people">
-          <div className="chat-space">
-            <p>Hi, how are you?</p>
+      <div className="chat-list-people-wrap">
+        <div className="chat-list-people" id="chat-list-people1">
+          <span className="close-button" onClick={ () => this.chatPeople.closeChatPeople(1) }>x</span>
+          <div className="header-chat-list-people" id="header-chat-list-people" onClick={ () => this.chatPeople.toggleChatList() }>
+            <p>
+              Tatjana Shapira Online
+            </p>
           </div>
-          <FormGroup>
-            <FormControl type="text" placeholder="type your message..." />
-          </FormGroup>
+          <div className="body-chat-list-people" id="chat1">
+            <div className="chat-space">
+              <p>Hi, how are you?</p>
+            </div>
+            <FormGroup>
+              <FormControl type="text" placeholder="type your message..." />
+            </FormGroup>
+          </div>
         </div>
       </div>
     )
@@ -40,4 +49,17 @@ class ChatListPeople extends Component {
 
 }
 
-export default ChatListPeople
+const mapStateToProps = (state) => {
+  return {
+    chatPenjualId: state.userReducer.chatPenjualId,
+    profileGuest: state.userReducer.profileGuest
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getGuestProfile: (id) => dispatch(get_data_guest_api(id))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChatListPeople);

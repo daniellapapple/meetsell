@@ -4,11 +4,16 @@ import {
 } from 'react-bootstrap'
 import {
   Link
-} from 'react-router-dom'
-import { Redirect } from 'react-router'
-import $ from 'jquery'
+} from 'react-router-dom';
+import { Redirect } from 'react-router';
+import $ from 'jquery';
+import { connect } from 'react-redux';
 
-import location from '../assets/image/product-item-location.png'
+import { get_product_my_profile_api } from '../actions/productAction';
+
+import Env from '../lib/env';
+
+import location from '../assets/image/product-item-location.png';
 
 class MyProfileProdukTerjual extends Component {
 
@@ -23,6 +28,10 @@ class MyProfileProdukTerjual extends Component {
     this.toggleWishlist = this.toggleWishlist.bind(this)
     this.goToProductItem = this.goToProductItem.bind(this)
   }
+
+  componentDidMount() {
+    this.props.produkDijual_myProfile()
+  };
 
   toggleWishlist(id) {
     this.setState({
@@ -45,6 +54,8 @@ class MyProfileProdukTerjual extends Component {
     if (redirect) {
       return <Redirect to="/clothes/id/12345678" />
     }
+
+    console.log(this.props.produkDibeli, 'ini product dibeli')
 
     return (
       <div className="my-profile-wishlist">
@@ -73,74 +84,32 @@ class MyProfileProdukTerjual extends Component {
           </Col> */}
         </div>
         <div className="my-profile-wishlist-body">
-          <Col md={ 4 }>
-            <div className="recommend-wrap-item" onClick={ this.goToProductItem }>
-              <div className="image-item">
-                <img src="https://www.bigissueshop.com/media/product/2017/10/05/845_2077_w300.jpg" alt="" className="img-responsive" />
-              </div>
-              <div className="caption-item">
-                <p className="caption-price">Rp 190.000</p>
-                <p className="caption-description">
-                  Jual kemeja Uniqlo Original Like New jarang Pake
-                </p>
-                <p className="caption-location">
-                  <img src={ location } width="18" alt="" />
-                  Jakarta Pusat
-                </p>
-              </div>
-            </div>
-          </Col>
-          <Col md={ 4 }>
-            <div className="recommend-wrap-item">
-              <div className="image-item">
-                <img src="http://www.satugadget.com.my/content/images/thumbs/0008014_apple-iphone-x-64gb-space-grey-original-malaysia-set_300.jpeg" alt="" className="img-responsive" />
-              </div>
-              <div className="caption-item">
-                <p className="caption-price">Rp 190.000</p>
-                <p className="caption-description">
-                  <Link to="/clothes/id/12345678">Jual kemeja Uniqlo Original Like New jarang Pake</Link>
-                </p>
-                <p className="caption-location">
-                  <img src={ location } width="18" alt="" />
-                  Jakarta Pusat
-                </p>
-              </div>
-            </div>
-          </Col>
-          <Col md={ 4 }>
-            <div className="recommend-wrap-item">
-              <div className="image-item">
-                <img src="http://www.hawkshop.com/webitemimages/103/W41820-t.jpg" alt="" className="img-responsive" />
-              </div>
-              <div className="caption-item">
-                <p className="caption-price">Rp 190.000</p>
-                <p className="caption-description">
-                  <Link to="/clothes/id/12345678">Jual kemeja Uniqlo Original Like New jarang Pake</Link>
-                </p>
-                <p className="caption-location">
-                  <img src={ location } width="18" alt="" />
-                  Jakarta Pusat
-                </p>
-              </div>
-            </div>
-          </Col>
-          <Col md={ 4 }>
-            <div className="recommend-wrap-item">
-              <div className="image-item">
-                <img src="http://www.anneahira.com/images_wp/cara-memilih-sepeda.jpg" alt="" className="img-responsive" />
-              </div>
-              <div className="caption-item">
-                <p className="caption-price">Rp 190.000</p>
-                <p className="caption-description">
-                  <Link to="/clothes/id/12345678">Jual kemeja Uniqlo Original Like New jarang Pake</Link>
-                </p>
-                <p className="caption-location">
-                  <img src={ location } width="18" alt="" />
-                  Jakarta Pusat
-                </p>
-              </div>
-            </div>
-          </Col>
+          { this.props.produkDibeli.length > 0 &&
+          this.props.produkDibeli[0].data.products.map((item, idx) => {
+            console.log(item)
+            return (
+            <Col md={ 4 } key={ idx }>
+              <Link to={ `/product/${localStorage.getItem('id')}/${item.id}/${item.title.split(' ').join('-').toLowerCase()}` }>
+                <div className="recommend-wrap-item">
+                  <div className="image-item">
+                    <img src={ Env.urlS3(item.main_image_key) } alt="" className="img-responsive" />
+                  </div>
+                  <div className="caption-item">
+                    <p className="caption-price">{ Env.formatCurrency(item.price) }</p>
+                    <p className="caption-description">
+                      { (item.title.length < 60) ? item.title : item.title.substr(0, 60) + '...' }
+                    </p>
+                    <p className="caption-location">
+                      <img src={ location } width="18" alt="" />
+                      Jakarta Pusat
+                    </p>
+                  </div>
+                </div>
+              </Link>
+            </Col>
+            )
+            })
+          }
         </div>
       </div>
     )
@@ -148,4 +117,16 @@ class MyProfileProdukTerjual extends Component {
 
 }
 
-export default MyProfileProdukTerjual
+const mapStateToProps = (state) => {
+  return {
+    produkDibeli: state.productReducer.produkDibeli_myProfile
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    produkDijual_myProfile: () => dispatch(get_product_my_profile_api())
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MyProfileProdukTerjual);

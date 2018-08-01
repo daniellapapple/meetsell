@@ -3,12 +3,19 @@ import {
   Grid,
   Row,
   Col
-} from 'react-bootstrap'
+} from 'react-bootstrap';
 import {
   Link,
   withRouter
-} from 'react-router-dom'
-import $ from 'jquery'
+} from 'react-router-dom';
+import $ from 'jquery';
+import { connect } from 'react-redux';
+
+import Env from '../lib/env';
+
+import { get_product_feed_api, add_to_cart_api } from '../actions/productAction';
+
+import ProductService from '../lib/product-service';
 
 import location from '../assets/image/recommend-item-location.png'
 
@@ -18,11 +25,12 @@ class ProductItemRecommend extends Component {
     super(props)
 
     this.state = {
-      idToggle: ''
+      idToggle: '',
+      productRecommendedList: [],
+      loginChanged: true
     }
 
     this.toggleWishlist = this.toggleWishlist.bind(this)
-    this.goToProductItem = this.goToProductItem.bind(this)
   }
 
   toggleWishlist(id) {
@@ -31,15 +39,62 @@ class ProductItemRecommend extends Component {
     })
     setTimeout(() => {
       $(`#${ this.state.idToggle }`).toggleClass('in-wishlist')
-    }, 300)
+    }, 150)
   }
 
-  goToProductItem() {
-    this.props.history.push('/clothes/id/12345678')
+  componentDidMount() {
+    let setRandom = new Set();
+    do {
+      let ri =  Env.getRandomNumber(0, this.props.productFeed.data.products.length - 1);
+
+      setRandom.add(ri);
+
+    } while( setRandom.size < 4);
+
+    let arrRandom = Array.from(setRandom);
+    let productRecommendedList = [];
+    for(let i = 0; i < arrRandom.length;i++){
+      productRecommendedList.push(this.props.productFeed.data.products[arrRandom[i]]);
+    }
+    this.setState({
+      productRecommendedList: productRecommendedList
+    });
+  }
+
+  componentDidUpdate(prevProps) {
+    let setRandom = new Set();
+    this.state.productRecommendedList.map((item, idx) => {
+      if (parseInt(this.props.param.id_produk) === item.id) {
+        do {
+          let ri = Env.getRandomNumber(0, this.props.productFeed.data.products.length - 1);
+
+          setRandom.add(ri);
+        } while(setRandom.size < 4);
+
+        let arrRandom = Array.from(setRandom);
+        let productRecommendedList = [];
+        for(let i = 0; i < arrRandom.length;i++){
+          productRecommendedList.push(this.props.productFeed.data.products[arrRandom[i]]);
+        }
+        this.setState({
+          productRecommendedList: productRecommendedList
+        });
+      }
+    })
+
+    if (prevProps.loginUser !== this.props.loginUser) {
+      this.setState({
+        loginChanged: true
+      })
+    }
+  }
+
+  addToCart(productId) {
+    this.props.add_to_cart(productId)
   }
 
   render() {
-    const idToggle = this.state.idToggle
+    const idToggle = this.state.idToggle;
 
     return (
       <Grid>
@@ -53,94 +108,40 @@ class ProductItemRecommend extends Component {
             </Col>
           </Row>
           <Row>
-            <Col md={ 3 }>
-              <div 
-                className="icon-wishlist" 
-                id={ (idToggle === 'aaa') ? idToggle : 'ini aaa' } onClick={ () => this.toggleWishlist('aaa') }
-              >
-              </div>
-              <div className="recommend-wrap-item" onClick={ this.goToProductItem }>
-                <div className="image-item">
-                  <img src="https://www.bigissueshop.com/media/product/2017/10/05/845_2077_w300.jpg" alt="" className="img-responsive" />
+            { this.state.productRecommendedList.length > 0 &&
+            this.state.productRecommendedList.map((item, idx) => {
+              let splitNama = item.title.split(' ');
+              let joinNama = splitNama.join('-').toLowerCase();
+              return <Col md={ 3 } key={ idx }>
+                { this.state.loginChanged &&
+                localStorage.getItem('token') !== null &&
+                parseInt(localStorage.getItem('id')) !== item.seller_id && <div 
+                  className="icon-wishlist" 
+                  id={ (idToggle === item.id) ? idToggle : item.id } onClick={ () => this.toggleWishlist(item.id) }
+                >
+                </div> }
+                <div className="add-to-cart-icon" title="add to cart" onClick={() => this.addToCart(item.id)}>
                 </div>
-                <div className="caption-item">
-                  <p className="caption-price">Rp 190.000</p>
-                  <p className="caption-description">
-                    Jual kemeja Uniqlo Original Like New jarang Pake
-                  </p>
-                  <p className="caption-location">
-                    <img src={ location } width="18" alt="" />
-                    Jakarta Pusat
-                  </p>
-                </div>
-              </div>
-            </Col>
-            <Col md={ 3 }>
-              <div 
-                className="icon-wishlist" 
-                id={ (idToggle === 'bbb') ? idToggle : 'ini aaa' } onClick={ () => this.toggleWishlist('bbb') }
-              >
-              </div>
-              <div className="recommend-wrap-item">
-                <div className="image-item">
-                  <img src="https://img.laku6.com/A68OVvbxunD9gY9mWAz4CQjbn7I=/fit-in/300x300/filters:fill(white)/https://s3-ap-southeast-1.amazonaws.com/laku6-stock-phone-images/iphone-6-space-gray-01.jpg" alt="" className="img-responsive" />
-                </div>
-                <div className="caption-item">
-                  <p className="caption-price">Rp 190.000</p>
-                  <p className="caption-description">
-                    <Link to="/clothes/id/12345678">Jual kemeja Uniqlo Original Like New jarang Pake</Link>
-                  </p>
-                  <p className="caption-location">
-                    <img src={ location } width="18" alt="" />
-                    Jakarta Pusat
-                  </p>
-                </div>
-              </div>
-            </Col>
-            <Col md={ 3 }>
-              <div 
-                className="icon-wishlist" 
-                id={ (idToggle === 'ccc') ? idToggle : 'ini aaa' } onClick={ () => this.toggleWishlist('ccc') }
-              >
-              </div>
-              <div className="recommend-wrap-item">
-                <div className="image-item">
-                  <img src="https://ecs7.tokopedia.net/img/cache/300/product-1/2016/4/21/253544/253544_1b95828c-cbd0-4636-8dfc-c9f089eb578d.jpg" alt="" className="img-responsive" />
-                </div>
-                <div className="caption-item">
-                  <p className="caption-price">Rp 190.000</p>
-                  <p className="caption-description">
-                    <Link to="/clothes/id/12345678">Jual kemeja Uniqlo Original Like New jarang Pake</Link>
-                  </p>
-                  <p className="caption-location">
-                    <img src={ location } width="18" alt="" />
-                    Jakarta Pusat
-                  </p>
-                </div>
-              </div>
-            </Col>
-            <Col md={ 3 }>
-              <div 
-                className="icon-wishlist" 
-                id={ (idToggle === 'ddd') ? idToggle : 'ini aaa' } onClick={ () => this.toggleWishlist('ddd') }
-              >
-              </div>
-              <div className="recommend-wrap-item">
-                <div className="image-item">
-                  <img src="http://www.anneahira.com/images_wp/cara-memilih-sepeda.jpg" alt="" className="img-responsive" />
-                </div>
-                <div className="caption-item">
-                  <p className="caption-price">Rp 190.000</p>
-                  <p className="caption-description">
-                    <Link to="/clothes/id/12345678">Jual kemeja Uniqlo Original Like New jarang Pake</Link>
-                  </p>
-                  <p className="caption-location">
-                    <img src={ location } width="18" alt="" />
-                    Jakarta Pusat
-                  </p>
-                </div>
-              </div>
-            </Col>
+                <Link to={ `/product/${item.seller_id}/${item.id}/${joinNama}` }>
+                  <div className="recommend-wrap-item">
+                    <div className="image-item">
+                      <img src={ Env.urlS3(item.main_image_key) } alt="" className="img-responsive" />
+                    </div>
+                    <div className="caption-item">
+                      <p className="caption-price">{ Env.formatCurrency(item.price) }</p>
+                      <p className="caption-description">
+                        { (item.title.length < 60) ? item.title : item.title.substr(0, 60) + '...' }
+                      </p>
+                      <p className="caption-location">
+                        <img src={ location } width="18" alt="" />
+                        Jakarta Pusat
+                      </p>
+                    </div>
+                  </div>
+                </Link>
+              </Col>
+              })
+            }
           </Row>
         </div>
       </Grid>
@@ -149,4 +150,16 @@ class ProductItemRecommend extends Component {
 
 }
 
-export default withRouter(ProductItemRecommend)
+const mapStateToProps = (state) => {
+  return {
+    loginUser: state.userReducer.loginUser
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    add_to_cart: (obj) => dispatch(add_to_cart_api(obj))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductItemRecommend);

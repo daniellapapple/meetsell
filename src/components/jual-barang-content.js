@@ -11,6 +11,9 @@ import {
 import { withRouter } from 'react-router-dom';
 import Cleave from 'cleave.js/react';
 import $ from 'jquery';
+import { connect } from 'react-redux';
+
+import { save_product_item_api } from '../actions/productAction';
 
 import Env from '../lib/env';
 import ProductService from '../lib/product-service';
@@ -53,14 +56,6 @@ class JualBarangContent extends Component {
     this._handleDescriptionInput = this._handleDescriptionInput.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
   };
-
-  // componentDidMount() {
-  //   console.log(this.props)
-  // };
-
-  // componentWillReceiveProps(nextProps) {
-  //   console.log(nextProps)
-  // };
 
   _handleImageChange(e, placeToInsertImagePreview) {
     e.preventDefault();
@@ -199,11 +194,12 @@ class JualBarangContent extends Component {
         this.setState({
           price: 'FREE!!!',
           priceValidation: true
-        });
+        })
         $('input#jualBarangPrice').removeClass('changed');
       } else {
         this.setState({
-          price: ''
+          price: '',
+          priceValidation: false
         });
       };
     });
@@ -251,17 +247,30 @@ class JualBarangContent extends Component {
     if (imageValidation && conditionValidation && titleValidation && currentLocationValidation && categoryValidation && priceValidation && descriptionValidation) {
       let button = document.querySelector('#loadButton');
       button.classList.add('load');
+      let objParams = {
+        token: localStorage.getItem('token'),
+        productId: productId,
+        seller_id: localStorage.getItem('id'),
+        category_id: categoryId,
+        title: title,
+        desc: description,
+        currency: 'IDR',
+        price: (isFree) ? 0 : price,
+        condition: condition,
+        lat: lat,
+        lng: lng,
+        add_images: add_images,
+        del_images: del_images,
+        post_date: Env.toUTC(),
+        isFree: isFree
+      };
+      this.props.save_product_item(objParams);
+
       setTimeout(() => {
-        ProductService.save(productId, categoryId, title, description, isFree, price, condition, lat, lng, add_images, del_images, (res) => {
-          if (res.status.code === 0) {
-            button.classList.remove('load');
-            let split = title.split(' ').join('-').toLowerCase();
-            this.props.history.push(`/${localStorage.getItem('id')}/${res.data.product_id}/${split}`);
-          };
-        }, (err) => {
-          console.log(err);
-        });
-      }, 1500);
+        if (this.props.productItem) {
+          this.props.history.push('/' + this.props.productItem.route);
+        };
+      }, 2500);
     };
 
     if (!imageValidation) {
@@ -406,16 +415,16 @@ class JualBarangContent extends Component {
                   </p>
                 </Col>
                 <Col md={ 5 }>
-                  <Cleave
+                  { !this.state.freeInput && <Cleave
                     id="jualBarangPrice"
                     className="form-control"
-                    placeholder={ this.state.price }
                     onChange={ this._handlePriceInput }
                     options={{
                     numeral: true,
                     numeralThousandsGroupStyle: 'thousand'
                     }} 
-                  />
+                  /> }
+                  { this.state.freeInput && <FormControl type="text" value={ this.state.price } readOnly /> }
                 </Col>
                 <Col md={ 4 }>
                   <div className="jual-barang-checkbox-free">
@@ -562,4 +571,16 @@ class JualBarangContent extends Component {
 
 }
 
-export default withRouter(JualBarangContent);
+const mapStateToProps = (state) => {
+  return {
+    productItem: state.productReducer.productItem
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    save_product_item: (obj) => dispatch(save_product_item_api(obj))
+  };
+};
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(JualBarangContent));
