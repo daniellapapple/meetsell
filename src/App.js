@@ -35,6 +35,8 @@ class App extends Component {
     this.state = {
       chatPeopleId: null
     };
+
+    console.log('test')
   };
 
   toggleChatList(id) {
